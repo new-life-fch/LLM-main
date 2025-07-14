@@ -1,0 +1,47 @@
+{
+  "model": {
+    "name": "meta-llama/Llama-2-7b-hf",
+    "device": "cuda",
+    "batch_size": 8,
+    "torch_dtype": "float16"
+  },
+  "knowledge_extraction": {
+    "type": "wikidata",
+    "rate_limit": 1.0,
+    "cache_dir": "./cache/wikidata"
+  },
+  "fingerprint_building": {
+    "target_layers": null,
+    "cache_dir": "./cache/fingerprints",
+    "batch_size": 8
+  },
+  "vector_database": {
+    "index_type": "HNSW",
+    "similarity_metric": "cosine",
+    "hnsw_m": 32,
+    "hnsw_ef_construction": 200,
+    "hnsw_ef_search": 100
+  },
+  "causal_editor": {
+    "edit_strength": 1.0,
+    "top_layers": 10,
+    "similarity_threshold": 0.8,
+    "conflict_threshold": 0.6,
+    "min_confidence": 0.5
+  },
+  "evaluation": {
+    "truthfulqa_data": "TruthfulQA/data/TruthfulQA.csv",
+    "max_new_tokens": 100,
+    "temperature": 0.7,
+    "do_sample": true
+  },
+  "limits": {
+    "max_triplets": 10000,
+    "max_layers": 32,
+    "max_batch_size": 16
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  }
+} 
