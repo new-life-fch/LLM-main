@@ -1,0 +1,26 @@
+[
+  {
+    "subject": "Einstein",
+    "relation": "published_paper_on",
+    "object": "Photoelectric Effect",
+    "text": "Einstein published a paper on the photoelectric effect.",
+    "confidence": 1.0,
+    "source": "test"
+  },
+  {
+    "subject": "Einstein",
+    "relation": "received_award",
+    "object": "Nobel Prize",
+    "text": "Einstein received the Nobel Prize.",
+    "confidence": 1.0,
+    "source": "test"
+  },
+  {
+    "subject": "Paris",
+    "relation": "is_capital_of",
+    "object": "France",
+    "text": "Paris is the capital of France.",
+    "confidence": 1.0,
+    "source": "test"
+  }
+]

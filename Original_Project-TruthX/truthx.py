@@ -249,6 +249,7 @@ class TruthX:
         self.ae_model = ae_model
         # checkpoint['accuracy'][-1]=1.0
 
+        # 加载rank
         self.rank = checkpoint["rank"]
 
         self.top_layers = top_layers
@@ -265,6 +266,7 @@ class TruthX:
         else:
             layer_id = 2 * layer_id + 1
 
+        # 使用rank进行层的筛选
         if self.rank[layer_id] > self.top_layers:
             return X
 
