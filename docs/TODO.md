@@ -1,0 +1,1 @@
+1. candidate_filter.py中DynamicCandidateFilter类的init方法中，完善实体识别模式，关系模式映射

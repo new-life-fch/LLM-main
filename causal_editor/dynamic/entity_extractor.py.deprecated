@@ -1,0 +1,670 @@
+"""实体提取器
+支持多种实体提取方法，包括NER、Entity Linking等
+"""
+
+import re
+import logging
+from typing import List, Dict, Any, Optional, Set
+from enum import Enum
+from abc import ABC, abstractmethod
+import json
+
+
+class EntityExtractionMethod(Enum):
+    """实体提取方法枚举"""
+    REGEX_PATTERN = "regex_pattern"  # 基于正则表达式的模式匹配
+    NER_SPACY = "ner_spacy"  # 基于spaCy的命名实体识别
+    NER_TRANSFORMERS = "ner_transformers"  # 基于Transformers的NER
+    ENTITY_LINKING = "entity_linking"  # 实体链接
+    HYBRID = "hybrid"  # 混合方法
+
+
+class BaseEntityExtractor(ABC):
+    """实体提取器基类"""
+    
+    def __init__(self, confidence_threshold: float = 0.5):
+        """
+        初始化实体提取器
+        
+        Args:
+            confidence_threshold: 置信度阈值
+        """
+        self.confidence_threshold = confidence_threshold
+        self.extraction_count = 0
+        self.total_entities_found = 0
+    
+    @abstractmethod
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        从文本中提取实体
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表，每个实体包含：
+            - text: 实体文本
+            - type: 实体类型
+            - start: 起始位置
+            - end: 结束位置
+            - confidence: 置信度
+            - method: 提取方法
+        """
+        pass
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息"""
+        return {
+            'extraction_count': self.extraction_count,
+            'total_entities_found': self.total_entities_found,
+            'avg_entities_per_extraction': self.total_entities_found / max(self.extraction_count, 1)
+        }
+
+
+class RegexEntityExtractor(BaseEntityExtractor):
+    """基于正则表达式的实体提取器"""
+    
+    def __init__(self, confidence_threshold: float = 0.5):
+        super().__init__(confidence_threshold)
+        
+        # 定义改进的实体模式（按优先级排序）
+        self.entity_patterns = [
+            # 完整的人名（名+姓）
+            (r'\b[A-Z][a-z]+\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\b', 'PERSON'),
+            # 著名人物（特定模式）
+            (r'\b(?:Albert\s+Einstein|Isaac\s+Newton|Leonardo\s+da\s+Vinci|Marie\s+Curie|Stephen\s+Hawking)\b', 'FAMOUS_PERSON'),
+            # 国家和主要城市
+            (r'\b(?:United\s+States|United\s+Kingdom|New\s+York|Los\s+Angeles|San\s+Francisco|Washington\s+DC|London|Paris|Tokyo|Beijing|Berlin|Moscow|Sydney|Toronto|Vancouver)\b', 'LOCATION'),
+            # 国家（单词）
+            (r'\b(?:China|Japan|Germany|France|Italy|Spain|Russia|India|Brazil|Canada|Australia|England|America)\b', 'COUNTRY'),
+            # 编程语言和技术
+            (r'\b(?:Python|Java|JavaScript|TypeScript|C\+\+|C#|Ruby|Go|Rust|Swift|Kotlin|PHP|HTML|CSS|SQL|React|Angular|Vue)\b', 'TECHNOLOGY'),
+            # 年份（更精确）
+            (r'\b(?:19[0-9]{2}|20[0-2][0-9])\b', 'YEAR'),
+            # 数字+单位（改进的模式）
+            (r'\b\d+(?:\.\d+)?\s*(?:km|kilometers?|miles?|meters?|m|feet|ft|inches?|in|kg|kilograms?|pounds?|lbs|tons?|hours?|hrs?|minutes?|mins?|seconds?|secs?)\b', 'MEASUREMENT'),
+            # 组织机构（更精确）
+            (r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:University|College|Institute|Corporation|Company|Inc|Ltd|LLC|Organization|Foundation|Association)\b', 'ORGANIZATION'),
+            # 科学概念和理论
+            (r'\b(?:theory\s+of\s+relativity|quantum\s+mechanics|artificial\s+intelligence|machine\s+learning|deep\s+learning|neural\s+networks?)\b', 'SCIENTIFIC_CONCEPT'),
+            # 通用地名（最后匹配，避免误识别）
+            (r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?=\s+(?:is|was|are|were|has|have|had))\b', 'GENERAL_ENTITY'),
+        ]
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        使用正则表达式提取实体
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表
+        """
+        self.extraction_count += 1
+        entities = []
+        
+        for pattern, entity_type in self.entity_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                entity_text = match.group().strip()
+                if len(entity_text) >= 2:  # 过滤太短的匹配
+                    confidence = self._calculate_confidence(entity_text, entity_type)
+                    if confidence >= self.confidence_threshold:
+                        entities.append({
+                            'text': entity_text,
+                            'type': entity_type,
+                            'start': match.start(),
+                            'end': match.end(),
+                            'confidence': confidence,
+                            'method': 'regex_pattern'
+                        })
+        
+        # 去重
+        entities = self._deduplicate_entities(entities)
+        self.total_entities_found += len(entities)
+        
+        return entities
+    
+    def _calculate_confidence(self, entity_text: str, entity_type: str) -> float:
+        """计算实体置信度（改进版）"""
+        confidence = 0.3  # 降低基础置信度
+        
+        # 根据长度调整（更细粒度）
+        text_len = len(entity_text)
+        if text_len > 20:
+            confidence += 0.3
+        elif text_len > 15:
+            confidence += 0.25
+        elif text_len > 10:
+            confidence += 0.2
+        elif text_len > 5:
+            confidence += 0.15
+        elif text_len < 3:
+            confidence -= 0.1  # 惩罚过短的实体
+        
+        # 根据类型调整（更精确的权重）
+        type_weights = {
+            'FAMOUS_PERSON': 0.4,      # 高置信度：著名人物
+            'PERSON': 0.3,             # 中高置信度：人名
+            'LOCATION': 0.35,          # 高置信度：地名
+            'COUNTRY': 0.4,            # 高置信度：国家
+            'TECHNOLOGY': 0.3,         # 中高置信度：技术术语
+            'YEAR': 0.45,              # 高置信度：年份
+            'MEASUREMENT': 0.35,       # 高置信度：测量单位
+            'ORGANIZATION': 0.25,      # 中等置信度：组织
+            'SCIENTIFIC_CONCEPT': 0.3, # 中高置信度：科学概念
+            'GENERAL_ENTITY': 0.1      # 低置信度：通用实体
+        }
+        confidence += type_weights.get(entity_type, 0.05)
+        
+        # 特殊模式奖励
+        if entity_type in ['FAMOUS_PERSON', 'LOCATION', 'COUNTRY']:
+            confidence += 0.1
+            
+        # 检查是否包含常见词（降低置信度）
+        common_words = {'the', 'and', 'or', 'but', 'is', 'was', 'are', 'were', 'programming', 'language'}
+        if any(word.lower() in common_words for word in entity_text.split()):
+            confidence -= 0.1
+        
+        return min(max(confidence, 0.1), 1.0)  # 确保在0.1-1.0范围内
+    
+    def _deduplicate_entities(self, entities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """去除重叠的实体"""
+        if not entities:
+            return entities
+        
+        # 按位置排序
+        entities.sort(key=lambda x: (x['start'], x['end']))
+        
+        deduplicated = []
+        for entity in entities:
+            # 检查是否与已有实体重叠
+            overlap = False
+            for existing in deduplicated:
+                if (entity['start'] < existing['end'] and entity['end'] > existing['start']):
+                    # 有重叠，保留置信度更高的
+                    if entity['confidence'] > existing['confidence']:
+                        deduplicated.remove(existing)
+                        deduplicated.append(entity)
+                    overlap = True
+                    break
+            
+            if not overlap:
+                deduplicated.append(entity)
+        
+        return deduplicated
+
+
+class SpacyNERExtractor(BaseEntityExtractor):
+    """基于spaCy的命名实体识别提取器"""
+    
+    # 类级别的模型缓存，确保模型在程序结束前不被释放
+    _model_cache = {}
+    
+    def __init__(self, confidence_threshold: float = 0.5, model_name: str = "en_core_web_lg", use_gpu: bool = True):
+        super().__init__(confidence_threshold)
+        self.model_name = model_name
+        self.use_gpu = use_gpu
+        self.nlp = None
+        self._load_model()
+    
+    def _load_model(self):
+        """加载spaCy模型，支持GPU加速和模型缓存"""
+        # 检查是否已经缓存了该模型
+        cache_key = f"{self.model_name}_{self.use_gpu}"
+        if cache_key in self._model_cache:
+            self.nlp = self._model_cache[cache_key]
+            logging.info(f"从缓存中加载spaCy模型: {self.model_name}")
+            return
+            
+        try:
+            import spacy
+            
+            # 检查GPU可用性
+            if self.use_gpu:
+                try:
+                    spacy.require_gpu()
+                    logging.info("启用GPU加速")
+                except Exception as gpu_error:
+                    logging.warning(f"GPU不可用，使用CPU: {gpu_error}")
+                    self.use_gpu = False
+            
+            # 加载模型
+            self.nlp = spacy.load(self.model_name)
+            
+            # 如果启用GPU，将模型移到GPU
+            if self.use_gpu and hasattr(self.nlp, 'to'):
+                try:
+                    self.nlp.to('cuda')
+                    logging.info("模型已移至GPU")
+                except Exception as e:
+                    logging.warning(f"无法将模型移至GPU: {e}")
+            
+            # 缓存模型以避免重复加载
+            self._model_cache[cache_key] = self.nlp
+            
+            logging.info(f"成功加载spaCy模型: {self.model_name} (GPU: {self.use_gpu})")
+            
+        except ImportError:
+            logging.warning("spaCy未安装，spaCy NER提取器将不可用")
+            self.nlp = None
+        except OSError:
+            logging.warning(f"spaCy模型 {self.model_name} 未找到，请先下载模型: python -m spacy download {self.model_name}")
+            self.nlp = None
+        except Exception as e:
+            logging.error(f"加载spaCy模型失败: {e}")
+            self.nlp = None
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        使用spaCy进行命名实体识别
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表
+        """
+        self.extraction_count += 1
+        
+        if self.nlp is None:
+            logging.warning("spaCy模型未加载，返回空结果")
+            return []
+        
+        entities = []
+        doc = self.nlp(text)
+        
+        for ent in doc.ents:
+            confidence = self._calculate_confidence(ent)
+            if confidence >= self.confidence_threshold:
+                entities.append({
+                    'text': ent.text,
+                    'type': ent.label_,
+                    'start': ent.start_char,
+                    'end': ent.end_char,
+                    'confidence': confidence,
+                    'method': 'ner_spacy'
+                })
+        
+        self.total_entities_found += len(entities)
+        return entities
+    
+    @classmethod
+    def clear_model_cache(cls):
+        """清理模型缓存，释放内存资源"""
+        cls._model_cache.clear()
+        logging.info("已清理spaCy模型缓存")
+    
+    @classmethod
+    def get_cached_models(cls):
+        """获取当前缓存的模型列表"""
+        return list(cls._model_cache.keys())
+    
+    def _calculate_confidence(self, ent) -> float:
+        """计算spaCy实体的置信度"""
+        # spaCy没有直接的置信度，基于其他因素估算
+        confidence = 0.7  # 基础置信度
+        
+        # 根据实体类型调整
+        high_conf_types = {'PERSON', 'ORG', 'GPE', 'DATE', 'MONEY'}
+        if ent.label_ in high_conf_types:
+            confidence += 0.2
+        
+        # 根据长度调整
+        if len(ent.text) > 10:
+            confidence += 0.1
+        
+        return min(confidence, 1.0)
+
+
+class TransformersNERExtractor(BaseEntityExtractor):
+    """基于Transformers的NER提取器"""
+    
+    def __init__(self, confidence_threshold: float = 0.5, model_name: str = "/root/autodl-tmp/huggingface/hub/models--dbmdz--bert-large-cased-finetuned-conll03-english/snapshots/4c534963167c08d4b8ff1f88733cf2930f86add0"):
+        super().__init__(confidence_threshold)
+        self.model_name = model_name
+        self.pipeline = None
+        self._load_model()
+    
+    def _load_model(self):
+        """加载Transformers NER模型"""
+        try:
+            from transformers import pipeline
+            self.pipeline = pipeline("ner", model=self.model_name, aggregation_strategy="simple")
+            # 已加载Transformers NER模型
+        except ImportError:
+            logging.warning("transformers未安装，无法使用NER功能")
+            self.pipeline = None
+        except Exception as e:
+            logging.warning(f"加载Transformers模型失败: {e}")
+            self.pipeline = None
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        使用Transformers进行命名实体识别
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表
+        """
+        self.extraction_count += 1
+        
+        if self.pipeline is None:
+            logging.warning("Transformers模型未加载，返回空结果")
+            return []
+        
+        entities = []
+        
+        try:
+            results = self.pipeline(text)
+            
+            for result in results:
+                if result['score'] >= self.confidence_threshold:
+                    entities.append({
+                        'text': result['word'],
+                        'type': result['entity_group'],
+                        'start': result['start'],
+                        'end': result['end'],
+                        'confidence': result['score'],
+                        'method': 'ner_transformers'
+                    })
+        
+        except Exception as e:
+            logging.error(f"Transformers NER提取失败: {e}")
+        
+        self.total_entities_found += len(entities)
+        return entities
+
+
+class EntityLinkingExtractor(BaseEntityExtractor):
+    """
+    实体链接提取器：
+    实体链接(Entity Linking)是将文本中的实体提及(entity mentions)链接到知识库中已知实体的过程。
+    与传统的命名实体识别(NER)不同，实体链接不仅识别实体，还将其与知识库中的具体实体进行匹配。
+    """
+    
+    def __init__(self, confidence_threshold: float = 0.5, knowledge_base_path: Optional[str] = None):
+        super().__init__(confidence_threshold)
+        self.knowledge_base = self._load_knowledge_base(knowledge_base_path)
+        self.entity_index = self._build_entity_index()
+    
+    def _load_knowledge_base(self, knowledge_base_path: Optional[str]) -> List[Dict[str, Any]]:
+        """加载知识库"""
+        if not knowledge_base_path:
+            return []
+        
+        try:
+            with open(knowledge_base_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            logging.warning(f"加载知识库失败: {e}")
+            return []
+    
+    def _build_entity_index(self) -> Set[str]:
+        """构建实体索引"""
+        entities = set()
+        for item in self.knowledge_base:
+            entities.add(item.get('subject', '').lower())
+            entities.add(item.get('object', '').lower())
+        return entities
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        通过实体链接提取实体
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表
+        """
+        self.extraction_count += 1
+        entities = []
+        
+        # 简单的n-gram匹配
+        words = text.split()
+        
+        for i in range(len(words)):
+            for j in range(i + 1, min(i + 5, len(words) + 1)):  # 最多5个词的短语
+                phrase = ' '.join(words[i:j]).lower()
+                if phrase in self.entity_index:
+                    start_pos = text.lower().find(phrase)
+                    if start_pos != -1:
+                        entities.append({
+                            'text': ' '.join(words[i:j]),
+                            'type': 'LINKED_ENTITY',
+                            'start': start_pos,
+                            'end': start_pos + len(phrase),
+                            'confidence': 0.8,
+                            'method': 'entity_linking'
+                        })
+        
+        # 去重
+        entities = self._deduplicate_entities(entities)
+        self.total_entities_found += len(entities)
+        
+        return entities
+    
+    def _deduplicate_entities(self, entities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """去除重叠的实体"""
+        if not entities:
+            return entities
+        
+        # 按位置排序
+        entities.sort(key=lambda x: (x['start'], x['end']))
+        
+        deduplicated = []
+        for entity in entities:
+            # 检查是否与已有实体重叠
+            overlap = False
+            for existing in deduplicated:
+                if (entity['start'] < existing['end'] and entity['end'] > existing['start']):
+                    # 有重叠，保留置信度更高的
+                    if entity['confidence'] > existing['confidence']:
+                        deduplicated.remove(existing)
+                        deduplicated.append(entity)
+                    overlap = True
+                    break
+            
+            if not overlap:
+                deduplicated.append(entity)
+        
+        return deduplicated
+
+
+class HybridEntityExtractor(BaseEntityExtractor):
+    """混合实体提取器，结合多种方法"""
+    
+    def __init__(self, confidence_threshold: float = 0.5, methods: Optional[List[EntityExtractionMethod]] = None):
+        super().__init__(confidence_threshold)
+        
+        if methods is None:
+            methods = [EntityExtractionMethod.NER_SPACY, EntityExtractionMethod.NER_TRANSFORMERS] # 配置混合实体提取器中用到的实体提取方法
+        
+        self.extractors = []
+        self._initialize_extractors(methods)
+    
+    def _initialize_extractors(self, methods: List[EntityExtractionMethod]):
+        """初始化各种提取器"""
+        for method in methods:
+            try:
+                if method == EntityExtractionMethod.REGEX_PATTERN:
+                    self.extractors.append(RegexEntityExtractor(self.confidence_threshold))
+                elif method == EntityExtractionMethod.NER_SPACY:
+                    self.extractors.append(SpacyNERExtractor(self.confidence_threshold))
+                elif method == EntityExtractionMethod.NER_TRANSFORMERS:
+                    self.extractors.append(TransformersNERExtractor(self.confidence_threshold))
+                elif method == EntityExtractionMethod.ENTITY_LINKING:
+                    self.extractors.append(EntityLinkingExtractor(self.confidence_threshold))
+            except Exception as e:
+                logging.warning(f"初始化提取器 {method.value} 失败: {e}")
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        使用多种方法提取实体并合并结果
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            合并后的实体列表
+        """
+        self.extraction_count += 1
+        all_entities = []
+        
+        # 使用所有提取器 # TODO: spacy用了最大的模型，transformer的提取器得换，实体链接方法以来知识库，等之后在讨论，正则表达式有问题
+        for extractor in self.extractors:
+            try:
+                entities = extractor.extract_entities(text)
+                all_entities.extend(entities)
+            except Exception as e:
+                logging.warning(f"提取器 {type(extractor).__name__} 执行失败: {e}")
+        
+        # 合并和去重
+        merged_entities = self._merge_entities(all_entities)
+        self.total_entities_found += len(merged_entities)
+        
+        return merged_entities
+    
+    def _merge_entities(self, entities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """合并多个提取器的结果"""
+        if not entities:
+            return entities
+        
+        # 按位置排序
+        entities.sort(key=lambda x: (x['start'], x['end']))
+        
+        merged = []
+        for entity in entities:
+            # 检查是否与已有实体重叠或相同
+            merged_flag = False
+            for existing in merged:
+                # 完全相同的实体
+                if (entity['text'].lower() == existing['text'].lower() and 
+                    abs(entity['start'] - existing['start']) <= 2):
+                    # 合并置信度（取平均值）
+                    existing['confidence'] = (existing['confidence'] + entity['confidence']) / 2
+                    # 记录多种方法
+                    if 'methods' not in existing:
+                        existing['methods'] = [existing['method']]
+                    existing['methods'].append(entity['method'])
+                    merged_flag = True
+                    break
+                # 重叠的实体
+                elif (entity['start'] < existing['end'] and entity['end'] > existing['start']):
+                    # 保留置信度更高的
+                    if entity['confidence'] > existing['confidence']:
+                        merged.remove(existing)
+                        merged.append(entity)
+                    merged_flag = True
+                    break
+            
+            if not merged_flag:
+                merged.append(entity)
+        
+        return merged
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息"""
+        stats = super().get_statistics()
+        
+        # 添加各个提取器的统计
+        extractor_stats = {}
+        for extractor in self.extractors:
+            extractor_name = type(extractor).__name__
+            extractor_stats[extractor_name] = extractor.get_statistics()
+        
+        stats['extractor_stats'] = extractor_stats
+        return stats
+
+
+class EntityExtractionManager:
+    """实体提取管理器，支持方法切换"""
+    
+    def __init__(self, default_method: EntityExtractionMethod = EntityExtractionMethod.HYBRID):
+        """
+        初始化实体提取管理器
+        
+        Args:
+            default_method: 默认提取方法
+        """
+        self.current_method = default_method
+        self.extractors = {}
+        self._initialize_extractor(default_method)
+    
+    def _initialize_extractor(self, method: EntityExtractionMethod):
+        """初始化指定的提取器"""
+        if method in self.extractors:
+            return
+        
+        try:
+            if method == EntityExtractionMethod.REGEX_PATTERN:
+                self.extractors[method] = RegexEntityExtractor()
+            elif method == EntityExtractionMethod.NER_SPACY:
+                self.extractors[method] = SpacyNERExtractor()
+            elif method == EntityExtractionMethod.NER_TRANSFORMERS:
+                self.extractors[method] = TransformersNERExtractor()
+            elif method == EntityExtractionMethod.ENTITY_LINKING:
+                self.extractors[method] = EntityLinkingExtractor()
+            elif method == EntityExtractionMethod.HYBRID:
+                self.extractors[method] = HybridEntityExtractor()
+            
+            # 已初始化实体提取器
+            
+        except Exception as e:
+            logging.error(f"初始化实体提取器 {method.value} 失败: {e}")
+    
+    def set_method(self, method: EntityExtractionMethod):
+        """
+        设置实体提取方法
+        
+        Args:
+            method: 提取方法
+        """
+        self._initialize_extractor(method)
+        if method in self.extractors:
+            self.current_method = method
+            # 实体提取方法已切换
+        else:
+            logging.error(f"无法切换到方法: {method.value}")
+    
+    def extract_entities(self, text: str) -> List[Dict[str, Any]]:
+        """
+        使用当前方法提取实体
+        
+        Args:
+            text: 输入文本
+            
+        Returns:
+            实体列表
+        """
+        if self.current_method not in self.extractors:
+            logging.error(f"当前方法 {self.current_method.value} 未初始化")
+            return []
+        
+        return self.extractors[self.current_method].extract_entities(text)
+    
+    def get_available_methods(self) -> List[str]:
+        """获取可用的提取方法列表"""
+        return [method.value for method in EntityExtractionMethod]
+    
+    def get_current_method(self) -> str:
+        """获取当前使用的方法"""
+        return self.current_method.value
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息"""
+        stats = {
+            'current_method': self.current_method.value,
+            'available_methods': self.get_available_methods(),
+            'initialized_extractors': list(self.extractors.keys())
+        }
+        
+        # 添加当前提取器的统计
+        if self.current_method in self.extractors:
+            stats['current_extractor_stats'] = self.extractors[self.current_method].get_statistics()
+        
+        return stats

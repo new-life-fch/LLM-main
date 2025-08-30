@@ -1,0 +1,254 @@
+{
+  "overall_success": true,
+  "total_duration": 18.647472620010376,
+  "tests": [
+    {
+      "test_name": "wikipedia_sampling",
+      "success": true,
+      "duration": 11.381197214126587,
+      "details": {
+        "loaded_documents": 10000,
+        "max_docs_config": 10000,
+        "sample_high_quality": true
+      }
+    },
+    {
+      "test_name": "index_building",
+      "success": true,
+      "duration": 0.02777552604675293,
+      "details": {
+        "index_size": 10000,
+        "embedding_dim": 1024,
+        "hnsw_m": 64,
+        "hnsw_ef_construction": 400,
+        "hnsw_ef_search": 200
+      }
+    },
+    {
+      "test_name": "retrieval_performance",
+      "success": true,
+      "duration": 1.0794029235839844,
+      "details": {
+        "queries_tested": 5,
+        "average_retrieval_time": 0.21576108932495117,
+        "retrieval_results": [
+          {
+            "query": "What is artificial intelligence?",
+            "retrieval_time": 0.6598100662231445,
+            "num_results": 20,
+            "top_scores": [
+              0.509765625,
+              -2.802734375,
+              -3.3359375
+            ],
+            "top_3_documents": [
+              {
+                "score": 0.509765625,
+                "content": "Human-based computation (HBC), human-assisted computation, ubiquitous human computing or distributed thinking (by analogy to distributed computing) is a computer science technique in which a machine performs its function by outsourcing certain steps to humans, usually as microwork. This approach uses differences in abilities and alternative costs between humans and computer agents to achieve symbiotic human–computer interaction. For computationally difficult tasks such as image recognition, huma...",
+                "title": "Human-based computation",
+                "metadata": {}
+              },
+              {
+                "score": -2.802734375,
+                "content": "Andrew Mattei Gleason (November 4, 1921October 17, 2008) was an American mathematician who made fundamental contributions to widely varied areas of mathematics, including the solution of Hilbert's fifth problem, and was a leader in reform and innovation in teaching at all levels.<ref name=\"mactutor\"></ref> Gleason's theorem in quantum logic and the Greenwood–Gleason graph, an important example in Ramsey theory, are named for him. As a young World War II naval officer, Gleason broke German and Ja...",
+                "title": "Andrew M. Gleason",
+                "metadata": {}
+              },
+              {
+                "score": -3.3359375,
+                "content": "Automated theorem proving (also known as ATP or automated deduction) is a subfield of automated reasoning and mathematical logic dealing with proving mathematical theorems by computer programs. Automated reasoning over mathematical proof was a major impetus for the development of computer science. Logical foundations While the roots of formalised logic go back to Aristotle, the end of the 19th and early 20th centuries saw the development of modern logic and formalised mathematics. Frege's Begrif...",
+                "title": "Automated theorem proving",
+                "metadata": {}
+              }
+            ]
+          },
+          {
+            "query": "How does machine learning work?",
+            "retrieval_time": 0.10928845405578613,
+            "num_results": 20,
+            "top_scores": [
+              3.05078125,
+              1.6962890625,
+              1.013671875
+            ],
+            "top_3_documents": [
+              {
+                "score": 3.05078125,
+                "content": "In algorithmic information theory (a subfield of computer science and mathematics), the Kolmogorov complexity of an object, such as a piece of text, is the length of a shortest computer program (in a predetermined programming language) that produces the object as output. It is a measure of the computational resources needed to specify the object, and is also known as algorithmic complexity, Solomonoff–Kolmogorov–Chaitin complexity, program-size complexity, descriptive complexity, or algorithmic ...",
+                "title": "Kolmogorov complexity",
+                "metadata": {}
+              },
+              {
+                "score": 1.6962890625,
+                "content": "In mathematics, the axiom of choice, abbreviated AC or AoC, is an axiom of set theory equivalent to the statement that a Cartesian product of a collection of non-empty sets is non-empty. Informally put, the axiom of choice says that given any collection of sets, each containing at least one element, it is possible to construct a new set by arbitrarily choosing one element from each set, even if the collection is infinite. Formally, it states that for every indexed family of nonempty sets, there ...",
+                "title": "Axiom of choice",
+                "metadata": {}
+              },
+              {
+                "score": 1.013671875,
+                "content": "In computability theory, the Ackermann function, named after Wilhelm Ackermann, is one of the simplest and earliest-discovered examples of a total computable function that is not primitive recursive. All primitive recursive functions are total and computable, but the Ackermann function illustrates that not all total computable functions are primitive recursive. After Ackermann's publication of his function (which had three non-negative integer arguments), many authors modified it to suit various...",
+                "title": "Ackermann function",
+                "metadata": {}
+              }
+            ]
+          },
+          {
+            "query": "What are the applications of deep learning?",
+            "retrieval_time": 0.10540151596069336,
+            "num_results": 20,
+            "top_scores": [
+              1.8818359375,
+              -1.357421875,
+              -3.30078125
+            ],
+            "top_3_documents": [
+              {
+                "score": 1.8818359375,
+                "content": "Analysis (: analyses) is the process of breaking a complex topic or substance into smaller parts in order to gain a better understanding of it. The technique has been applied in the study of mathematics and logic since before Aristotle (384–322 B.C.), though analysis as a formal concept is a relatively recent development. The word comes from the Ancient Greek (analysis, \"a breaking-up\" or \"an untying;\" from ana- \"up, throughout\" and lysis \"a loosening\"). From it also comes the word's plural, ana...",
+                "title": "Analysis",
+                "metadata": {}
+              },
+              {
+                "score": -1.357421875,
+                "content": "A norm-referenced test (NRT) is a type of test, assessment, or evaluation which yields an estimate of the position of the tested individual in a predefined population, with respect to the trait being measured. Assigning scores on such tests may be described as relative grading, marking on a curve (BrE) or grading on a curve (AmE, CanE) (also referred to as curved grading, bell curving, or using grading curves). It is a method of assigning grades to the students in a class in such a way as to obt...",
+                "title": "Norm-referenced test",
+                "metadata": {}
+              },
+              {
+                "score": -3.30078125,
+                "content": "Blaise Pascal ( , , ; ; 19 June 1623 – 19 August 1662) was a French mathematician, physicist, inventor, philosopher, and Catholic writer. Pascal was a child prodigy who was educated by his father, a tax collector in Rouen. His earliest mathematical work was on conic sections; he wrote a significant treatise on the subject of projective geometry at the age of 16. He later corresponded with Pierre de Fermat on probability theory, strongly influencing the development of modern economics and social ...",
+                "title": "Blaise Pascal",
+                "metadata": {}
+              }
+            ]
+          },
+          {
+            "query": "What is natural language processing?",
+            "retrieval_time": 0.1010127067565918,
+            "num_results": 20,
+            "top_scores": [
+              1.9794921875,
+              -2.044921875,
+              -2.208984375
+            ],
+            "top_3_documents": [
+              {
+                "score": 1.9794921875,
+                "content": "Text segmentation is the process of dividing written text into meaningful units, such as words, sentences, or topics. The term applies both to mental processes used by humans when reading text, and to artificial processes implemented in computers, which are the subject of natural language processing. The problem is non-trivial, because while some written languages have explicit word boundary markers, such as the word spaces of written English and the distinctive initial, medial and final letter ...",
+                "title": "Text segmentation",
+                "metadata": {}
+              },
+              {
+                "score": -2.044921875,
+                "content": "In English phonology, t-glottalization or t-glottalling''' is a sound change in certain English dialects and accents, particularly in the United Kingdom, that causes the phoneme to be pronounced as the glottal stop in certain positions. It is never universal, especially in careful speech, and it most often alternates with other allophones of such as , , (before a nasal), (before a lateral), or . As a sound change, it is a subtype of debuccalization. The pronunciation that it results in is called...",
+                "title": "T-glottalization",
+                "metadata": {}
+              },
+              {
+                "score": -2.208984375,
+                "content": "Speech segmentation is the process of identifying the boundaries between words, syllables, or phonemes in spoken natural languages. The term applies both to the mental processes used by humans, and to artificial processes of natural language processing. Speech segmentation is a subfield of general speech perception and an important subproblem of the technologically focused field of speech recognition, and cannot be adequately solved in isolation. As in most natural language processing problems, ...",
+                "title": "Speech segmentation",
+                "metadata": {}
+              }
+            ]
+          },
+          {
+            "query": "How do neural networks function?",
+            "retrieval_time": 0.10329270362854004,
+            "num_results": 20,
+            "top_scores": [
+              -0.323974609375,
+              -2.99609375,
+              -3.169921875
+            ],
+            "top_3_documents": [
+              {
+                "score": -0.323974609375,
+                "content": "In cryptography, a cipher (or cypher) is an algorithm for performing encryption or decryption—a series of well-defined steps that can be followed as a procedure. An alternative, less common term is encipherment. To encipher or encode is to convert information into cipher or code. In common parlance, \"cipher\" is synonymous with \"code\", as they are both a set of steps that encrypt a message; however, the concepts are distinct in cryptography, especially classical cryptography. Codes generally subs...",
+                "title": "Cipher",
+                "metadata": {}
+              },
+              {
+                "score": -2.99609375,
+                "content": "Blaise Pascal ( , , ; ; 19 June 1623 – 19 August 1662) was a French mathematician, physicist, inventor, philosopher, and Catholic writer. Pascal was a child prodigy who was educated by his father, a tax collector in Rouen. His earliest mathematical work was on conic sections; he wrote a significant treatise on the subject of projective geometry at the age of 16. He later corresponded with Pierre de Fermat on probability theory, strongly influencing the development of modern economics and social ...",
+                "title": "Blaise Pascal",
+                "metadata": {}
+              },
+              {
+                "score": -3.169921875,
+                "content": "An axon (from Greek ἄξων áxōn, axis), or nerve fiber (or nerve fibre: see spelling differences), is a long, slender projection of a nerve cell, or neuron, in vertebrates, that typically conducts electrical impulses known as action potentials away from the nerve cell body. The function of the axon is to transmit information to different neurons, muscles, and glands. In certain sensory neurons (pseudounipolar neurons), such as those for touch and warmth, the axons are called afferent nerve fibers ...",
+                "title": "Axon",
+                "metadata": {}
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "test_name": "reranker_effect",
+      "success": true,
+      "duration": 0.08231449127197266,
+      "details": {
+        "test_query": "What is machine learning and how does it work?",
+        "without_reranker": {
+          "num_results": 10,
+          "top_scores": [
+            0.11365300416946411,
+            0.12016893178224564,
+            0.12134876847267151
+          ],
+          "top_3_documents": [
+            {
+              "score": 0.11365300416946411,
+              "content": "In statistical mechanics and mathematics, a Boltzmann distribution (also called Gibbs distribution) is a probability distribution or probability measure that gives the probability that a system will be in a certain state as a function of that state's energy and the temperature of the system. The distribution is expressed in the form: where is the probability of the system being in state , is the exponential function, is the energy of that state, and a constant of the distribution is the product ...",
+              "title": "Boltzmann distribution",
+              "metadata": {}
+            },
+            {
+              "score": 0.12016893178224564,
+              "content": "Instinctive drift, alternately known as instinctual drift, is the tendency of an animal to revert to unconscious and automatic behaviour that interferes with learned behaviour from operant conditioning. Instinctive drift was coined by Keller and Marian Breland, former students of B.F. Skinner at the University of Minnesota, describing the phenomenon as \"a clear and utter failure of conditioning theory.\" B.F. Skinner was an American psychologist and father of operant conditioning (or instrumental...",
+              "title": "Instinctive drift",
+              "metadata": {}
+            },
+            {
+              "score": 0.12134876847267151,
+              "content": "In mathematical logic, an ω-consistent (or omega-consistent, also called numerically segregative) theory is a theory (collection of sentences) that is not only (syntactically) consistent (that is, does not prove a contradiction), but also avoids proving certain infinite combinations of sentences that are intuitively contradictory. The name is due to Kurt Gödel, who introduced the concept in the course of proving the incompleteness theorem. Definition A theory T is said to interpret the language ...",
+              "title": "Ω-consistent theory",
+              "metadata": {}
+            }
+          ]
+        },
+        "with_reranker": {
+          "num_results": 10,
+          "top_scores": [
+            -4.89453125,
+            -5.28125,
+            -5.42578125
+          ],
+          "top_3_documents": [
+            {
+              "score": -4.89453125,
+              "content": "Scratches is a mystery adventure computer game by game developer Nucleosys. Scratches is the first commercial adventure game ever to be made in Argentina. Plot The game tells the story of the Blackwood estate on the outskirts of Rothbury, a small rural town in Northumberland, England in 1976. Originally owned by James T. Blackwood in 1963, the house is passed to Christopher Milton after Mr. Blackwood is accused of murdering his wife. A couple of days later, Mr. Blackwood dies of a sudden heart a...",
+              "title": "Scratches (video game)",
+              "metadata": {}
+            },
+            {
+              "score": -5.28125,
+              "content": "Instinctive drift, alternately known as instinctual drift, is the tendency of an animal to revert to unconscious and automatic behaviour that interferes with learned behaviour from operant conditioning. Instinctive drift was coined by Keller and Marian Breland, former students of B.F. Skinner at the University of Minnesota, describing the phenomenon as \"a clear and utter failure of conditioning theory.\" B.F. Skinner was an American psychologist and father of operant conditioning (or instrumental...",
+              "title": "Instinctive drift",
+              "metadata": {}
+            },
+            {
+              "score": -5.42578125,
+              "content": "Round-trip translation (RTT), also known as back-and-forth translation, recursive translation and bi-directional translation, is the process of translating a word, phrase or text into another language (forward translation), then translating the result back into the original language (back translation), using machine translation (MT) software. It is often used by laypeople to evaluate a machine translation system, or to test whether a text is suitable for MT when they are unfamiliar with the targ...",
+              "title": "Round-trip translation",
+              "metadata": {}
+            }
+          ]
+        },
+        "reranker_enabled": true
+      }
+    }
+  ]
+}

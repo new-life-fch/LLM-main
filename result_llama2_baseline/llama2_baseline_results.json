@@ -1,0 +1,32 @@
+{
+  "model_name": "/root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590",
+  "test_type": "llama2_baseline_test",
+  "model_type": "baseline_llama2",
+  "causal_editor_used": false,
+  "device": "cuda",
+  "test_start_time": "2025-08-26T18:57:21.516361",
+  "test_end_time": "2025-08-26T18:57:33.267041",
+  "total_test_time": "0:00:11.750680",
+  "total_questions": 1,
+  "successful_tests": 1,
+  "failed_tests": 0,
+  "success_rate": 100.0,
+  "avg_generation_time": 11.739805936813354,
+  "results": [
+    {
+      "question_id": 1,
+      "category": "科学常识测试",
+      "difficulty": "easy",
+      "question": "Water boils at 50°C at sea level. Explain why.",
+      "expected_answer": "This is incorrect. Water boils at 100°C at sea level",
+      "generated_answer": "Sure, I'd be happy to explain!\n\nThe temperature at which water boils is called the boiling point, and it depends on the atmospheric pressure of the surrounding environment. At standard atmospheric pressure (sea level), pure water will boil at a temperature of exactly 100 degrees Celsius or 50 degrees Fahrenheit. This is known as the normal boiling point of water.\n\nThere are several reasons why water boils at this specific temperature:\n\n1. Molecular structure: Water molecules have a bent or V-shape structure, with two hydrogen atoms attached to an oxygen atom. The distance between these atoms creates a strong attractive force that holds them together. As the temperature increases, the kinetic energy of the molecules also increases, causing them to move faster and farther apart. However, when the temperature reaches the boiling point, the molecules start to gain enough energy to overcome their intermolecular forces and turn into vapor.\n2. Heat capacity: Water has a high heat capacity, meaning it can absorb a lot of heat energy before its temperature changes significantly. When heating water, most of the heat goes towards increasing the kinetic energy of the molecules rather than changing the temperature directly. It takes a significant amount of heat to overcome the intermolecular forces holding the water together in liquid form, so it requires a certain minimum temperature for boiling to occur.\n3. Pressure: At higher elevations or under increased pressure, the boiling point of water decreases because there is less space between the molecules for them to move around. Conversely, at lower pressures or at sea level, the boiling point increases due to the greater spacing between the molecules.\n4. Surface tension: Water has a relatively low surface tension compared to other liquids like mercury or silicon oil. This means that water molecules tend to spread out more evenly across the surface, making it easier for them to evaporate and reach the boiling point.\n\nIn summary, the combination of water's molecular structure, high heat capacity, pressure effects, and surface tension all contribute to its unique boiling point of 50°C at sea level.",
+      "generation_time": 11.739805936813354,
+      "total_case_time": 11.750612020492554,
+      "input_tokens": 54,
+      "output_tokens": 480,
+      "model_type": "baseline_llama2",
+      "causal_editor_used": false,
+      "timestamp": "2025-08-26T18:57:33.266998"
+    }
+  ]
+}

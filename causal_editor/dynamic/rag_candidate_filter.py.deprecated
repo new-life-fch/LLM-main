@@ -1,0 +1,458 @@
+"""RAG候选过滤器
+基于RAG检索的候选三元组筛选器，与现有知识图谱系统协同工作
+
+本模块扩展了现有的DynamicCandidateFilter，添加了RAG检索功能，
+支持从Wikipedia语料库中检索相关文档，并将检索结果转换为
+与现有系统兼容的候选三元组格式。
+"""
+
+import logging
+import re
+from typing import List, Dict, Any, Optional, Set
+from collections import defaultdict
+
+from .candidate_filter import DynamicCandidateFilter
+from .rag_retriever import RAGRetriever, RAGRetrievalResult
+from .web_knowledge_retriever import RetrievalStrategy
+from .entity_extractor import EntityExtractionMethod
+
+
+class RAGCandidateFilter(DynamicCandidateFilter):
+    """RAG候选过滤器
+    
+    扩展现有的DynamicCandidateFilter，集成RAG检索功能。
+    支持在知识图谱检索和RAG检索之间灵活选择，或同时使用两种方法。
+    
+    主要特性：
+    - 继承现有的知识图谱检索功能
+    - 集成RAG检索器
+    - 支持检索结果融合
+    - 保持与现有系统的兼容性
+    """
+    
+    def __init__(
+        self,
+        model_name: str = "meta-llama/Llama-2-7b-hf",
+        max_candidates: int = 100,
+        entity_confidence_threshold: float = 0.6,
+        cache_size: int = 20000,
+        knowledge_base_path: Optional[str] = None,
+        enable_web_retrieval: bool = True,
+        web_retrieval_strategy: RetrievalStrategy = RetrievalStrategy.HYBRID,
+        max_web_results: int = 50,
+        web_cache_dir: str = "./cache/web_knowledge",
+        entity_extraction_method: EntityExtractionMethod = EntityExtractionMethod.HYBRID,
+        save_web_results_to_local: bool = True,
+        # RAG相关参数
+        enable_rag_retrieval: bool = True,
+        rag_model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        rag_index_path: str = "./cache/rag/faiss_index",
+        rag_documents_path: str = "./cache/rag/documents.db",
+        rag_top_k: int = 10,
+        rag_min_score: float = 0.3,
+        rag_cache_dir: str = "./cache/rag",
+        retrieval_mode: str = "hybrid"  # "kg_only", "rag_only", "hybrid"
+    ):
+        """初始化RAG候选过滤器
+        
+        Args:
+            retrieval_mode: 检索模式
+                - "kg_only": 仅使用知识图谱检索
+                - "rag_only": 仅使用RAG检索
+                - "hybrid": 同时使用两种检索方法
+            enable_rag_retrieval: 是否启用RAG检索
+            rag_model_name: RAG编码模型名称
+            rag_index_path: RAG索引路径
+            rag_documents_path: RAG文档数据库路径
+            rag_top_k: RAG检索返回的文档数量
+            rag_min_score: RAG检索最小相似度分数
+            rag_cache_dir: RAG缓存目录
+        """
+        # 初始化父类
+        super().__init__(
+            model_name=model_name,
+            max_candidates=max_candidates,
+            entity_confidence_threshold=entity_confidence_threshold,
+            cache_size=cache_size,
+            knowledge_base_path=knowledge_base_path,
+            enable_web_retrieval=enable_web_retrieval,
+            web_retrieval_strategy=web_retrieval_strategy,
+            max_web_results=max_web_results,
+            web_cache_dir=web_cache_dir,
+            entity_extraction_method=entity_extraction_method,
+            save_web_results_to_local=save_web_results_to_local
+        )
+        
+        # RAG相关配置
+        self.enable_rag_retrieval = enable_rag_retrieval
+        self.rag_top_k = rag_top_k
+        self.rag_min_score = rag_min_score
+        self.retrieval_mode = retrieval_mode
+        
+        # 初始化RAG检索器
+        self.rag_retriever = None
+        if self.enable_rag_retrieval and self.retrieval_mode in ["rag_only", "hybrid"]:
+            try:
+                self.rag_retriever = RAGRetriever(
+                    model_name=rag_model_name,
+                    index_path=rag_index_path,
+                    documents_path=rag_documents_path,
+                    cache_dir=rag_cache_dir
+                )
+                logging.info("RAG检索器初始化成功")
+            except Exception as e:
+                logging.error(f"RAG检索器初始化失败: {e}")
+                self.enable_rag_retrieval = False
+        
+        # RAG统计信息
+        self.rag_retrieval_count = 0
+        self.rag_candidates_found = 0
+        self.rag_documents_retrieved = 0
+        
+        logging.info(f"RAG候选过滤器初始化完成，检索模式: {self.retrieval_mode}")
+    
+    def filter_candidates(
+        self, 
+        text: str, 
+        generation_context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, Any]]:
+        """筛选候选三元组（支持RAG检索）
+        
+        Args:
+            text: 输入文本
+            generation_context: 生成上下文信息
+            
+        Returns:
+            候选三元组列表
+        """
+        candidates = []
+        
+        # 根据检索模式选择检索方法
+        if self.retrieval_mode == "kg_only":
+            # 仅使用知识图谱检索
+            candidates = super().filter_candidates(text, generation_context)
+            
+        elif self.retrieval_mode == "rag_only":
+            # 仅使用RAG检索
+            candidates = self._rag_filter_candidates(text, generation_context)
+            
+        elif self.retrieval_mode == "hybrid":
+            # 混合检索：同时使用知识图谱和RAG
+            kg_candidates = super().filter_candidates(text, generation_context)
+            rag_candidates = self._rag_filter_candidates(text, generation_context)
+            
+            # 融合检索结果
+            candidates = self._merge_candidates(kg_candidates, rag_candidates)
+        
+        # 限制候选数量
+        if len(candidates) > self.max_candidates:
+            candidates = sorted(candidates, key=lambda x: x.get('confidence', 0), reverse=True)
+            candidates = candidates[:self.max_candidates]
+        
+        return candidates
+    
+    def _rag_filter_candidates(
+        self, 
+        text: str, 
+        generation_context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, Any]]:
+        """基于RAG检索筛选候选
+        
+        Args:
+            text: 输入文本
+            generation_context: 生成上下文信息
+            
+        Returns:
+            RAG候选三元组列表
+        """
+        if not self.enable_rag_retrieval or not self.rag_retriever:
+            return []
+        
+        self.rag_retrieval_count += 1
+        
+        try:
+            # 使用RAG检索器检索相关文档
+            retrieval_results = self.rag_retriever.retrieve(
+                query=text,
+                top_k=self.rag_top_k,
+                min_score=self.rag_min_score
+            )
+            
+            self.rag_documents_retrieved += len(retrieval_results)
+            
+            # 将检索结果转换为候选三元组
+            candidates = self._convert_rag_results_to_candidates(
+                retrieval_results, text, generation_context
+            )
+            
+            self.rag_candidates_found += len(candidates)
+            
+            logging.debug(f"RAG检索完成，检索到 {len(retrieval_results)} 个文档，生成 {len(candidates)} 个候选")
+            
+            return candidates
+            
+        except Exception as e:
+            logging.error(f"RAG检索失败: {e}")
+            return []
+    
+    def _convert_rag_results_to_candidates(
+        self,
+        retrieval_results: List[RAGRetrievalResult],
+        query_text: str,
+        generation_context: Optional[Dict[str, Any]] = None
+    ) -> List[Dict[str, Any]]:
+        """将RAG检索结果转换为候选三元组
+        
+        Args:
+            retrieval_results: RAG检索结果
+            query_text: 查询文本
+            generation_context: 生成上下文
+            
+        Returns:
+            候选三元组列表
+        """
+        candidates = []
+        
+        for result in retrieval_results:
+            document = result.document
+            score = result.score
+            
+            # 从文档中提取实体和关系
+            doc_text = f"{document.title}. {document.text}"
+            doc_entities = self.extract_entities(doc_text)
+            
+            if not doc_entities:
+                continue
+            
+            # 推断可能的关系
+            possible_relations = self.infer_relations(doc_text, doc_entities)
+            
+            # 为每个实体对生成候选三元组
+            for i, entity1 in enumerate(doc_entities):
+                for j, entity2 in enumerate(doc_entities):
+                    if i >= j:  # 避免重复和自环
+                        continue
+                    
+                    # 选择最可能的关系
+                    relation = self._infer_relation_between_entities(
+                        entity1, entity2, doc_text, possible_relations
+                    )
+                    
+                    if relation:
+                        # 计算候选置信度
+                        confidence = self._calculate_rag_candidate_confidence(
+                            entity1, entity2, relation, score, query_text, doc_text
+                        )
+                        
+                        if confidence >= self.entity_confidence_threshold:
+                            candidate = {
+                                'subject': entity1['text'],
+                                'relation': relation,
+                                'object': entity2['text'],
+                                'confidence': confidence,
+                                'match_score': score,
+                                'text': f"{entity1['text']} {relation} {entity2['text']}.",
+                                'source': f'rag_{document.id}',
+                                'evidence_text': doc_text[:500],  # 截取前500字符作为证据
+                                'source_url': f"wikipedia:{document.title}",
+                                'timestamp': None,
+                                'rag_score': score,
+                                'rag_rank': result.rank,
+                                'document_title': document.title
+                            }
+                            candidates.append(candidate)
+        
+        return candidates
+    
+    def _infer_relation_between_entities(
+        self,
+        entity1: Dict[str, Any],
+        entity2: Dict[str, Any],
+        text: str,
+        possible_relations: List[str]
+    ) -> Optional[str]:
+        """推断两个实体之间的关系
+        
+        Args:
+            entity1: 第一个实体
+            entity2: 第二个实体
+            text: 文档文本
+            possible_relations: 可能的关系列表
+            
+        Returns:
+            推断的关系，如果无法推断则返回None
+        """
+        # 获取实体在文本中的位置
+        entity1_pos = text.lower().find(entity1['text'].lower())
+        entity2_pos = text.lower().find(entity2['text'].lower())
+        
+        if entity1_pos == -1 or entity2_pos == -1:
+            return None
+        
+        # 确定实体顺序
+        if entity1_pos > entity2_pos:
+            entity1, entity2 = entity2, entity1
+            entity1_pos, entity2_pos = entity2_pos, entity1_pos
+        
+        # 提取实体之间的文本
+        between_text = text[entity1_pos + len(entity1['text']):entity2_pos]
+        
+        # 基于模式匹配推断关系
+        for pattern, relations in self.relation_patterns.items():
+            if re.search(pattern, between_text, re.IGNORECASE):
+                # 返回第一个匹配的关系
+                for relation in relations:
+                    if relation in possible_relations:
+                        return relation
+                return relations[0] if relations else None
+        
+        # 基于实体类型推断默认关系
+        entity1_type = entity1.get('type', 'UNKNOWN')
+        entity2_type = entity2.get('type', 'UNKNOWN')
+        
+        if entity1_type == 'PERSON_PLACE' and entity2_type == 'PERSON_PLACE':
+            return 'related_to'
+        elif 'YEAR' in [entity1_type, entity2_type]:
+            return 'occurred_in'
+        else:
+            return 'related_to'  # 默认关系
+    
+    def _calculate_rag_candidate_confidence(
+        self,
+        entity1: Dict[str, Any],
+        entity2: Dict[str, Any],
+        relation: str,
+        rag_score: float,
+        query_text: str,
+        doc_text: str
+    ) -> float:
+        """计算RAG候选的置信度
+        
+        Args:
+            entity1: 第一个实体
+            entity2: 第二个实体
+            relation: 关系
+            rag_score: RAG检索分数
+            query_text: 查询文本
+            doc_text: 文档文本
+            
+        Returns:
+            候选置信度
+        """
+        confidence = 0.0
+        
+        # RAG检索分数贡献（40%）
+        confidence += rag_score * 0.4
+        
+        # 实体置信度贡献（30%）
+        entity_conf = (entity1.get('confidence', 0.5) + entity2.get('confidence', 0.5)) / 2
+        confidence += entity_conf * 0.3
+        
+        # 查询匹配度贡献（20%）
+        query_match = 0.0
+        query_words = set(query_text.lower().split())
+        doc_words = set(doc_text.lower().split())
+        if query_words:
+            query_match = len(query_words & doc_words) / len(query_words)
+        confidence += query_match * 0.2
+        
+        # 关系合理性贡献（10%）
+        relation_score = 0.5  # 基础分数
+        if relation in ['capital_of', 'located_in', 'born_in', 'known_for']:
+            relation_score = 0.8  # 高置信度关系
+        confidence += relation_score * 0.1
+        
+        return min(confidence, 1.0)
+    
+    def _merge_candidates(
+        self,
+        kg_candidates: List[Dict[str, Any]],
+        rag_candidates: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
+        """融合知识图谱和RAG检索的候选结果
+        
+        Args:
+            kg_candidates: 知识图谱候选
+            rag_candidates: RAG候选
+            
+        Returns:
+            融合后的候选列表
+        """
+        # 使用字典去重，以(subject, relation, object)为key
+        merged_dict = {}
+        
+        # 添加知识图谱候选（优先级较高）
+        for candidate in kg_candidates:
+            key = (candidate['subject'], candidate['relation'], candidate['object'])
+            if key not in merged_dict:
+                candidate['fusion_source'] = 'kg'
+                merged_dict[key] = candidate
+        
+        # 添加RAG候选
+        for candidate in rag_candidates:
+            key = (candidate['subject'], candidate['relation'], candidate['object'])
+            if key not in merged_dict:
+                candidate['fusion_source'] = 'rag'
+                merged_dict[key] = candidate
+            else:
+                # 如果已存在相同三元组，融合置信度
+                existing = merged_dict[key]
+                existing['confidence'] = max(existing['confidence'], candidate['confidence'])
+                existing['fusion_source'] = 'hybrid'
+                # 保留RAG特有信息
+                if 'rag_score' in candidate:
+                    existing['rag_score'] = candidate['rag_score']
+                    existing['rag_rank'] = candidate['rag_rank']
+        
+        return list(merged_dict.values())
+    
+    def setup_rag_wikipedia_data(self, max_docs: Optional[int] = None) -> bool:
+        """设置RAG Wikipedia数据
+        
+        Args:
+            max_docs: 最大文档数量限制
+            
+        Returns:
+            是否成功设置
+        """
+        if not self.rag_retriever:
+            logging.error("RAG检索器未初始化")
+            return False
+        
+        try:
+            # 加载Wikipedia数据
+            success = self.rag_retriever.load_wikipedia_data(max_docs=max_docs)
+            if not success:
+                return False
+            
+            # 构建索引
+            success = self.rag_retriever.build_index()
+            if not success:
+                return False
+            
+            logging.info("RAG Wikipedia数据设置完成")
+            return True
+            
+        except Exception as e:
+            logging.error(f"设置RAG Wikipedia数据失败: {e}")
+            return False
+    
+    def get_rag_statistics(self) -> Dict[str, Any]:
+        """获取RAG统计信息"""
+        stats = {
+            "rag_retrieval_count": self.rag_retrieval_count,
+            "rag_candidates_found": self.rag_candidates_found,
+            "rag_documents_retrieved": self.rag_documents_retrieved,
+            "retrieval_mode": self.retrieval_mode,
+            "enable_rag_retrieval": self.enable_rag_retrieval
+        }
+        
+        if self.rag_retriever:
+            stats.update(self.rag_retriever.get_statistics())
+        
+        return stats
+    
+    def close(self):
+        """关闭资源"""
+        if self.rag_retriever:
+            self.rag_retriever.close()

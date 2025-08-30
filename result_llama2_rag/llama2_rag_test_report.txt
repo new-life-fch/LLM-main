@@ -1,0 +1,41 @@
+================================================================================
+Llama-2-7b-chat + RAG检索系统测试报告
+================================================================================
+🤖 模型: /root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590
+💻 设备: cuda
+🔍 检索模式: rag_only
+📊 RAG启用: 是
+📈 动态阈值: 启用
+⏰ 测试时间: 2025-08-29 17:38:27.685550 - 2025-08-29 17:38:37.468658
+⏱️ 测试耗时: 0:00:09.783108
+📊 问题总数: 1
+✅ 成功率: 100.0%
+⚡ 平均生成时间: 4.999s
+
+🔧 CausalEditor 统计信息:
+  🔍 检测次数: 131
+  ⚠️ 冲突次数: 131
+  ✏️ 编辑次数: 131
+  ✅ 成功编辑: 131
+
+🔍 RAG系统统计信息:
+  📡 检索模式: N/A
+  🔍 RAG启用: False
+  📊 总RAG查询: 1
+  🔍 总检索次数: 1
+  ⚠️ Fallback触发: 1
+  🎯 平均RAG得分: 0.0000
+
+================================================================================
+详细测试结果
+================================================================================
+
+✅ 测试 1: [科学常识测试]
+❓ 问题: Water boils at 50°C at sea level. Explain why.
+🎯 期望: This is incorrect. Water boils at 100°C at sea level
+🤖 回答: Sure, I'd be happy to explain!
+
+The temperature at which water boils is known as the boiling point, and it varies depending on the pressure of the surrounding environment. At standard atmospheric pressure (sea level), pure water will begin to boil when its temperature reaches 100 degrees Celsius or 212 degrees Fahrenheit. This is because the molecules in liquid water have enough energy to overcome their mutual attractive forces and turn into vapor, releasing heat in the process. The exact temperature at which this occurs depends on the specific conditions, but 50°C is not correct for water at sea level.
+⏱️ 生成时间: 4.999s
+🔍 检索模式: rag_only
+------------------------------------------------------------

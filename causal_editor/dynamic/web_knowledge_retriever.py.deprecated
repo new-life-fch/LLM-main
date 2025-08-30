@@ -1,0 +1,589 @@
+"""网络知识获取器
+实时从网络获取相关知识三元组，支持多种获取方案和缓存机制
+"""
+
+import requests
+import json
+import logging
+import time
+import hashlib
+from typing import List, Dict, Any, Optional, Set
+from urllib.parse import quote_plus, urljoin
+import re
+from dataclasses import dataclass
+from enum import Enum
+import sqlite3
+import os
+from pathlib import Path
+from ..utils.path_config import get_path_config, get_web_knowledge_paths
+
+try:
+    from bs4 import BeautifulSoup
+    BS4_AVAILABLE = True
+except ImportError:
+    logging.warning("BeautifulSoup4 not available. Some web scraping features will be disabled.")
+    BeautifulSoup = None
+    BS4_AVAILABLE = False
+
+
+class RetrievalStrategy(Enum):
+    """知识获取策略"""
+    WIKIPEDIA_API = "wikipedia_api"  # Wikipedia API
+    WIKIDATA_API = "wikidata_api"    # Wikidata API
+    SEARCH_ENGINE = "search_engine"  # 搜索引擎爬取
+    KNOWLEDGE_GRAPH = "knowledge_graph"  # 知识图谱API
+    RAG_RETRIEVAL = "rag_retrieval"  # RAG检索增强生成
+    HYBRID = "hybrid"  # 混合策略
+
+
+@dataclass
+class KnowledgeTriple:
+    """知识三元组数据类"""
+    subject: str
+    relation: str
+    object: str
+    confidence: float
+    source: str
+    timestamp: float
+    evidence_text: Optional[str] = None
+    source_url: Optional[str] = None
+
+
+class WebKnowledgeRetriever:
+    """网络知识获取器
+    
+    支持多种策略从网络实时获取知识三元组，并提供缓存和本地存储功能
+    """
+    
+    def __init__(
+        self,
+        strategy: RetrievalStrategy = RetrievalStrategy.HYBRID,
+        cache_dir: Optional[str] = None,
+        max_cache_size: int = 100000,
+        cache_ttl: int = 864000,  # 240小时
+        request_timeout: int = 10,
+        rate_limit_delay: float = 1.0,
+        user_agent: str = "CausalEditor/1.0 (Educational Research)"
+    ):
+        """初始化网络知识获取器
+        
+        Args:
+            strategy: 获取策略
+            cache_dir: 缓存目录（可选，使用统一路径配置）
+            max_cache_size: 最大缓存条目数
+            cache_ttl: 缓存生存时间（秒）
+            request_timeout: 请求超时时间
+            rate_limit_delay: 请求间隔
+            user_agent: 用户代理字符串
+        """
+        # 初始化路径配置
+        self.path_config = get_path_config()
+        web_paths = get_web_knowledge_paths()
+        
+        self.strategy = strategy
+        self.cache_dir = Path(cache_dir) if cache_dir else Path(web_paths["cache_dir"])
+        self.max_cache_size = max_cache_size
+        self.cache_ttl = cache_ttl
+        self.request_timeout = request_timeout
+        self.rate_limit_delay = rate_limit_delay
+        self.user_agent = user_agent
+        
+        # 创建缓存目录
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        
+        # 初始化缓存数据库
+        self.cache_db_path = Path(web_paths["knowledge_db_path"])
+        self._init_cache_db()
+        
+        # 请求会话
+        self.session = requests.Session()
+        self.session.headers.update({
+            'User-Agent': self.user_agent,
+            'Accept': 'application/json, text/html, */*',
+            'Accept-Language': 'en-US,en;q=0.9,zh;q=0.8'
+        })
+        
+        # 统计信息
+        self.stats = {
+            'total_requests': 0,
+            'cache_hits': 0,
+            'successful_retrievals': 0,
+            'failed_requests': 0,
+            'total_triples_found': 0
+        }
+        
+        # 上次请求时间（用于速率限制）
+        self.last_request_time = 0
+        
+        # 网络知识获取器初始化完成
+    
+    def _init_cache_db(self):
+        """初始化缓存数据库"""
+        with sqlite3.connect(self.cache_db_path) as conn:
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS knowledge_cache (
+                    query_hash TEXT PRIMARY KEY,
+                    query_text TEXT,
+                    result_json TEXT,
+                    timestamp REAL,
+                    strategy TEXT
+                )
+            """)
+            conn.execute("""
+                CREATE INDEX IF NOT EXISTS idx_timestamp ON knowledge_cache(timestamp)
+            """)
+            conn.commit()
+    
+    def _get_query_hash(self, query: str, strategy: str) -> str:
+        """生成查询哈希"""
+        content = f"{query}_{strategy}"
+        return hashlib.md5(content.encode()).hexdigest()
+    
+    def _get_from_cache(self, query: str, strategy: str) -> Optional[List[KnowledgeTriple]]:
+        """从缓存获取结果"""
+        query_hash = self._get_query_hash(query, strategy)
+        current_time = time.time()
+        
+        with sqlite3.connect(self.cache_db_path) as conn:
+            cursor = conn.execute(
+                "SELECT result_json, timestamp FROM knowledge_cache WHERE query_hash = ?",
+                (query_hash,)
+            )
+            row = cursor.fetchone()
+            
+            if row:
+                result_json, timestamp = row
+                # 检查是否过期
+                if current_time - timestamp < self.cache_ttl:
+                    try:
+                        data = json.loads(result_json)
+                        triples = [KnowledgeTriple(**item) for item in data]
+                        self.stats['cache_hits'] += 1
+                        return triples
+                    except Exception as e:
+                        logging.warning(f"缓存数据解析失败: {e}")
+                        # 删除损坏的缓存条目
+                        conn.execute("DELETE FROM knowledge_cache WHERE query_hash = ?", (query_hash,))
+                        conn.commit()
+        
+        return None
+    
+    def _save_to_cache(self, query: str, strategy: str, triples: List[KnowledgeTriple]):
+        """保存结果到缓存"""
+        query_hash = self._get_query_hash(query, strategy)
+        current_time = time.time()
+        
+        # 转换为可序列化的格式
+        data = [{
+            'subject': t.subject,
+            'relation': t.relation,
+            'object': t.object,
+            'confidence': t.confidence,
+            'source': t.source,
+            'timestamp': t.timestamp,
+            'evidence_text': t.evidence_text,
+            'source_url': t.source_url
+        } for t in triples]
+        
+        result_json = json.dumps(data, ensure_ascii=False)
+        
+        with sqlite3.connect(self.cache_db_path) as conn:
+            # 插入或更新缓存
+            conn.execute("""
+                INSERT OR REPLACE INTO knowledge_cache 
+                (query_hash, query_text, result_json, timestamp, strategy)
+                VALUES (?, ?, ?, ?, ?)
+            """, (query_hash, query, result_json, current_time, strategy))
+            
+            # 清理过期缓存
+            conn.execute(
+                "DELETE FROM knowledge_cache WHERE timestamp < ?",
+                (current_time - self.cache_ttl,)
+            )
+            
+            # 限制缓存大小
+            conn.execute("""
+                DELETE FROM knowledge_cache WHERE query_hash IN (
+                    SELECT query_hash FROM knowledge_cache 
+                    ORDER BY timestamp ASC 
+                    LIMIT MAX(0, (SELECT COUNT(*) FROM knowledge_cache) - ?)
+                )
+            """, (self.max_cache_size,))
+            
+            conn.commit()
+    
+    def _rate_limit(self):
+        """执行速率限制"""
+        current_time = time.time()
+        time_since_last = current_time - self.last_request_time
+        if time_since_last < self.rate_limit_delay:
+            time.sleep(self.rate_limit_delay - time_since_last)
+        self.last_request_time = time.time()
+    
+    def retrieve_knowledge(
+        self, 
+        entities: List[str], 
+        relations: Optional[List[str]] = None,
+        max_results: int = 30
+    ) -> List[KnowledgeTriple]:
+        """获取知识三元组
+        
+        Args:
+            entities: 实体列表
+            relations: 关系列表（可选）
+            max_results: 最大结果数
+            
+        Returns:
+            知识三元组列表
+        """
+        if not entities:
+            return []
+        
+        # 构建查询字符串
+        query = " ".join(entities)
+        if relations:
+            query += " " + " ".join(relations)
+        
+        # 检查缓存
+        cached_result = self._get_from_cache(query, self.strategy.value)
+        if cached_result:
+            return cached_result[:max_results]
+        
+        self.stats['total_requests'] += 1
+        
+        # 根据策略获取知识
+        try:
+            if self.strategy == RetrievalStrategy.WIKIDATA_API:
+                triples = self._retrieve_from_wikidata(entities, relations, max_results)
+            elif self.strategy == RetrievalStrategy.SEARCH_ENGINE:
+                triples = self._retrieve_from_search_engine(entities, relations, max_results)
+            elif self.strategy == RetrievalStrategy.KNOWLEDGE_GRAPH:
+                triples = self._retrieve_from_knowledge_graph(entities, relations, max_results)
+            elif self.strategy == RetrievalStrategy.HYBRID:
+                triples = self._retrieve_hybrid(entities, relations, max_results)
+            elif self.strategy == RetrievalStrategy.WIKIPEDIA_API:
+                triples = self._retrieve_from_wikipedia(entities, relations, max_results)
+            else:
+                triples = []
+            
+            self.stats['successful_retrievals'] += 1
+            self.stats['total_triples_found'] += len(triples)
+            
+            # 保存到缓存
+            self._save_to_cache(query, self.strategy.value, triples)
+            
+            return triples[:max_results]
+            
+        except Exception as e:
+            logging.error(f"知识获取失败: {e}")
+            self.stats['failed_requests'] += 1
+            return []
+    
+    def _retrieve_from_wikipedia(self, entities: List[str], relations: Optional[List[str]], max_results: int) -> List[KnowledgeTriple]:
+        """从Wikipedia API获取知识"""
+        triples = []
+        
+        for entity in entities[:3]:  # 限制实体数量以避免过多请求
+            self._rate_limit()
+            
+            try:
+                # 搜索页面
+                search_url = "https://en.wikipedia.org/api/rest_v1/page/summary/" + quote_plus(entity)
+                response = self.session.get(search_url, timeout=self.request_timeout)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    
+                    # 提取基本信息
+                    title = data.get('title', entity)
+                    extract = data.get('extract', '')
+                    
+                    # 从摘要中提取关系
+                    extracted_triples = self._extract_triples_from_text(title, extract, 'wikipedia')
+                    triples.extend(extracted_triples)
+                    
+                    if len(triples) >= max_results:
+                        break
+                        
+            except Exception as e:
+                logging.warning(f"Wikipedia API请求失败 {entity}: {e}")
+                continue
+        
+        return triples
+    
+    def _retrieve_from_wikidata(self, entities: List[str], relations: Optional[List[str]], max_results: int) -> List[KnowledgeTriple]:
+        """从Wikidata API获取知识"""
+        triples = []
+        
+        for entity in entities[:2]:  # 限制实体数量
+            self._rate_limit()
+            
+            try:
+                # 搜索实体ID
+                search_url = "https://www.wikidata.org/w/api.php"
+                search_params = {
+                    'action': 'wbsearchentities',
+                    'search': entity,
+                    'language': 'en',
+                    'format': 'json',
+                    'limit': 1
+                }
+                
+                response = self.session.get(search_url, params=search_params, timeout=self.request_timeout)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    if data.get('search'):
+                        entity_id = data['search'][0]['id']
+                        
+                        # 获取实体数据
+                        entity_url = f"https://www.wikidata.org/wiki/Special:EntityData/{entity_id}.json"
+                        entity_response = self.session.get(entity_url, timeout=self.request_timeout)
+                        
+                        if entity_response.status_code == 200:
+                            entity_data = entity_response.json()
+                            extracted_triples = self._extract_triples_from_wikidata(entity_id, entity_data)
+                            triples.extend(extracted_triples)
+                            
+                            if len(triples) >= max_results:
+                                break
+                                
+            except Exception as e:
+                logging.warning(f"Wikidata API请求失败 {entity}: {e}")
+                continue
+        
+        return triples
+    
+    def _retrieve_from_search_engine(self, entities: List[str], relations: Optional[List[str]], max_results: int) -> List[KnowledgeTriple]:
+        """从搜索引擎获取知识（使用DuckDuckGo）"""
+        triples = []
+        
+        # 构建搜索查询
+        query = " ".join(entities)
+        if relations:
+            query += " " + " ".join(relations)
+        
+        self._rate_limit()
+        
+        try:
+            # 使用DuckDuckGo即时答案API
+            search_url = "https://api.duckduckgo.com/"
+            params = {
+                'q': query,
+                'format': 'json',
+                'no_html': '1',
+                'skip_disambig': '1'
+            }
+            
+            response = self.session.get(search_url, params=params, timeout=self.request_timeout)
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                # 从即时答案中提取信息
+                if data.get('Answer'):
+                    answer_text = data['Answer']
+                    extracted_triples = self._extract_triples_from_text(query, answer_text, 'duckduckgo')
+                    triples.extend(extracted_triples)
+                
+                # 从相关主题中提取信息
+                if data.get('RelatedTopics'):
+                    for topic in data['RelatedTopics'][:3]:
+                        if isinstance(topic, dict) and topic.get('Text'):
+                            topic_text = topic['Text']
+                            extracted_triples = self._extract_triples_from_text(query, topic_text, 'duckduckgo')
+                            triples.extend(extracted_triples)
+                            
+        except Exception as e:
+            logging.warning(f"搜索引擎请求失败: {e}")
+        
+        return triples
+    
+    def _retrieve_from_knowledge_graph(self, entities: List[str], relations: Optional[List[str]], max_results: int) -> List[KnowledgeTriple]:
+        """从知识图谱API获取知识（Google Knowledge Graph API示例）"""
+        # 注意：这需要API密钥，这里提供框架
+        triples = []
+        
+        # 如果有API密钥，可以使用Google Knowledge Graph API
+        # api_key = os.getenv('GOOGLE_KG_API_KEY')
+        # if not api_key:
+        #     return triples
+        
+        # 这里返回空列表，实际使用时需要配置API密钥
+        # 知识图谱API需要配置API密钥
+        return triples
+    
+    def _retrieve_hybrid(self, entities: List[str], relations: Optional[List[str]], max_results: int) -> List[KnowledgeTriple]:
+        """混合策略获取知识"""
+        all_triples = []
+        
+        # 尝试多种策略
+        strategies = [
+            RetrievalStrategy.WIKIPEDIA_API,
+            RetrievalStrategy.SEARCH_ENGINE,
+            RetrievalStrategy.WIKIDATA_API
+        ]
+        
+        for strategy in strategies:
+            try:
+                if strategy == RetrievalStrategy.WIKIPEDIA_API:
+                    triples = self._retrieve_from_wikipedia(entities, relations, max_results // 3)
+                elif strategy == RetrievalStrategy.SEARCH_ENGINE:
+                    triples = self._retrieve_from_search_engine(entities, relations, max_results // 3)
+                elif strategy == RetrievalStrategy.WIKIDATA_API:
+                    triples = self._retrieve_from_wikidata(entities, relations, max_results // 3)
+                
+                all_triples.extend(triples)
+                
+                if len(all_triples) >= max_results:
+                    break
+                    
+            except Exception as e:
+                logging.warning(f"混合策略中 {strategy.value} 失败: {e}")
+                continue
+        
+        # 去重并按置信度排序
+        unique_triples = self._deduplicate_triples(all_triples)
+        unique_triples.sort(key=lambda x: x.confidence, reverse=True)
+        
+        return unique_triples
+    
+    def _extract_triples_from_text(self, subject: str, text: str, source: str) -> List[KnowledgeTriple]:
+        """从文本中提取知识三元组"""
+        triples = []
+        current_time = time.time()
+        
+        # 简单的模式匹配提取
+        patterns = [
+            (r'(.+?)\s+(?:is|was)\s+(?:a|an|the)?\s*(.+?)(?:\.|,|;)', 'is_a'),
+            (r'(.+?)\s+(?:born|was born)\s+(?:in|on)\s+(.+?)(?:\.|,|;)', 'born_in'),
+            (r'(.+?)\s+(?:died|was died)\s+(?:in|on)\s+(.+?)(?:\.|,|;)', 'died_in'),
+            (r'(.+?)\s+(?:located|situated)\s+(?:in|at)\s+(.+?)(?:\.|,|;)', 'located_in'),
+            (r'(.+?)\s+(?:capital|capital city)\s+(?:of|is)\s+(.+?)(?:\.|,|;)', 'capital_of'),
+            (r'(.+?)\s+(?:wrote|authored|created)\s+(.+?)(?:\.|,|;)', 'created'),
+            (r'(.+?)\s+(?:known for|famous for)\s+(.+?)(?:\.|,|;)', 'known_for'),
+        ]
+        
+        for pattern, relation in patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                subj = match.group(1).strip()
+                obj = match.group(2).strip()
+                
+                if len(subj) > 1 and len(obj) > 1:
+                    confidence = 0.6  # 基础置信度
+                    
+                    # 如果主语匹配输入实体，提高置信度
+                    if subj.lower() in subject.lower() or subject.lower() in subj.lower():
+                        confidence += 0.2
+                    
+                    triple = KnowledgeTriple(
+                        subject=subj,
+                        relation=relation,
+                        object=obj,
+                        confidence=confidence,
+                        source=source,
+                        timestamp=current_time,
+                        evidence_text=match.group(0),
+                        source_url=None
+                    )
+                    triples.append(triple)
+        
+        return triples
+    
+    def _extract_triples_from_wikidata(self, entity_id: str, entity_data: Dict) -> List[KnowledgeTriple]:
+        """从Wikidata实体数据中提取三元组"""
+        triples = []
+        current_time = time.time()
+        
+        try:
+            entity = entity_data['entities'][entity_id]
+            claims = entity.get('claims', {})
+            
+            # 获取实体标签
+            labels = entity.get('labels', {})
+            subject_label = labels.get('en', {}).get('value', entity_id)
+            
+            # 处理一些常见的属性
+            property_mappings = {
+                'P31': 'instance_of',  # instance of
+                'P17': 'country',      # country
+                'P19': 'place_of_birth',  # place of birth
+                'P20': 'place_of_death',  # place of death
+                'P27': 'country_of_citizenship',  # country of citizenship
+                'P106': 'occupation',   # occupation
+                'P36': 'capital',      # capital
+                'P571': 'inception',   # inception
+            }
+            
+            for prop_id, relation in property_mappings.items():
+                if prop_id in claims:
+                    for claim in claims[prop_id][:3]:  # 限制数量
+                        try:
+                            mainsnak = claim.get('mainsnak', {})
+                            if mainsnak.get('snaktype') == 'value':
+                                datavalue = mainsnak.get('datavalue', {})
+                                if datavalue.get('type') == 'wikibase-entityid':
+                                    # 这里需要额外的API调用来获取对象标签
+                                    # 为简化，使用实体ID
+                                    object_id = datavalue['value']['id']
+                                    
+                                    triple = KnowledgeTriple(
+                                        subject=subject_label,
+                                        relation=relation,
+                                        object=object_id,
+                                        confidence=0.8,
+                                        source='wikidata',
+                                        timestamp=current_time,
+                                        source_url=f"https://www.wikidata.org/wiki/{entity_id}"
+                                    )
+                                    triples.append(triple)
+                                    
+                        except Exception as e:
+                            # 处理Wikidata声明失败
+                            continue
+                            
+        except Exception as e:
+            logging.warning(f"解析Wikidata实体数据失败: {e}")
+        
+        return triples
+    
+    def _deduplicate_triples(self, triples: List[KnowledgeTriple]) -> List[KnowledgeTriple]:
+        """去除重复的三元组"""
+        seen = set()
+        unique_triples = []
+        
+        for triple in triples:
+            # 创建标准化的键
+            key = (triple.subject.lower().strip(), triple.relation.lower().strip(), triple.object.lower().strip())
+            
+            if key not in seen:
+                seen.add(key)
+                unique_triples.append(triple)
+        
+        return unique_triples
+    
+    def get_statistics(self) -> Dict[str, Any]:
+        """获取统计信息"""
+        return {
+            **self.stats,
+            'cache_hit_rate': self.stats['cache_hits'] / max(self.stats['total_requests'], 1),
+            'success_rate': self.stats['successful_retrievals'] / max(self.stats['total_requests'], 1),
+            'avg_triples_per_request': self.stats['total_triples_found'] / max(self.stats['successful_retrievals'], 1)
+        }
+    
+    def clear_cache(self):
+        """清空缓存"""
+        with sqlite3.connect(self.cache_db_path) as conn:
+            conn.execute("DELETE FROM knowledge_cache")
+            conn.commit()
+        
+        self.stats = {
+            'total_requests': 0,
+            'cache_hits': 0,
+            'successful_retrievals': 0,
+            'failed_requests': 0,
+            'total_triples_found': 0
+        }
+        
+        # 网络知识获取器缓存已清空

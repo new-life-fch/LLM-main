@@ -1,0 +1,116 @@
+{
+  "model": {
+    "name": "/root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590",
+    "device": "cuda",
+    "batch_size": 8,
+    "torch_dtype": "float16"
+  },
+  "knowledge_extraction": {
+    "type": "rag",
+    "rate_limit": 1.0,
+    "cache_dir": "./cache/rag"
+  },
+  "rag_retrieval": {
+    "enabled": true,
+    "model_name": "BAAI/bge-large-en-v1.5",
+    "top_candidates": 500,
+    "min_score": 0.3,
+    "index_path": "./cache/rag/faiss_index",
+    "documents_path": "./cache/rag/documents.db",
+    "cache_dir": "./cache/rag",
+    "wikipedia_dataset": "wikimedia/wikipedia",
+    "max_seq_length": 512,
+    "batch_size": 64,
+    "embedding_dim": 1024,
+    "hnsw_m": 64,
+    "hnsw_ef_construction": 400,
+    "hnsw_ef_search": 200,
+    "enable_sharding": false,
+    "shard_size": 2000000,
+    "max_candidates": 100
+  },
+  "reranker_config": {
+    "enabled": true,
+    "model_name": "BAAI/bge-reranker-large",
+    "final_top_k": 3,
+    "batch_size": 512
+  },
+  "fallback_config": {
+    "enable_fallback": true,
+    "fallback_threshold_high": 0.6,
+    "fallback_threshold_medium": 0.4,
+    "fallback_threshold_low": 0.2,
+    "enable_dynamic_threshold": true,
+    "fallback_cache_ttl": 864000,
+    "min_threshold": 0.1,
+    "max_threshold": 0.6,
+    "threshold_adjustment_interval": 50,
+    "fallback_cache_path": "./cache/rag/fallback_cache.db"
+  },
+  "wikipedia_data": {
+    "chunk_size": 512,
+    "chunk_overlap": 50,
+    "language": "en",
+    "date": "20231101",
+    "preprocessing": {
+      "remove_tables": true,
+      "remove_infoboxes": true,
+      "min_text_length": 100,
+      "max_text_length": 2048
+    }
+  },
+  "performance_monitoring": {
+    "enabled": true,
+    "log_retrieval_stats": true,
+    "log_performance_metrics": true,
+    "stats_update_interval": 100
+  },
+  "fingerprint_builder": {
+    "target_layers": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "cache_size": 500,
+    "max_batch_size": 8,
+    "fingerprint_dim": 4096
+  },
+  "vector_index": {
+    "index_type": "flat",
+    "similarity_metric": "cosine",
+    "hnsw_m": 64,
+    "hnsw_ef_construction": 400,
+    "hnsw_ef_search": 200,
+    "max_vectors": 500000,
+    "similarity_threshold": 0.3
+  },
+  "conflict_detector": {
+    "similarity_threshold": 0.75,
+    "conflict_threshold": 0.3,
+    "enable_dynamic_threshold": true,
+    "threshold_adjustment_factor": 0.5,
+    "token_window": 64
+  },
+  "counterfactual_editor": {
+    "edit_strength": 2,
+    "min_confidence": 0.3,
+    "enable_rag_editing": true,
+    "activation_rollback_strength": 0.8,
+    "resampling_temperature": 1.2,
+    "activation_weighting_factor": 0.6
+  },
+  "evaluation": {
+    "truthfulqa_data": "TruthfulQA/data/TruthfulQA.csv",
+    "max_new_tokens": 100,
+    "temperature": 0.7,
+    "do_sample": true
+  },
+  "generation": {
+    "max_new_tokens": 4096,
+    "temperature": 0.6,
+    "do_sample": true,
+    "top_k": 50,
+    "top_p": 0.9,
+    "repetition_penalty": 1.2,
+    "num_beams": 1,
+    "early_stopping": true,
+    "is_mc_mode": false,
+    "prompt_length": 1000
+  }
+}
