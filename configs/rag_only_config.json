@@ -1,9 +1,9 @@
 {
   "model": {
-    "name": "/root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590",
+    "name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf",
     "device": "cuda",
     "batch_size": 8,
-    "torch_dtype": "float16"
+    "dtype": "float16"
   },
   "knowledge_extraction": {
     "type": "rag",
@@ -11,27 +11,11 @@
     "cache_dir": "./cache/rag"
   },
   "rag_retrieval": {
-    "enabled": true,
-    "model_name": "BAAI/bge-large-en-v1.5",
-    "top_candidates": 500,
-    "min_score": 0.3,
-    "index_path": "./cache/rag/faiss_index",
-    "documents_path": "./cache/rag/documents.db",
-    "cache_dir": "./cache/rag",
-    "wikipedia_dataset": "wikimedia/wikipedia",
-    "max_seq_length": 512,
-    "batch_size": 64,
-    "embedding_dim": 1024,
-    "hnsw_m": 64,
-    "hnsw_ef_construction": 400,
-    "hnsw_ef_search": 200,
-    "enable_sharding": false,
-    "shard_size": 2000000,
-    "max_candidates": 100
+    "config": "configs/retrieval_config.yaml"
   },
   "reranker_config": {
     "enabled": true,
-    "model_name": "BAAI/bge-reranker-large",
+    "model_name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/bge-reranker-base",
     "final_top_k": 3,
     "batch_size": 512
   },
@@ -66,7 +50,18 @@
     "stats_update_interval": 100
   },
   "fingerprint_builder": {
-    "target_layers": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "target_layers": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
     "cache_size": 500,
     "max_batch_size": 8,
     "fingerprint_dim": 4096
@@ -78,18 +73,18 @@
     "hnsw_ef_construction": 400,
     "hnsw_ef_search": 200,
     "max_vectors": 500000,
-    "similarity_threshold": 0.3
+    "similarity_threshold": 0.5
   },
   "conflict_detector": {
     "similarity_threshold": 0.75,
-    "conflict_threshold": 0.3,
+    "conflict_threshold": 0.5,
     "enable_dynamic_threshold": true,
     "threshold_adjustment_factor": 0.5,
     "token_window": 64
   },
   "counterfactual_editor": {
-    "edit_strength": 2,
-    "min_confidence": 0.3,
+    "edit_strength": 3,
+    "min_confidence": 0.1,
     "enable_rag_editing": true,
     "activation_rollback_strength": 0.8,
     "resampling_temperature": 1.2,

@@ -50,7 +50,7 @@ class PathConfig:
         self.log_root = self.project_root / "logs"
         
         # RAG相关路径
-        self.rag_cache_dir = self.cache_root / "rag"
+        self.rag_cache_dir = self.project_root / "wiki_data" / "indexes" / "wiki_bge_large_ivfpq"
         self.rag_index_path = self.rag_cache_dir / "faiss_index"
         self.rag_documents_path = self.rag_cache_dir / "documents.db"
         self.rag_index_bin = self.rag_cache_dir / "faiss_index.bin"

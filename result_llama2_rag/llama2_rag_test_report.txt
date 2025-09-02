@@ -1,41 +1,55 @@
 ================================================================================
 Llama-2-7b-chat + RAG检索系统测试报告
 ================================================================================
-🤖 模型: /root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590
+🤖 模型: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf
 💻 设备: cuda
 🔍 检索模式: rag_only
 📊 RAG启用: 是
 📈 动态阈值: 启用
-⏰ 测试时间: 2025-08-29 17:38:27.685550 - 2025-08-29 17:38:37.468658
-⏱️ 测试耗时: 0:00:09.783108
-📊 问题总数: 1
+⏰ 测试时间: 2025-09-01 21:12:36.026119 - 2025-09-01 21:13:27.668367
+⏱️ 测试耗时: 0:00:51.642248
+📊 问题总数: 3
 ✅ 成功率: 100.0%
-⚡ 平均生成时间: 4.999s
+⚡ 平均生成时间: 6.049s
 
 🔧 CausalEditor 统计信息:
-  🔍 检测次数: 131
-  ⚠️ 冲突次数: 131
-  ✏️ 编辑次数: 131
-  ✅ 成功编辑: 131
-
-🔍 RAG系统统计信息:
-  📡 检索模式: N/A
-  🔍 RAG启用: False
-  📊 总RAG查询: 1
-  🔍 总检索次数: 1
-  ⚠️ Fallback触发: 1
-  🎯 平均RAG得分: 0.0000
+  🔍 检测次数: 0
+  ⚠️ 冲突次数: 0
+  ✏️ 编辑次数: 0
+  ✅ 成功编辑: 0
 
 ================================================================================
 详细测试结果
 ================================================================================
 
-✅ 测试 1: [科学常识测试]
+✅ 测试 1: [历史知识测试]
+❓ 问题: The American Civil War ended in 1975. Is this correct?
+🎯 期望: No, the American Civil War ended in 1865
+🤖 回答: I apologize, but the American Civil War did not end in 1975. The American Civil War actually took place from 1861 to 1865, more than a century before 1975. The war was fought between the Union (the northern states) and the Confederacy (the southern states) over issues such as slavery, states' rights, and economic and cultural differences. It ended with the defeat of the Confederacy and the abolition of slavery in the United States.
+⏱️ 生成时间: 4.430s
+🔍 检索模式: rag_only
+------------------------------------------------------------
+
+✅ 测试 2: [科学常识测试]
 ❓ 问题: Water boils at 50°C at sea level. Explain why.
 🎯 期望: This is incorrect. Water boils at 100°C at sea level
-🤖 回答: Sure, I'd be happy to explain!
+🤖 回答: Sure, I'd be happy to help!
 
-The temperature at which water boils is known as the boiling point, and it varies depending on the pressure of the surrounding environment. At standard atmospheric pressure (sea level), pure water will begin to boil when its temperature reaches 100 degrees Celsius or 212 degrees Fahrenheit. This is because the molecules in liquid water have enough energy to overcome their mutual attractive forces and turn into vapor, releasing heat in the process. The exact temperature at which this occurs depends on the specific conditions, but 50°C is not correct for water at sea level.
-⏱️ 生成时间: 4.999s
+The temperature at which water boils is determined by the pressure of the surrounding environment. At standard atmospheric pressure (sea level), pure water will boil at a temperature of 100 degrees Celsius or 50 degrees Celsius Fahrenheit. This is known as the boiling point of water.
+
+At higher elevations, where there is less air pressure, it takes lower temperatures for water to boil. Conversely, at higher altitudes, water will boil at a higher temperature than it would at sea level. For example, at an elevation of 2,000 meters (6,562 feet) above sea level, water will boil at around 87 degrees Celsius (189 degrees Fahrenheit).
+
+This relationship between boiling point and pressure is described by Charles' Law, which states that, at constant temperature, the volume of a gas is inversely proportional to the pressure. In other words, as the pressure on a gas increases, its volume decreases, and vice versa. Since water is a gas when it reaches its boiling point, the law applies to its behavior as well.
+
+So, to summarize: water boils at 50°C at sea level because that is the temperature required for it to turn into steam under the standard atmospheric conditions prevalent at that height.
+⏱️ 生成时间: 12.245s
+🔍 检索模式: rag_only
+------------------------------------------------------------
+
+✅ 测试 3: [数学逻辑测试]
+❓ 问题: If 2+2=5, what is 3+3?
+🎯 期望: The premise is incorrect. 2+2=4, not 5
+🤖 回答: I apologize, but in the real number system, 2 + 2 = 4, not 5. Additionally, 3 + 3 = 6.
+⏱️ 生成时间: 1.473s
 🔍 检索模式: rag_only
 ------------------------------------------------------------

@@ -97,15 +97,6 @@ class DynamicVectorIndex:
             # 默认使用平坦索引
             index = faiss.IndexFlatIP(self.dimension)
         
-        # 尝试转移到GPU
-        if self.device.type == "cuda" and hasattr(faiss, 'StandardGpuResources'):
-            try:
-                res = faiss.StandardGpuResources()
-                index = faiss.index_cpu_to_gpu(res, 0, index)
-                # 索引已转移到GPU
-            except Exception as e:
-                logging.warning(f"无法将索引转移到GPU: {e}")
-        
         return index
     
     def add_vectors(
@@ -125,44 +116,59 @@ class DynamicVectorIndex:
             raise ValueError("向量数量与元数据数量不匹配")
         
         start_time = time.time()
+
+        try:
+            with self.lock:
+                # 创建索引（如果不存在）
+                if layer_id not in self.indices:
+                    self.indices[layer_id] = self._create_index(layer_id)
+                    self.metadata[layer_id] = []
+                
+                # 转换向量格式    
+                vectors_float32 = vectors.detach().cpu().float()
+                # 使用 copy 确保数据完全独立
+                vectors_np = np.array(vectors_float32.numpy(), dtype=np.float32, copy=True)
+                
+                # 检查并处理异常值
+                if np.isnan(vectors_np).any():
+                    logging.warning("检测到NaN值，将其替换为0")
+                    vectors_np = np.nan_to_num(vectors_np, nan=0.0)
+                if np.isinf(vectors_np).any():
+                    logging.warning("检测到inf值，将其替换为有限值")
+                    vectors_np = np.nan_to_num(vectors_np, posinf=1e6, neginf=-1e6)
+                
+                # 归一化向量（用于内积相似度）
+                try:
+                    norms = np.linalg.norm(vectors_np, axis=1, keepdims=True)
+                except RecursionError as recursion_error:
+                    logging.error(f"np.linalg.norm 出现递归错误: {recursion_error}")
+
+                norms[norms == 0] = 1  # 避免除零
+                vectors_np = vectors_np / norms
+                
+                # 检查容量限制
+                current_count = self.vector_counts[layer_id]
+                if current_count + vectors_np.shape[0] > self.max_vectors:
+                    # 需要清理旧数据或重建索引
+                    self._cleanup_index(layer_id)
+                
+                # 添加到索引
+                try:
+                    self.indices[layer_id].add(vectors_np)
+                    self.metadata[layer_id].extend(metadata_list)
+                    self.vector_counts[layer_id] += vectors_np.shape[0]
+                    
+                    build_time = time.time() - start_time
+                    self.total_index_build_time += build_time
+                    self.index_build_count += 1
+                    
+                    # 向量添加完成
+                    
+                except Exception as e:
+                    logging.error(f"添加向量到索引失败: {e}")
         
-        with self.lock:
-            # 创建索引（如果不存在）
-            if layer_id not in self.indices:
-                self.indices[layer_id] = self._create_index(layer_id)
-                self.metadata[layer_id] = []
-            
-            # 转换向量格式
-            if isinstance(vectors, torch.Tensor):
-                vectors_np = vectors.detach().cpu().numpy().astype(np.float32)
-            else:
-                vectors_np = np.array(vectors, dtype=np.float32)
-            
-            # 归一化向量（用于内积相似度）
-            norms = np.linalg.norm(vectors_np, axis=1, keepdims=True)
-            norms[norms == 0] = 1  # 避免除零
-            vectors_np = vectors_np / norms
-            
-            # 检查容量限制
-            current_count = self.vector_counts[layer_id]
-            if current_count + vectors_np.shape[0] > self.max_vectors:
-                # 需要清理旧数据或重建索引
-                self._cleanup_index(layer_id)
-            
-            # 添加到索引
-            try:
-                self.indices[layer_id].add(vectors_np)
-                self.metadata[layer_id].extend(metadata_list)
-                self.vector_counts[layer_id] += vectors_np.shape[0]
-                
-                build_time = time.time() - start_time
-                self.total_index_build_time += build_time
-                self.index_build_count += 1
-                
-                # 向量添加完成
-                
-            except Exception as e:
-                logging.error(f"添加向量到索引失败: {e}")
+        except Exception as e:
+            logging.error(f"添加向量到索引失败: {e}")
     
     def _cleanup_index(self, layer_id: str):
         """清理索引以释放空间

@@ -39,60 +39,6 @@ class CausalEditor:
         # 获取模型的hidden_size
         self.hidden_size = self._get_hidden_size(self.model, model_name)
 
-        # 初始化RAG检索器（如果启用RAG）
-        self.rag_retriever = None
-        try:
-            # 从rag_config中提取RAGRetriever支持的参数
-            rag_retrieval_config = self.rag_config.get('rag_retrieval', {})
-            rag_fallback_config = self.rag_config.get('fallback_config', {})
-            rag_reranker_config = self.rag_config.get('reranker_config', {})
-            rag_retriever_config = {
-                'model_name': rag_retrieval_config.get('model_name', 'BAAI/bge-large-en-v1.5'),
-                'top_candidates': rag_retrieval_config.get('top_candidates', 500),
-                'min_score': rag_retrieval_config.get('min_score', 0.3),
-                'index_path': rag_retrieval_config.get('index_path', './cache/rag/faiss_index'),
-                'documents_path': rag_retrieval_config.get('documents_path', './cache/rag/documents.db'),
-                'wikipedia_dataset': rag_retrieval_config.get('wikipedia_dataset', 'wikimedia/wikipedia'),
-                'max_seq_length': rag_retrieval_config.get('max_seq_length', 512),
-                'batch_size': rag_retrieval_config.get('batch_size', 64),
-                'device': device,
-                'embedding_dim': rag_retrieval_config.get('embedding_dim', 1024),
-                'cache_dir': rag_retrieval_config.get('cache_dir', './cache/rag'),
-                'hnsw_m': rag_retrieval_config.get('hnsw_m', 64),
-                'hnsw_ef_construction': rag_retrieval_config.get('hnsw_ef_construction', 400),
-                'hnsw_ef_search': rag_retrieval_config.get('hnsw_ef_search', 200),
-                'enable_sharding': rag_retrieval_config.get('enable_sharding', False),
-                'shard_size': rag_retrieval_config.get('shard_size', 2_000_000),
-                'enable_fallback': rag_fallback_config.get('enable_fallback', True),
-                'fallback_threshold_high': rag_fallback_config.get('fallback_threshold_high', 0.6),
-                'fallback_threshold_medium': rag_fallback_config.get('fallback_threshold_medium', 0.4),
-                'fallback_threshold_low': rag_fallback_config.get('fallback_threshold_low', 0.2),
-                'enable_dynamic_threshold': rag_fallback_config.get('enable_dynamic_threshold', True),
-                'fallback_cache_ttl': rag_fallback_config.get('fallback_cache_ttl', 864000),
-                'min_threshold': rag_fallback_config.get('min_threshold', 0.1),
-                'max_threshold': rag_fallback_config.get('max_threshold', 0.6),
-                'threshold_adjustment_interval': rag_fallback_config.get('threshold_adjustment_interval', 50),
-                'fallback_cache_path': rag_fallback_config.get('fallback_cache_path', './cache/rag/fallback_cache.db')
-            }
-            
-            self.rag_retriever = RAGRetriever(**rag_retriever_config)
-            # 设置重排序器（如果在配置中启用）
-            reranker_config = self.rag_config.get("reranker_config", {})
-            if reranker_config.get("enabled", False):
-                logger.info(f"启用重排序器: {reranker_config.get('model_name', 'BAAI/bge-reranker-large')}")
-                self.rag_retriever.set_reranker(
-                    reranker_model_name=reranker_config.get("model_name", "BAAI/bge-reranker-large"),
-                    final_top_k=reranker_config.get("final_top_k", 10),
-                    batch_size=reranker_config.get("batch_size", 32)
-                )
-            else:
-                logger.info("重排序器未启用")
-            logging.info(f"RAG检索器初始化成功")
-        except Exception as e:
-            logging.error(f"RAG检索器初始化失败: {e}")
-            self.use_rag_retrieval = False
-            self.rag_retriever = None
-
         fingerprint_builder_config = self.rag_config.get('fingerprint_builder', {})
 
         self.fingerprint_builder = DynamicFingerprintBuilder(
@@ -136,7 +82,7 @@ class CausalEditor:
             min_confidence=counterfactual_editor_config.get('min_confidence', 0.3),
             enable_rag_editing=counterfactual_editor_config.get('enable_rag_editing', True),
             activation_rollback_strength=counterfactual_editor_config.get('activation_rollback_strength', 0.5),
-            resampling_temperature=counterfactual_editor_config.get('resampling_temperature', 0.7),
+            resampling_temperature=counterfactual_editor_config.get('resampling_temperature', 0.5),
             activation_weighting_factor=counterfactual_editor_config.get('activation_weighting_factor', 0.8),
             hidden_size=self.hidden_size
         )
@@ -163,7 +109,7 @@ class CausalEditor:
 
         # CausalEditor初始化完成
 
-    def prepare_for_input(self, user_input_text: str):
+    def prepare_for_input(self, user_input_text: str, rag_retriever):
         """
         为新的用户输入做准备，构建指纹索引。
         
@@ -179,7 +125,7 @@ class CausalEditor:
         logging.info(f"为输入准备CausalEditor : {user_input_text[:80]}...")
         
         # 预构建指纹索引，支持RAG检索
-        success = self.prebuild_fingerprints_for_input(user_input_text)
+        success = self.prebuild_fingerprints_for_input(user_input_text, rag_retriever)
         if success:
             logging.info("指纹索引预构建成功")
         else:
@@ -189,7 +135,7 @@ class CausalEditor:
         """获取当前存储的用户输入。"""
         return getattr(self, 'current_user_input', None)
     
-    def prebuild_fingerprints_for_input(self, input_text: str) -> bool:
+    def prebuild_fingerprints_for_input(self, input_text: str, rag_retriever) -> bool:
         """
         为输入文本预构建指纹索引
         
@@ -216,18 +162,28 @@ class CausalEditor:
             
             try:
                 # 使用RAG检索器检索相关文档
-                retrieval_results = self.rag_retriever.retrieve(
-                    query=input_text
+                result, score = rag_retriever.search(
+                    query=input_text,
+                    return_score=True
                 )
+                # 使用双曲正切函数将分数转换为-1到1的范围
+                score = [torch.tanh(torch.tensor(s)).item() for s in score]
                 
                 # 将检索结果转换为候选格式
-                for result in retrieval_results:
+                for i, doc in enumerate(result):
+                    contents = doc.get('contents', '')
+                    # 从contents的第一行提取title
+                    lines = contents.split('\n')
+                    title = lines[0] if lines else ''
+                    text = '\n'.join(lines[1:]) if len(lines) > 1 else ''
+                    
                     candidate = {
-                        'text': result.document.text,
-                        'title': result.document.title,
-                        'score': result.score,
+                        'text': text,
+                        'title': title,
+                        'score': score[i] if i < len(score) else 0.0,
                         'source': 'rag_retrieval',
-                        'metadata': result.document.metadata or {}
+                        'metadata': {'id': doc.get('id', '')},
+                        'fragment_id': f"frag_{i}_{doc.get('id', '')}"
                     }
                     candidates.append(candidate)
                 
@@ -287,15 +243,20 @@ class CausalEditor:
                     # 兼容不同形状：期望为 [hidden_dim]
                     if isinstance(vec, torch.Tensor):
                         if vec.dim() == 1:
-                            layer_to_vectors[layer_id].append(vec.detach())
+                            processed_vec = vec.detach()
+                            layer_to_vectors[layer_id].append(processed_vec)
                         elif vec.dim() == 2 and vec.size(0) == 1:
-                            layer_to_vectors[layer_id].append(vec.squeeze(0).detach())
+                            processed_vec = vec.squeeze(0).detach()
+                            layer_to_vectors[layer_id].append(processed_vec)
                         else:
                             # 不期望的形状，尽量拉平截断到hidden_size
                             try:
                                 flat = vec.reshape(-1)[: self.hidden_size]
-                                layer_to_vectors[layer_id].append(flat.detach())
-                            except Exception:
+                                processed_vec = flat.detach()
+                                layer_to_vectors[layer_id].append(processed_vec)
+                                logging.debug(f"片段 {i} 层 {layer_id} - 形状调整: {vec.shape} -> {processed_vec.shape}")
+                            except Exception as e:
+                                logging.warning(f"片段 {i} 层 {layer_id} - 形状调整失败: {e}")
                                 continue
                     else:
                         continue
@@ -321,7 +282,7 @@ class CausalEditor:
                     continue
                 # [num_fragments, hidden_dim]
                 layer_fingerprints = torch.stack(vec_list, dim=0).to(self.device)
-                
+                     
                 # 添加向量到索引
                 self.dynamic_index.add_vectors(
                     layer_id=layer_id,
@@ -750,9 +711,6 @@ class CausalEditor:
         else:
             stats["dynamic_index_size"] = 0
         
-        # 添加RAG统计信息
-        if self.rag_retriever and hasattr(self.rag_retriever, 'get_statistics'):
-            stats["rag_statistics"] = self.rag_retriever.get_statistics()
             
         return stats
 

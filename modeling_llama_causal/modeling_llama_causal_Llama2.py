@@ -256,7 +256,7 @@ class CausalLlama2ForCausalLM(LlamaForCausalLM):
     ):
         # 针对Llama-2-7b模型的推荐配置
         recommended_kwargs = {
-            "torch_dtype": torch.float16,  # 使用float16减少内存使用
+            "dtype": torch.float16,  # 使用float16减少内存使用
             "device_map": "auto",  # 自动分发到可用设备
             "low_cpu_mem_usage": True,  # 减少CPU内存使用
             "trust_remote_code": True,  # 信任远程代码

@@ -611,111 +611,98 @@ class RAGRetriever:
         except Exception as e:
             logging.warning(f"清理Fallback缓存失败: {e}")
     
-    def load_wikipedia_data(self, subset: str = "20231101.en", max_docs: Optional[int] = None, 
-                           sample_high_quality: bool = True, download_path: Optional[str] = None,
-                           use_local_cache: bool = True):
-        """加载Wikipedia数据集
+    def load_flashrag_corpus(self, corpus_path: Optional[str] = None, max_docs: Optional[int] = None):
+        """加载FlashRAG语料库
         
         Args:
-            subset: Wikipedia数据集子集
-            max_docs: 最大文档数量限制
-            sample_high_quality: 是否优先采样高质量文章（用于开发测试）
-            download_path: 指定下载路径，如果为None则使用默认缓存路径
-            use_local_cache: 是否优先使用本地缓存的数据
+            corpus_path: flashrag_corpus.jsonl文件路径，如果为None则使用项目根目录下的文件
+            max_docs: 最大加载文档数量，如果为None则加载全部文档
         """
-        if not DATASETS_AVAILABLE:
-            logging.error("datasets库不可用，无法加载Wikipedia数据")
+        import json
+        
+        # 设置语料库文件路径
+        if corpus_path is None:
+            corpus_path = self.path_config.project_root / "wiki_data/flashrag_corpus.jsonl"
+        else:
+            corpus_path = Path(corpus_path)
+            if not corpus_path.is_absolute():
+                corpus_path = self.path_config.project_root / corpus_path
+        
+        if not corpus_path.exists():
+            logging.error(f"FlashRAG语料库文件不存在: {corpus_path}")
             return False
         
         try:
-            logging.info(f"开始加载Wikipedia数据集: {subset}")
-            
-            # 加载数据集
-            from datasets import load_dataset
-            
-            # 设置数据加载路径
-            if download_path:
-                download_path = Path(download_path)
-                # 确保相对路径基于项目根目录
-                if not download_path.is_absolute():
-                    download_path = self.path_config.project_root / download_path
-                download_path.mkdir(parents=True, exist_ok=True)
-                
-                # 检查本地是否已有缓存数据
-                if use_local_cache:
-                    cache_files = list(download_path.glob("**/*"))
-                    if cache_files:
-                        logging.info(f"使用本地缓存的Wikipedia数据: {download_path}")
-                    else:
-                        logging.info(f"本地缓存不存在，将下载Wikipedia数据集到: {download_path}")
-                else:
-                    logging.info(f"将Wikipedia数据集下载到: {download_path}")
-                
-                dataset = load_dataset(self.wikipedia_dataset, subset, split="train", cache_dir=str(download_path))
+            if max_docs is not None:
+                logging.info(f"开始加载FlashRAG语料库: {corpus_path} (限制最大文档数: {max_docs})")
             else:
-                dataset = load_dataset(self.wikipedia_dataset, subset, split="train")
+                logging.info(f"开始加载FlashRAG语料库: {corpus_path} (加载全部文档)")
             
-            # 高质量文章采样逻辑
-            if sample_high_quality and max_docs and max_docs <= 50000:
-                logging.info("启用高质量文章采样模式")
-                dataset = self._sample_high_quality_articles(dataset, max_docs)
-            elif max_docs:
-                dataset = dataset.select(range(min(max_docs, len(dataset))))
-            
-            # 批量插入文档和chunks（根据RAG方案优化）
-            batch_size = 500
+            # 批量插入文档和chunks
+            batch_size = 1024
             documents = []
             chunks_metadata = []
             processed_docs = 0
             total_chunks = 0
             
-            for i, item in enumerate(dataset):
-                doc_id = f"wiki_{i}"
-                title = item.get("title", "")
-                text = item.get("text", "")
-                
-                # 文本预处理和质量检查
-                text = self._preprocess_text(text)
-                
-                # 根据RAG方案过滤无效文章
-                if not self._is_valid_article(text, title):
-                    continue
-                
-                # 将文档切分为chunks（512 tokens / stride 128）
-                chunks = self._chunk_text(text, title)
-                
-                if chunks:
-                    # 保存原始文档
-                    doc_metadata = {
-                        "original_length": len(text),
-                        "chunk_count": len(chunks),
-                        "quality_score": self._calculate_quality_score(text, title),
-                        "source": "wikipedia",
-                        "subset": subset
-                    }
-                    documents.append((doc_id, title, text, str(doc_metadata)))
+            # 逐行读取JSONL文件
+            with open(corpus_path, 'r', encoding='utf-8') as f:
+                for line_num, line in enumerate(f):
+                    if not line.strip():
+                        continue
                     
-                    # 为每个chunk创建metadata
-                    for chunk_idx, (chunk_text, chunk_tokens) in enumerate(chunks):
+                    try:
+                        item = json.loads(line.strip())
+                        doc_id = item.get("id", f"doc_{line_num}")
+                        contents = item.get("contents", "")
+                        # 从contents中提取title（第一行）和text（剩余内容）
+                        lines = contents.split('\n', 1)
+                        title = lines[0] if lines else f"Document {doc_id}"
+                        text = lines[1] if len(lines) > 1 else contents
+                        
+                        # 由于语料库已经清洗并按512token分割，直接使用
+                        if not text.strip():
+                            continue
+                        
+                        # 保存原始文档
+                        doc_metadata = {
+                            "original_length": len(text),
+                            "chunk_count": 1,  # 每个条目就是一个chunk
+                            "quality_score": 1.0,  # 已经清洗过的高质量数据
+                            "source": "flashrag_corpus",
+                            "subset": "all"
+                        }
+                        documents.append((doc_id, title, text, str(doc_metadata)))
+                        
+                        # 创建chunk metadata（每个条目就是一个chunk）
                         chunk_metadata = {
                             "original_doc_id": doc_id,
-                            "chunk_id": chunk_idx,
-                            "chunk_text": chunk_text,
-                            "chunk_length": len(chunk_text),
-                            "chunk_tokens": chunk_tokens  # 直接使用切分时记录的token数量
+                            "chunk_id": 0,  # 每个条目只有一个chunk
+                            "chunk_text": text,
+                            "chunk_length": len(text),
+                            "chunk_tokens": 512  # 根据说明，每条都是512token
                         }
                         chunks_metadata.append(chunk_metadata)
                         total_chunks += 1
+                        
+                        processed_docs += 1
+                        
+                        # 检查是否达到最大文档数量限制
+                        if max_docs is not None and processed_docs >= max_docs:
+                            logging.info(f"已达到最大文档数量限制: {max_docs}，停止加载")
+                            break
+                        
+                    except json.JSONDecodeError as e:
+                        logging.warning(f"解析第{line_num+1}行JSON失败: {e}")
+                        continue
                     
-                    processed_docs += 1
-                
-                # 批量插入
-                if len(documents) >= batch_size:
-                    self._batch_insert_documents(documents)
-                    documents = []
-                    
-                if (i + 1) % 5000 == 0:
-                    logging.info(f"已处理 {i + 1} 篇原始文档，生成 {processed_docs} 篇有效文档，{total_chunks} 个chunks")
+                    # 批量插入
+                    if len(documents) >= batch_size:
+                        self._batch_insert_documents(documents)
+                        documents = []
+                        
+                    if (line_num + 1) % 50000 == 0:
+                        logging.info(f"已处理 {line_num + 1} 行，生成 {processed_docs} 篇有效文档，{total_chunks} 个chunks")
             
             # 插入剩余文档
             if documents:
@@ -729,11 +716,11 @@ class RAGRetriever:
             cursor = self.conn.execute("SELECT COUNT(*) FROM documents")
             self.total_documents = cursor.fetchone()[0]
             
-            logging.info(f"Wikipedia数据加载完成，总文档数: {self.total_documents}")
+            logging.info(f"FlashRAG语料库加载完成，总文档数: {self.total_documents}")
             return True
             
         except Exception as e:
-            logging.error(f"加载Wikipedia数据失败: {e}")
+            logging.error(f"加载FlashRAG语料库失败: {e}")
             return False
     
     def download_wikipedia_corpus(self, subset: str = "20231101.en", download_path: str = "./data", 
@@ -985,7 +972,7 @@ class RAGRetriever:
         # 使用BGE tokenizer进行精确的token级别切分
         tokens = self.tokenizer.encode(full_text, add_special_tokens=False)
         
-        chunk_size = 450  # 根据方案要求设置为450 tokens
+        chunk_size = 512  # 根据方案要求设置为512 tokens
         stride = 128      # 根据方案要求设置stride为128
         
         for i in range(0, len(tokens), chunk_size - stride):
@@ -1075,6 +1062,9 @@ class RAGRetriever:
             logging.error("FAISS不可用，无法构建索引")
             return False
         
+        # 确保faiss模块可用
+        import faiss
+        
         # 检查是否已存在索引
         if not rebuild and self.index_path.exists():
             return self.load_index()
@@ -1082,28 +1072,48 @@ class RAGRetriever:
         start_time = time.time()
         
         try:
-            logging.info("开始构建FAISS HNSW索引...")
+            logging.info("开始构建FAISS IVF+PQ索引...")
             
             # 检查是否需要启用分片
             cursor = self.conn.execute("SELECT COUNT(*) FROM documents")
             total_docs = cursor.fetchone()[0]
-            estimated_chunks = total_docs * 5  # 估算每文档平均5个chunks
+            estimated_chunks = total_docs  # 估算每文档平均5个chunks
             
             if estimated_chunks > 5_000_000:
                 self.enable_sharding = True
                 logging.info(f"检测到大规模数据({estimated_chunks:,} chunks)，启用索引分片")
             
-            # 创建FAISS HNSW索引（根据文档方案优化）
-            # 使用HNSW索引提升检索性能
-            self.index = faiss.IndexHNSWFlat(self.embedding_dim, self.hnsw_m)
-            self.index.hnsw.efConstruction = self.hnsw_ef_construction
-            self.index.hnsw.efSearch = self.hnsw_ef_search
+            # 创建FAISS IVF+PQ索引（根据用户要求）
+            # 使用IVF+PQ索引，适合大规模数据检索
+            # 动态调整nlist，确保训练数据足够
+            nlist = min(65536, estimated_chunks // 10)  # 确保至少有10倍于聚类中心的训练数据
+            nlist = max(nlist, 100)  # 最小值为100
+            # 确保m是embedding_dim的因子
+            if self.embedding_dim % 64 == 0:
+                m = 64  # PQ编码的子向量数量
+            elif self.embedding_dim % 32 == 0:
+                m = 32
+            else:
+                m = 16  # 默认值
+            nbits = 8  # 每个子向量的位数
             
-            # 设置索引训练参数以优化大规模数据性能
-            if hasattr(self.index, 'verbose'):
-                self.index.verbose = True
+            # 创建量化器
+            quantizer = faiss.IndexFlatL2(self.embedding_dim)
             
-            logging.info(f"HNSW索引配置: M={self.hnsw_m}, efConstruction={self.hnsw_ef_construction}, efSearch={self.hnsw_ef_search}")
+            # 创建IVF+PQ索引
+            self.index = faiss.IndexIVFPQ(quantizer, self.embedding_dim, nlist, m, nbits)
+            
+            # 尝试使用GPU加速
+            if torch.cuda.is_available():
+                try:
+                    import faiss.contrib.torch_utils
+                    res = faiss.StandardGpuResources()
+                    self.index = faiss.index_cpu_to_gpu(res, 0, self.index)
+                    logging.info("成功启用FAISS GPU加速")
+                except Exception as e:
+                    logging.warning(f"无法启用FAISS GPU加速: {e}，使用CPU版本")
+            
+            logging.info(f"IVF+PQ索引配置: nlist={nlist}, m={m}, nbits={nbits}")
             logging.info(f"预期处理数据量: {estimated_chunks:,} chunks")
             
             # 检查是否已有chunk metadata（避免重复切分）
@@ -1145,7 +1155,18 @@ class RAGRetriever:
                 embeddings_array = np.array(embeddings).astype(np.float32)
                 # L2归一化用于余弦相似度
                 faiss.normalize_L2(embeddings_array)
+                
+                # 训练IVF索引（IVF索引需要先训练）
+                logging.info("开始训练IVF索引...")
+                train_size = min(len(embeddings_array), max(65536 * 10, 100000))  # 训练样本数量
+                train_data = embeddings_array[:train_size]
+                self.index.train(train_data)
+                logging.info(f"IVF索引训练完成，使用 {train_size} 个样本")
+                
+                # 添加所有向量到索引
+                logging.info("开始添加向量到索引...")
                 self.index.add(embeddings_array)
+                logging.info(f"成功添加 {len(embeddings_array)} 个向量到索引")
                 
                 # 保存索引
                 faiss.write_index(self.index, str(self.index_path))

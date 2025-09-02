@@ -285,8 +285,8 @@ class DynamicFingerprintBuilder:
         # Tokenization
         try:
             # 动态调整max_length以适应不同的文本长度
-            avg_length = sum(len(text.split()) for text in valid_texts) / len(valid_texts)
-            max_length = min(512, max(64, int(avg_length * 1.5)))  # 动态长度
+            # avg_length = sum(len(text.split()) for text in valid_texts) / len(valid_texts)
+            max_length = 512 #min(512, max(64, int(avg_length * 1.5)))  # 动态长度
             
             # 使用右侧padding（符合llama2训练时的设定）
             inputs = self.tokenizer(

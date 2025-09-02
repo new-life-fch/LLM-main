@@ -1,0 +1,34 @@
+python -m flashrag.retriever.index_builder \
+  --retrieval_method bge \
+  --model_path BAAI/bge-large-en-v1.5 \
+  --corpus_path wiki_data/flashrag_corpus.jsonl \
+  --save_dir wiki_data/indexes/wiki_bge_large_ivfpq \
+  --use_fp16 \
+  --max_length 512 \
+  --batch_size 1024 \
+  --pooling_method cls \
+  --faiss_gpu \
+  --faiss_type "IVF65536,PQ96" \
+  --instruction "Represent this sentence for searching relevant passages: "
+
+export HF_DATASETS_CACHE="/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/wiki_data/tmp"
+export TRANSFORMERS_CACHE="/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/wiki_data/tmp" 
+
+python -m flashrag.retriever.index_builder \
+  --retrieval_method e5 \
+  --model_path model/e5-base-v2/models--intfloat--e5-base-v2/snapshots/f52bf8ec8c7124536f0efb74aca902b2995e5bcd \
+  --corpus_path wiki_data/flashrag_corpus.jsonl \
+  --save_dir /wiki_data/indexes/wiki_e5_base_ivfpq \
+  --use_fp16 \
+  --max_length 512 \
+  --batch_size 2048 \
+  --pooling_method mean \
+  --faiss_gpu \
+  --faiss_type "IVF65536,PQ96" 
+
+  unset http_proxy https_proxy ftp_proxy no_proxy HTTP_PROXY HTTPS_PROXY FTP_PROXY NO_PROXY
+
+
+  "rag_retrieval": {
+    "config": "configs/retrieval_config.yaml"
+  },

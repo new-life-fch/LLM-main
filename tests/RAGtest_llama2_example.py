@@ -21,6 +21,8 @@ Llama-2-7b-chat 模型 + RAG检索系统测试示例
 import json
 import logging
 import os
+from flashrag.config import Config
+from flashrag.utils import get_retriever
 
 import torch
 
@@ -37,9 +39,9 @@ except ImportError as e:
     # TODO: 添加fallback逻辑
 
 # 设置 Hugging Face 缓存目录
-os.environ['HF_HOME'] = '/root/autodl-tmp/huggingface'
-os.environ['TRANSFORMERS_CACHE'] = '/root/autodl-tmp/huggingface/hub'
-os.environ['HF_DATASETS_CACHE'] = '/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/data'
+os.environ['HF_HOME'] = '/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/wiki_data'
+os.environ['TRANSFORMERS_CACHE'] = "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/wiki_data/tmp" 
+os.environ['HF_DATASETS_CACHE'] = "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/wiki_data/tmp"
 
 # 设置transformers详细日志
 os.environ['TRANSFORMERS_VERBOSITY'] = 'info'
@@ -49,6 +51,7 @@ project_root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(project_root / "causal_editor"))
 
+# 导包
 try:
     from causal_editor.core.causal_editor import CausalEditor
     # 使用Llama-2适配文件
@@ -62,7 +65,6 @@ try:
     except ImportError as e:
         logging.warning(f'导入失败: {e}')
         # TODO: 添加fallback逻辑
-
 except ImportError as e:
     logging.error(
         f"导入组件失败。请确保您的 PYTHONPATH 设置正确。错误: {e}"
@@ -83,18 +85,18 @@ except ImportError as e:
 
 # 配置日志
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 # --- Llama-2 + RAG 配置 ---
 # MODEL_NAME = "meta-llama/Llama-2-7b-chat-hf"  # 原始在线模型名称
-MODEL_NAME = "/root/autodl-tmp/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590"  # 本地模型路径
+MODEL_NAME = "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf"  # 本地模型路径
 RESULT_DIR = "./result_llama2_rag"  # 结果保存目录
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 1  # 保持批处理大小较小
 MAX_LENGTH = 1024  # 输入长度
-DEBUG_MODE = True  # 启用详细调试模式
-SAVE_INTERMEDIATE_RESULTS = True  # 保存中间结果
+DEBUG_MODE = False  # 启用详细调试模式
+SAVE_INTERMEDIATE_RESULTS = False  # 保存中间结果
 
 # RAG系统配置
 RAG_CONFIG_PATH = "./configs/rag_only_config.json"  # RAG配置文件路径
@@ -129,48 +131,22 @@ else:
 # --- 步骤 1: 初始化RAG配置 ---
 print("\n--- 步骤 1: 初始化RAG配置 ---")
 
+# 初始化总配置文件
 try:
     # 验证配置文件路径
     config_path = Path(RAG_CONFIG_PATH)
-    if not config_path.parent.exists():
-        logging.warning(f"配置目录不存在，创建: {config_path.parent}")
-        config_path.parent.mkdir(parents=True, exist_ok=True)
-    
-    # 加载RAG配置
-    if config_path.exists():
-        try:
-            rag_config = RAGConfig(config_path=RAG_CONFIG_PATH)
-            print(f"✅ 从 {RAG_CONFIG_PATH} 加载RAG配置成功")
-        except Exception as config_error:
-            logging.error(f"配置文件加载失败: {config_error}")
-            print(f"⚠️  配置文件损坏，使用默认配置")
-            rag_config = RAGConfig()
-    else:
-        print(f"⚠️  配置文件 {RAG_CONFIG_PATH} 不存在，使用默认配置")
-        rag_config = RAGConfig()
-        
+    rag_config = RAGConfig(config_path=RAG_CONFIG_PATH)  
     # 验证RAG配置已启用
-    rag_config_dict = rag_config.get_config()
-    if not rag_config_dict.get("rag_retrieval", {}).get("enabled", False):
-        logging.warning("RAG配置中enabled字段为False，但继续测试")
-    
+    rag_config_dict = rag_config.get_config()  
     # 验证动态阈值配置
     dynamic_threshold_enabled = rag_config_dict.get("fallback_config", {}).get("enable_dynamic_threshold", False)
-    if dynamic_threshold_enabled != ENABLE_DYNAMIC_THRESHOLD:
-        logging.info(f"动态阈值配置: {dynamic_threshold_enabled} (期望: {ENABLE_DYNAMIC_THRESHOLD})")
+    rag_retrieval_config = rag_config_dict.get('rag_retrieval', {})
+    rag_retrieval_config_path = rag_retrieval_config.get('config', None)
+    config = Config(rag_retrieval_config_path)
     
-    # 显示RAG配置信息
-    if DEBUG_MODE:
-        print("\n🔧 RAG配置信息:")
-        print(json.dumps({
-            "enabled": rag_config_dict.get("rag_retrieval", {}).get("enabled", False),
-            "model_name": rag_config_dict.get("rag_retrieval", {}).get("model_name", "N/A"),
-            "top_k": rag_config_dict.get("rag_retrieval", {}).get("top_k", 5),
-            "min_score": rag_config_dict.get("rag_retrieval", {}).get("min_score", 0.3),
-            "dynamic_threshold": rag_config_dict.get("fallback_config", {}).get("enable_dynamic_threshold", False),
-            "reranker_enabled": rag_config_dict.get("reranker_config", {}).get("enabled", False)
-        }, indent=2, ensure_ascii=False))
-    
+
+    # 初始化检索器（支持纯文本、多模态、多路检索）
+    rag_retriever = get_retriever(config)
     print("✅ RAG配置初始化完成")
     
 except Exception as e:
@@ -188,13 +164,6 @@ except Exception as e:
 print("\n--- 步骤 2: 加载集成RAG的Llama-2模型 ---")
 
 try:
-    # 验证模型路径
-    model_path = Path(MODEL_NAME)
-    if model_path.exists():
-        print(f"✅ 本地模型路径验证成功: {MODEL_NAME}")
-    else:
-        print(f"⚠️  本地模型路径不存在，尝试在线下载: {MODEL_NAME}")
-    
     # 加载模型 - 使用RAG检索模式（包含tokenizer初始化）
     logging.info("正在加载 Llama-2 模型（RAG模式）...")
     print("⏳ 正在下载和加载模型，这可能需要几分钟...")
@@ -221,19 +190,6 @@ try:
     model.eval()
     print(f"✅ 模型 {MODEL_NAME} 已加载到 {DEVICE}")
     
-    # 显示模型信息
-    if DEBUG_MODE:
-        model_info = model.get_model_info()
-        print("\n📊 模型信息:")
-        print(json.dumps(model_info, indent=2, ensure_ascii=False))
-        
-        total_params = sum(p.numel() for p in model.parameters())
-        trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-        print(f"\n📈 参数统计:")
-        print(f"  总参数: {total_params:,}")
-        print(f"  可训练参数: {trainable_params:,}")
-        print(f"  模型设备: {next(model.parameters()).device}")
-    
     # 验证 CausalEditor 和 RAG 集成
     causal_editor_instance = model.causal_editor
     
@@ -255,10 +211,6 @@ try:
         print("\n🔧 CausalEditor 配置:")
         print(json.dumps(editor_stats, indent=2, ensure_ascii=False))
         
-        # 显示RAG配置
-        rag_config_info = causal_editor_instance.get_rag_config()
-        print("\n🔍 RAG集成配置:")
-        print(json.dumps(rag_config_info, indent=2, ensure_ascii=False))
 
 except Exception as e:
     logging.error(f"❌ 加载模型或初始化 CausalEditor 失败: {e}")
@@ -365,7 +317,7 @@ for i, test_case in enumerate(test_cases):
         print(f"🔍 准备CausalEditor处理输入: {user_query}")
         try:
             if hasattr(causal_editor_instance, 'prepare_for_input'):
-                causal_editor_instance.prepare_for_input(user_query)
+                causal_editor_instance.prepare_for_input(user_query, rag_retriever)
                 print("✅ CausalEditor输入准备完成")
             else:
                 print("⚠️  CausalEditor没有prepare_for_input方法，跳过")
@@ -412,37 +364,6 @@ for i, test_case in enumerate(test_cases):
         print(f"🤖 生成回复: {response_text}")
         print(f"⏱️  生成耗时: {generation_time:.3f}s")
         
-        # 检查RAG检索统计
-        try:
-            rag_stats = {}
-            if hasattr(causal_editor_instance, 'rag_retriever') and causal_editor_instance.rag_retriever:
-                # 从RAG检索器直接获取统计信息
-                rag_retriever_stats = causal_editor_instance.rag_retriever.get_statistics()
-                rag_score_stats = causal_editor_instance.rag_retriever.get_score_statistics()
-                
-                rag_stats = {
-                    "retrieval_count": rag_retriever_stats.get('retrieval_count', 0),
-                    "total_documents": rag_retriever_stats.get('total_documents', 0),
-                    "index_build_time": rag_retriever_stats.get('index_build_time', 0),
-                    "query_count": rag_score_stats.get('query_count', 0),
-                    "fallback_triggered": rag_score_stats.get('fallback_triggered', 0),
-                    "fallback_rate": rag_score_stats.get('fallback_rate', 0.0),
-                    "overall_avg_score": rag_score_stats.get('overall_avg_score', 0.0),
-                    "recent_avg_score": rag_score_stats.get('recent_avg_score', 0.0)
-                }
-                print(f"🔍 RAG检索统计更新: {rag_stats}")
-                if rag_stats.get('query_count', 0) > 0:
-                    print(f"📡 本次生成触发了 {rag_stats['query_count']} 次RAG查询")
-                    print(f"📄 检索次数: {rag_stats['retrieval_count']}")
-                    print(f"🎯 平均得分: {rag_stats['overall_avg_score']:.4f}")
-                    print(f"⚠️ Fallback触发: {rag_stats['fallback_triggered']}次 ({rag_stats['fallback_rate']:.1%})")
-                else:
-                    print("📡 本次生成未触发RAG检索（使用缓存或本地知识）")
-            else:
-                print("⚠️  RAG检索器未找到或未初始化")
-        except Exception as rag_stats_error:
-            logging.warning(f"获取RAG统计失败: {rag_stats_error}")
-        
         # 显示冲突检测和编辑统计
         if DEBUG_MODE:
             conflict_stats = current_stats.get('conflict_detector_stats', {})
@@ -474,18 +395,6 @@ for i, test_case in enumerate(test_cases):
             print(f"  - 相似度阈值: {conflict_stats.get('current_similarity_threshold', 'N/A')}")
             print(f"  - 冲突阈值: {conflict_stats.get('current_conflict_threshold', 'N/A')}")
             
-            # 显示RAG检索器的动态阈值
-            if hasattr(causal_editor_instance, 'rag_retriever') and causal_editor_instance.rag_retriever:
-                try:
-                    rag_score_stats = causal_editor_instance.rag_retriever.get_score_statistics()
-                    current_thresholds = rag_score_stats.get('current_thresholds', {})
-                    if current_thresholds:
-                        print(f"  - RAG Fallback阈值:")
-                        print(f"    * 高阈值: {current_thresholds.get('high', 0.0):.3f}")
-                        print(f"    * 中阈值: {current_thresholds.get('medium', 0.0):.3f}")
-                        print(f"    * 低阈值: {current_thresholds.get('low', 0.0):.3f}")
-                except Exception as e:
-                    logging.warning(f"获取RAG阈值信息失败: {e}")
         
         # 保存测试结果
         case_end_time = time.time()
@@ -557,189 +466,100 @@ for i, test_case in enumerate(test_cases):
 
 test_end_time = datetime.now()
 
-# --- 步骤 4: 保存RAG测试结果 ---
-print(f"\n--- 步骤 4: 保存RAG测试结果 ---")
+# # --- 步骤 4: 保存RAG测试结果 ---
+# print(f"\n--- 步骤 4: 保存RAG测试结果 ---")
 
-# 计算统计信息
-successful_tests = [r for r in results if 'error' not in r]
-failed_tests = [r for r in results if 'error' in r]
-total_generation_time = sum(r.get('generation_time', 0) for r in successful_tests)
-avg_generation_time = total_generation_time / len(successful_tests) if successful_tests else 0
+# # 计算统计信息
+# successful_tests = [r for r in results if 'error' not in r]
+# failed_tests = [r for r in results if 'error' in r]
+# total_generation_time = sum(r.get('generation_time', 0) for r in successful_tests)
+# avg_generation_time = total_generation_time / len(successful_tests) if successful_tests else 0
 
-# 计算RAG统计信息
-total_rag_queries = sum(r.get('rag_stats', {}).get('query_count', 0) for r in successful_tests)
-total_rag_retrievals = sum(r.get('rag_stats', {}).get('retrieval_count', 0) for r in successful_tests)
-total_fallback_triggered = sum(r.get('rag_stats', {}).get('fallback_triggered', 0) for r in successful_tests)
-rag_scores = [r.get('rag_stats', {}).get('overall_avg_score', 0) for r in successful_tests if r.get('rag_stats', {}).get('overall_avg_score', 0) > 0]
-avg_rag_score = sum(rag_scores) / len(rag_scores) if rag_scores else 0.0
+# # 获取最终统计信息
+# try:
+#     final_stats = causal_editor_instance.get_statistics()
+#     print(f"\n🔧 CausalEditor 最终统计:")
+#     print(json.dumps(final_stats, indent=2, ensure_ascii=False))
+# except Exception as final_stats_error:
+#     logging.error(f"获取最终统计失败: {final_stats_error}")
+#     final_stats = {"error": str(final_stats_error)}
+#     print(f"\n❌ 无法获取CausalEditor最终统计: {final_stats_error}")
 
-print(f"\n📊 RAG测试统计摘要:")
-print(f"  ✅ 成功测试: {len(successful_tests)} / {len(results)}")
-print(f"  ❌ 失败测试: {len(failed_tests)}")
-print(f"  ⏱️  平均生成时间: {avg_generation_time:.3f}s")
-print(f"  🕐 总测试时间: {test_end_time - test_start_time}")
-print(f"  🔍 检索模式: {RETRIEVAL_MODE}")
-print(f"  📊 动态阈值: {'启用' if ENABLE_DYNAMIC_THRESHOLD else '禁用'}")
-print(f"  📡 总RAG查询: {total_rag_queries}")
-print(f"  🔍 总检索次数: {total_rag_retrievals}")
-print(f"  ⚠️ Fallback触发: {total_fallback_triggered}")
-print(f"  🎯 平均RAG得分: {avg_rag_score:.4f}")
+# # 保存详细结果
+# results_json_path = result_path / "llama2_rag_test_results.json"
+# try:
+#     test_summary = {
+#         "model_name": MODEL_NAME,
+#         "test_type": "llama2_rag_causal_editor_test",
+#         "device": DEVICE,
+#         "retrieval_mode": RETRIEVAL_MODE,
+#         "rag_enabled": USE_RAG_RETRIEVAL,
+#         "dynamic_threshold_enabled": ENABLE_DYNAMIC_THRESHOLD,
+#         "test_start_time": test_start_time.isoformat(),
+#         "test_end_time": test_end_time.isoformat(),
+#         "total_test_time": str(test_end_time - test_start_time),
+#         "total_questions": len(test_cases),
+#         "successful_tests": len(successful_tests),
+#         "failed_tests": len(failed_tests),
+#         "success_rate": len(successful_tests) / len(test_cases) * 100 if test_cases else 0,
+#         "avg_generation_time": avg_generation_time,
+#         "causal_editor_stats": final_stats,
+#         "results": results,
+#         "test_environment": {
+#             "python_version": sys.version,
+#             "torch_version": torch.__version__,
+#             "cuda_available": torch.cuda.is_available(),
+#             "gpu_count": torch.cuda.device_count() if torch.cuda.is_available() else 0,
+#         }
+#     }
 
-# 获取最终统计信息
-try:
-    final_stats = causal_editor_instance.get_statistics()
-    print(f"\n🔧 CausalEditor 最终统计:")
-    print(json.dumps(final_stats, indent=2, ensure_ascii=False))
-except Exception as final_stats_error:
-    logging.error(f"获取最终统计失败: {final_stats_error}")
-    final_stats = {"error": str(final_stats_error)}
-    print(f"\n❌ 无法获取CausalEditor最终统计: {final_stats_error}")
+#     with open(results_json_path, "w", encoding="utf-8") as f:
+#         json.dump(test_summary, f, indent=2, ensure_ascii=False)
+#     print(f"✅ 测试结果JSON已保存: {results_json_path}")
+# except Exception as json_save_error:
+#     logging.error(f"保存JSON结果失败: {json_save_error}")
+#     print(f"❌ 无法保存JSON结果: {json_save_error}")
 
-# 获取RAG配置信息
-try:
-    if hasattr(causal_editor_instance, 'get_rag_config'):
-        final_rag_config = causal_editor_instance.get_rag_config()
-        print(f"\n🔍 RAG系统最终配置:")
-        print(json.dumps(final_rag_config, indent=2, ensure_ascii=False))
-    else:
-        final_rag_config = {"retrieval_mode": RETRIEVAL_MODE, "use_rag_retrieval": USE_RAG_RETRIEVAL}
-        print(f"\n⚠️  get_rag_config方法不存在，使用基本配置")
-except Exception as rag_config_error:
-    logging.error(f"获取RAG配置失败: {rag_config_error}")
-    final_rag_config = {"error": str(rag_config_error), "retrieval_mode": RETRIEVAL_MODE}
-    print(f"\n❌ 无法获取RAG配置: {rag_config_error}")
-
-# 保存详细结果
-results_json_path = result_path / "llama2_rag_test_results.json"
-try:
-    test_summary = {
-        "model_name": MODEL_NAME,
-        "test_type": "llama2_rag_causal_editor_test",
-        "device": DEVICE,
-        "retrieval_mode": RETRIEVAL_MODE,
-        "rag_enabled": USE_RAG_RETRIEVAL,
-        "dynamic_threshold_enabled": ENABLE_DYNAMIC_THRESHOLD,
-        "test_start_time": test_start_time.isoformat(),
-        "test_end_time": test_end_time.isoformat(),
-        "total_test_time": str(test_end_time - test_start_time),
-        "total_questions": len(test_cases),
-        "successful_tests": len(successful_tests),
-        "failed_tests": len(failed_tests),
-        "success_rate": len(successful_tests) / len(test_cases) * 100 if test_cases else 0,
-        "avg_generation_time": avg_generation_time,
-        "total_rag_queries": total_rag_queries,
-        "total_rag_retrievals": total_rag_retrievals,
-        "total_fallback_triggered": total_fallback_triggered,
-        "avg_rag_score": avg_rag_score,
-        "causal_editor_stats": final_stats,
-        "rag_config": final_rag_config,
-        "results": results,
-        "test_environment": {
-            "python_version": sys.version,
-            "torch_version": torch.__version__,
-            "cuda_available": torch.cuda.is_available(),
-            "gpu_count": torch.cuda.device_count() if torch.cuda.is_available() else 0,
-        }
-    }
-
-    with open(results_json_path, "w", encoding="utf-8") as f:
-        json.dump(test_summary, f, indent=2, ensure_ascii=False)
-    print(f"✅ 测试结果JSON已保存: {results_json_path}")
-except Exception as json_save_error:
-    logging.error(f"保存JSON结果失败: {json_save_error}")
-    print(f"❌ 无法保存JSON结果: {json_save_error}")
-
-# 保存简化报告
-report_path = result_path / "llama2_rag_test_report.txt"
-try:
-    with open(report_path, "w", encoding="utf-8") as f:
-        f.write("=" * 80 + "\n")
-        f.write("Llama-2-7b-chat + RAG检索系统测试报告\n")
-        f.write("=" * 80 + "\n")
-        f.write(f"🤖 模型: {MODEL_NAME}\n")
-        f.write(f"💻 设备: {DEVICE}\n")
-        f.write(f"🔍 检索模式: {RETRIEVAL_MODE}\n")
-        f.write(f"📊 RAG启用: {'是' if USE_RAG_RETRIEVAL else '否'}\n")
-        f.write(f"📈 动态阈值: {'启用' if ENABLE_DYNAMIC_THRESHOLD else '禁用'}\n")
-        f.write(f"⏰ 测试时间: {test_start_time} - {test_end_time}\n")
-        f.write(f"⏱️ 测试耗时: {test_end_time - test_start_time}\n")
-        f.write(f"📊 问题总数: {len(test_cases)}\n")
-        f.write(f"✅ 成功率: {len(successful_tests) / len(test_cases) * 100:.1f}%\n")
-        f.write(f"⚡ 平均生成时间: {avg_generation_time:.3f}s\n\n")
+# # 保存简化报告
+# report_path = result_path / "llama2_rag_test_report.txt"
+# try:
+#     with open(report_path, "w", encoding="utf-8") as f:
+#         f.write("=" * 80 + "\n")
+#         f.write("Llama-2-7b-chat + RAG检索系统测试报告\n")
+#         f.write("=" * 80 + "\n")
+#         f.write(f"🤖 模型: {MODEL_NAME}\n")
+#         f.write(f"💻 设备: {DEVICE}\n")
+#         f.write(f"🔍 检索模式: {RETRIEVAL_MODE}\n")
+#         f.write(f"📊 RAG启用: {'是' if USE_RAG_RETRIEVAL else '否'}\n")
+#         f.write(f"📈 动态阈值: {'启用' if ENABLE_DYNAMIC_THRESHOLD else '禁用'}\n")
+#         f.write(f"⏰ 测试时间: {test_start_time} - {test_end_time}\n")
+#         f.write(f"⏱️ 测试耗时: {test_end_time - test_start_time}\n")
+#         f.write(f"📊 问题总数: {len(test_cases)}\n")
+#         f.write(f"✅ 成功率: {len(successful_tests) / len(test_cases) * 100:.1f}%\n")
+#         f.write(f"⚡ 平均生成时间: {avg_generation_time:.3f}s\n\n")
         
-        f.write("🔧 CausalEditor 统计信息:\n")
-        f.write(f"  🔍 检测次数: {final_stats.get('conflict_detector_stats', {}).get('detection_count', 0)}\n")
-        f.write(f"  ⚠️ 冲突次数: {final_stats.get('conflict_detector_stats', {}).get('conflict_count', 0)}\n")
-        f.write(f"  ✏️ 编辑次数: {final_stats.get('counterfactual_editor_stats', {}).get('edit_count', 0)}\n")
-        f.write(f"  ✅ 成功编辑: {final_stats.get('counterfactual_editor_stats', {}).get('successful_edits', 0)}\n")
+#         f.write("🔧 CausalEditor 统计信息:\n")
+#         f.write(f"  🔍 检测次数: {final_stats.get('conflict_detector_stats', {}).get('detection_count', 0)}\n")
+#         f.write(f"  ⚠️ 冲突次数: {final_stats.get('conflict_detector_stats', {}).get('conflict_count', 0)}\n")
+#         f.write(f"  ✏️ 编辑次数: {final_stats.get('counterfactual_editor_stats', {}).get('edit_count', 0)}\n")
+#         f.write(f"  ✅ 成功编辑: {final_stats.get('counterfactual_editor_stats', {}).get('successful_edits', 0)}\n")
         
-        f.write("\n🔍 RAG系统统计信息:\n")
-        f.write(f"  📡 检索模式: {final_rag_config.get('retrieval_mode', 'N/A')}\n")
-        f.write(f"  🔍 RAG启用: {final_rag_config.get('use_rag_retrieval', False)}\n")
-        f.write(f"  📊 总RAG查询: {total_rag_queries}\n")
-        f.write(f"  🔍 总检索次数: {total_rag_retrievals}\n")
-        f.write(f"  ⚠️ Fallback触发: {total_fallback_triggered}\n")
-        f.write(f"  🎯 平均RAG得分: {avg_rag_score:.4f}\n")
+#         f.write("\n" + "=" * 80 + "\n")
+#         f.write("详细测试结果\n")
+#         f.write("=" * 80 + "\n")
         
-        f.write("\n" + "=" * 80 + "\n")
-        f.write("详细测试结果\n")
-        f.write("=" * 80 + "\n")
-        
-        for i, result in enumerate(results):
-            status = "✅" if 'error' not in result else "❌"
-            f.write(f"\n{status} 测试 {i + 1}: [{result.get('category', 'Unknown')}]\n")
-            f.write(f"❓ 问题: {result['question']}\n")
-            f.write(f"🎯 期望: {result['expected_answer']}\n")
-            f.write(f"🤖 回答: {result['generated_answer']}\n")
-            if 'error' not in result:
-                f.write(f"⏱️ 生成时间: {result.get('generation_time', 0):.3f}s\n")
-                f.write(f"🔍 检索模式: {result.get('retrieval_mode', 'N/A')}\n")
-            f.write("-" * 60 + "\n")
+#         for i, result in enumerate(results):
+#             status = "✅" if 'error' not in result else "❌"
+#             f.write(f"\n{status} 测试 {i + 1}: [{result.get('category', 'Unknown')}]\n")
+#             f.write(f"❓ 问题: {result['question']}\n")
+#             f.write(f"🎯 期望: {result['expected_answer']}\n")
+#             f.write(f"🤖 回答: {result['generated_answer']}\n")
+#             if 'error' not in result:
+#                 f.write(f"⏱️ 生成时间: {result.get('generation_time', 0):.3f}s\n")
+#                 f.write(f"🔍 检索模式: {result.get('retrieval_mode', 'N/A')}\n")
+#             f.write("-" * 60 + "\n")
 
-    print(f"✅ 测试报告已保存: {report_path}")
-except Exception as report_save_error:
-    logging.error(f"保存测试报告失败: {report_save_error}")
-    print(f"❌ 无法保存测试报告: {report_save_error}")
-
-# 最终清理和总结
-try:
-    print(f"\n💾 RAG测试结果已保存:")
-    print(f"  📄 详细JSON: {results_json_path}")
-    print(f"  📋 可读报告: {report_path}")
-    
-    print(f"\n🎯 测试总结:")
-    print(f"  ✅ 成功测试: {len(successful_tests)}/{len(test_cases)}")
-    print(f"  ❌ 失败测试: {len(failed_tests)}/{len(test_cases)}")
-    success_rate = len(successful_tests) / len(test_cases) * 100 if test_cases else 0
-    print(f"  📊 成功率: {success_rate:.1f}%")
-    print(f"  ⏱️  平均生成时间: {avg_generation_time:.2f}秒")
-    print(f"  🔧 CausalEditor状态: {'正常' if final_stats and 'error' not in final_stats else '异常'}")
-    print(f"  🔍 RAG系统状态: {'正常' if final_rag_config and 'error' not in final_rag_config else '异常'}")
-    
-    # 内存清理建议
-    if torch.cuda.is_available():
-        current_memory = torch.cuda.memory_allocated() / 1024**3
-        print(f"  💾 当前GPU内存使用: {current_memory:.2f}GB")
-        if current_memory > 10:  # 如果使用超过10GB
-            print(f"  ⚠️  建议清理GPU内存")
-    
-except Exception as final_summary_error:
-    logging.error(f"生成最终总结失败: {final_summary_error}")
-    print(f"\n❌ 生成最终总结时出错: {final_summary_error}")
-    print("\n🏁 测试完成，但总结生成失败")
-
-# 可选的内存清理
-try:
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
-        logging.info("GPU内存缓存已清理")
-except Exception as cleanup_error:
-    logging.warning(f"清理GPU内存失败: {cleanup_error}")
-
-print("\n" + "="*80)
-print("🎉 Llama-2-7b-chat + RAG检索系统测试完成！")
-print("✨ 成功集成RAG检索系统替代知识图谱")
-print("🔍 验证了指纹构建、冲突检测、激活编辑流程")
-print("📊 测试了动态阈值调整功能")
-print("🔧 建议查看生成的报告以了解详细性能")
-print("="*80)
+#     print(f"✅ 测试报告已保存: {report_path}")
+# except Exception as report_save_error:
+#     logging.error(f"保存测试报告失败: {report_save_error}")
+#     print(f"❌ 无法保存测试报告: {report_save_error}")

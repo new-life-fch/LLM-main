@@ -1,0 +1,26 @@
+# 基本检索参数
+retrieval_method: "e5"  # 可替换为bm25、bge等支持的检索方法
+retrieval_model_path: "model/e5-base-v2/models--intfloat--e5-base-v2/snapshots/f52bf8ec8c7124536f0efb74aca902b2995e5bcd"  # 检索模型路径
+index_path: "wiki18_100w/e5_flat_inner.index"  # 预构建的索引路径
+faiss_gpu: False # whether use gpu to hold index
+corpus_path: "wiki18_100w/wiki18_100w.jsonl"  # 文档库路径
+instruction: ~ # instruction for retrieval model
+retrieval_topk: 100  # 检索阶段返回的文档数量
+retrieval_batch_size: 256  # batch size for retrieval
+retrieval_use_fp16: True  # whether to use fp16 for retrieval model
+retrieval_query_max_length: 256  # max length of the query
+save_retrieval_cache: False # whether to save the retrieval cache
+use_retrieval_cache: False # whether to use the retrieval cache
+retrieval_cache_path: ~ # path to the retrieval cache
+retrieval_pooling_method: ~ # set automatically if not provided
+
+# 重排序器参数
+use_reranker: True  # 启用重排序器
+rerank_model_name: "bge-reranker"  # 重排序模型名称
+rerank_model_path: "model/bge-reranker-base"  # 重排序模型路径
+rerank_topk: 3  # 重排序后保留的文档数量
+rerank_max_length: 512  # 最大文本长度
+rerank_batch_size: 256  # 批次大小
+rerank_pooling_method: ~
+rerank_use_fp16: True
+
