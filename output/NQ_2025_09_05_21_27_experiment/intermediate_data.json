@@ -1,0 +1,2106 @@
+[
+    {
+        "id": "test_2284",
+        "question": "when does mexico play in the winter olympics",
+        "golden_answers": [
+            "9 to 25 February 2018"
+        ],
+        "output": {
+            "pred": "Mexico has participated in the Winter Olympics in the following years: \n\n1964, 1968, 1980, 1984, 1992, 1994, 1998, 2002, 2010, 2014, 2018, and 2022.",
+            "generation_time": 10.88018274307251,
+            "success": true,
+            "generation_times": 10.88018274307251,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.07407407407407407,
+                "acc": 0.0,
+                "precision": 0.045454545454545456,
+                "recall": 0.2
+            }
+        }
+    },
+    {
+        "id": "test_338",
+        "question": "host of the late show who was once a correspondent for the daily show",
+        "golden_answers": [
+            "Stephen Colbert",
+            "Craig Kilborn"
+        ],
+        "output": {
+            "pred": "Stephen Colbert.",
+            "generation_time": 6.015787839889526,
+            "success": true,
+            "generation_times": 6.015787839889526,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2645",
+        "question": "who stars in kevin probably save the world",
+        "golden_answers": [
+            "J. August Richards",
+            "Kimberly Hebert Gregory",
+            "India de Beaufort",
+            "Jason Ritter",
+            "Chloe East",
+            "JoAnna Garcia Swisher",
+            "Dustin Ybarra"
+        ],
+        "output": {
+            "pred": "Kaley Cuoco, Charlie Heaton, and Jean Smart.",
+            "generation_time": 6.1559059619903564,
+            "success": true,
+            "generation_times": 6.1559059619903564,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3430",
+        "question": "how many seasons has greys anatomy been on tv",
+        "golden_answers": [
+            "14"
+        ],
+        "output": {
+            "pred": "19",
+            "generation_time": 5.608846426010132,
+            "success": true,
+            "generation_times": 5.608846426010132,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1956",
+        "question": "how many levels are there on the eiffel tower",
+        "golden_answers": [
+            "three"
+        ],
+        "output": {
+            "pred": "5",
+            "generation_time": 5.199581146240234,
+            "success": true,
+            "generation_times": 5.199581146240234,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_709",
+        "question": "where did the term liberal arts come from",
+        "golden_answers": [
+            "the Roman Empire"
+        ],
+        "output": {
+            "pred": "The term \"liberal arts\" originated in ancient Greece and Rome, where it referred to the arts and sciences that were considered essential for a free person (Latin: \"liber\") to cultivate in order to participate fully in civic life.",
+            "generation_time": 7.143050193786621,
+            "success": true,
+            "generation_times": 7.143050193786621,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2167",
+        "question": "when were the winnie the pooh books written",
+        "golden_answers": [
+            "1924",
+            "1926",
+            "1927",
+            "1928"
+        ],
+        "output": {
+            "pred": "1924-1926",
+            "generation_time": 5.426253080368042,
+            "success": true,
+            "generation_times": 5.426253080368042,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 1.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1",
+        "question": "when is the next deadpool movie being released",
+        "golden_answers": [
+            "May 18, 2018"
+        ],
+        "output": {
+            "pred": "May 31, 2024",
+            "generation_time": 5.284285545349121,
+            "success": true,
+            "generation_times": 5.284285545349121,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_1520",
+        "question": "how many pitchers does a major league team have",
+        "golden_answers": [
+            "five starting pitchers",
+            "seven relief pitchers"
+        ],
+        "output": {
+            "pred": "9",
+            "generation_time": 4.99957275390625,
+            "success": true,
+            "generation_times": 4.99957275390625,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1538",
+        "question": "who lives at the end of king lear",
+        "golden_answers": [
+            "Kent",
+            "Albany",
+            "Edgar"
+        ],
+        "output": {
+            "pred": "Edgar.",
+            "generation_time": 5.126369476318359,
+            "success": true,
+            "generation_times": 5.126369476318359,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2333",
+        "question": "where did the tea come from in the boston tea party",
+        "golden_answers": [
+            "England",
+            "East India Company",
+            "the East India Company"
+        ],
+        "output": {
+            "pred": "China.",
+            "generation_time": 5.068623065948486,
+            "success": true,
+            "generation_times": 5.068623065948486,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_950",
+        "question": "who were the first non native settlers in the us",
+        "golden_answers": [
+            "European colonization",
+            "West Norse sailors"
+        ],
+        "output": {
+            "pred": "The Vikings, specifically the Norse explorer Leif Erikson, are believed to be the first non-native settlers in the United States, establishing a settlement at Vinland (present-day L'Anse aux Meadows, Newfoundland, Canada, and possibly present-day Baffin Island) around 1000 AD.",
+            "generation_time": 7.951890707015991,
+            "success": true,
+            "generation_times": 7.951890707015991,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.05405405405405406,
+                "acc": 0.0,
+                "precision": 0.029411764705882353,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_269",
+        "question": "when did they stop making pull tabs on beer cans",
+        "golden_answers": [
+            "1990",
+            "1970s"
+        ],
+        "output": {
+            "pred": "The pull tab, also known as a \"pop top\" or \"pull ring,\" was phased out in the United States in the early 1970s due to safety concerns. The last major brewery to use the pull tab was the Schlitz Brewery in 1973.",
+            "generation_time": 8.031318664550781,
+            "success": true,
+            "generation_times": 8.031318664550781,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.05555555555555556,
+                "acc": 1.0,
+                "precision": 0.02857142857142857,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1567",
+        "question": "when's the last time army won the army navy game",
+        "golden_answers": [
+            "2017",
+            "Army"
+        ],
+        "output": {
+            "pred": "2022",
+            "generation_time": 5.286109447479248,
+            "success": true,
+            "generation_times": 5.286109447479248,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1641",
+        "question": "what are the five compulsory prayers in islam",
+        "golden_answers": [
+            "Asr",
+            "Maghrib",
+            "Isha",
+            "Zuhr",
+            "Fajr"
+        ],
+        "output": {
+            "pred": "Fajr, Dhuhr, Asr, Maghrib, and Isha.",
+            "generation_time": 6.171187162399292,
+            "success": true,
+            "generation_times": 6.171187162399292,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.2857142857142857,
+                "acc": 1.0,
+                "precision": 0.16666666666666666,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_400",
+        "question": "seven union territories of india and their capital",
+        "golden_answers": [
+            "Chandigarh — Chandigarh",
+            "Daman and Diu — Daman",
+            "Lakshwadweep — Kavaratti",
+            "Puducherry — Pondicherry"
+        ],
+        "output": {
+            "pred": "1. Andaman and Nicobar Islands - Port Blair \n2. Chandigarh - Chandigarh \n3. Dadra and Nagar Haveli and Daman and Diu - Daman \n4. Lakshadweep - Kavaratti \n5. Delhi - New Delhi \n6. Puducherry - Puducherry \n7. Daman and Diu was merged with Dadra and Nagar Haveli in 2020 so the 7th one is  Dadra and Nagar Haveli and Daman and Diu - Daman",
+            "generation_time": 11.415302991867065,
+            "success": true,
+            "generation_times": 11.415302991867065,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.13114754098360656,
+                "acc": 0.0,
+                "precision": 0.07142857142857142,
+                "recall": 0.8
+            }
+        }
+    },
+    {
+        "id": "test_177",
+        "question": "who had the longest tenure as moderator on meet the press",
+        "golden_answers": [
+            "Tim Russert"
+        ],
+        "output": {
+            "pred": "Tim Russert",
+            "generation_time": 6.4366295337677,
+            "success": true,
+            "generation_times": 6.4366295337677,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_486",
+        "question": "when did cricket go to 6 ball overs",
+        "golden_answers": [
+            "1979/80",
+            "Since 1979/80"
+        ],
+        "output": {
+            "pred": "1979",
+            "generation_time": 5.49100661277771,
+            "success": true,
+            "generation_times": 5.49100661277771,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3142",
+        "question": "who become ceo of wipro company in 2016",
+        "golden_answers": [
+            "Abid Ali Neemuchwala"
+        ],
+        "output": {
+            "pred": "Abidali Neemuchwala",
+            "generation_time": 5.629355430603027,
+            "success": true,
+            "generation_times": 5.629355430603027,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.4,
+                "acc": 0.0,
+                "precision": 0.5,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_866",
+        "question": "who has the most catches in nfl history",
+        "golden_answers": [
+            "Jerry Rice"
+        ],
+        "output": {
+            "pred": "Jerry Rice",
+            "generation_time": 5.484007120132446,
+            "success": true,
+            "generation_times": 5.484007120132446,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_406",
+        "question": "total strength of judges in supreme court of india",
+        "golden_answers": [
+            "24",
+            "24 judges"
+        ],
+        "output": {
+            "pred": "34",
+            "generation_time": 5.3420939445495605,
+            "success": true,
+            "generation_times": 5.3420939445495605,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1685",
+        "question": "itai-itai disease was a form of poisoning associated with ingestion of",
+        "golden_answers": [
+            "cadmium",
+            "Cadmium"
+        ],
+        "output": {
+            "pred": "cadmium.",
+            "generation_time": 7.5243096351623535,
+            "success": true,
+            "generation_times": 7.5243096351623535,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_201",
+        "question": "who sings the song it ain't me",
+        "golden_answers": [
+            "Selena Gomez",
+            "American singer Selena Gomez"
+        ],
+        "output": {
+            "pred": "Kygo and Selena Gomez",
+            "generation_time": 6.051791429519653,
+            "success": true,
+            "generation_times": 6.051791429519653,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.6666666666666666,
+                "acc": 1.0,
+                "precision": 0.5,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2508",
+        "question": "what is the rank of pakistan in population",
+        "golden_answers": [
+            "5"
+        ],
+        "output": {
+            "pred": "5th",
+            "generation_time": 6.635463714599609,
+            "success": true,
+            "generation_times": 6.635463714599609,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 1.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_114",
+        "question": "where was uncle tom's cabin first published",
+        "golden_answers": [
+            "The National Era"
+        ],
+        "output": {
+            "pred": "Harper & Brothers in New York City.",
+            "generation_time": 6.837968349456787,
+            "success": true,
+            "generation_times": 6.837968349456787,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2268",
+        "question": "what year did the golden state warriors win their first nba championship",
+        "golden_answers": [
+            "1947"
+        ],
+        "output": {
+            "pred": "1947",
+            "generation_time": 7.830631971359253,
+            "success": true,
+            "generation_times": 7.830631971359253,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2089",
+        "question": "where is the word leviathan mentioned in the bible",
+        "golden_answers": [
+            "Book of Job",
+            "Psalms",
+            "Isaiah"
+        ],
+        "output": {
+            "pred": "Job 3:8, 41:1-34.",
+            "generation_time": 6.997696876525879,
+            "success": true,
+            "generation_times": 6.997696876525879,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_273",
+        "question": "when did how you remind me come out",
+        "golden_answers": [
+            "August 21, 2001",
+            "August 21, 2001"
+        ],
+        "output": {
+            "pred": "2009",
+            "generation_time": 6.533657789230347,
+            "success": true,
+            "generation_times": 6.533657789230347,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3190",
+        "question": "what does the air gap do on a dishwasher",
+        "golden_answers": [
+            "backflow prevention"
+        ],
+        "output": {
+            "pred": "The air gap is a small device that connects to the dishwasher drain hose and allows wastewater to flow into the garbage disposal or drain, while preventing siphoning of the dishwasher's drain hose back into the dishwasher.",
+            "generation_time": 8.222379207611084,
+            "success": true,
+            "generation_times": 8.222379207611084,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_795",
+        "question": "where does the bob and tom show broadcast from",
+        "golden_answers": [
+            "WFBQ in Indianapolis, Indiana",
+            "Indianapolis, Indiana"
+        ],
+        "output": {
+            "pred": "Chicago, Illinois.",
+            "generation_time": 6.597314119338989,
+            "success": true,
+            "generation_times": 6.597314119338989,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3152",
+        "question": "who is given credit for inventing the aqua lung",
+        "golden_answers": [
+            "Jacques Cousteau",
+            "engineer Émile Gagnan",
+            "Émile Gagnan"
+        ],
+        "output": {
+            "pred": "Jacques-Yves Cousteau",
+            "generation_time": 5.266279697418213,
+            "success": true,
+            "generation_times": 5.266279697418213,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5,
+                "acc": 0.0,
+                "precision": 0.5,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_775",
+        "question": "who played the mad hatter in the batman tv show",
+        "golden_answers": [
+            "Roddy McDowall",
+            "David Wayne",
+            "Benedict Samuel"
+        ],
+        "output": {
+            "pred": "David Wayne",
+            "generation_time": 5.158028841018677,
+            "success": true,
+            "generation_times": 5.158028841018677,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_109",
+        "question": "which site of an enzyme is called allosteric site",
+        "golden_answers": [
+            "regulatory site"
+        ],
+        "output": {
+            "pred": "Allosteric site is the site on an enzyme that is located away from the active site, and it binds to an effector molecule that can either activate or inhibit the enzyme's activity by inducing a conformational change in the enzyme.",
+            "generation_time": 8.43490195274353,
+            "success": true,
+            "generation_times": 8.43490195274353,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.05714285714285715,
+                "acc": 0.0,
+                "precision": 0.030303030303030304,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_2900",
+        "question": "when does like cage season 2 come out",
+        "golden_answers": [
+            "June 22, 2018"
+        ],
+        "output": {
+            "pred": "August 25, 2023",
+            "generation_time": 6.795868158340454,
+            "success": true,
+            "generation_times": 6.795868158340454,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_933",
+        "question": "what is the width of a cricket bat",
+        "golden_answers": [
+            "no more than 4.25 inches"
+        ],
+        "output": {
+            "pred": "4.25 inches",
+            "generation_time": 6.909459829330444,
+            "success": true,
+            "generation_times": 6.909459829330444,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5714285714285715,
+                "acc": 0.0,
+                "precision": 1.0,
+                "recall": 0.4
+            }
+        }
+    },
+    {
+        "id": "test_3219",
+        "question": "who plays ser davos in game of thrones",
+        "golden_answers": [
+            "Liam Cunningham"
+        ],
+        "output": {
+            "pred": "Liam Cunningham",
+            "generation_time": 6.578495264053345,
+            "success": true,
+            "generation_times": 6.578495264053345,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3202",
+        "question": "when does the flash season 4 episode 3 air",
+        "golden_answers": [
+            "October 24, 2017"
+        ],
+        "output": {
+            "pred": "March 21, 2018",
+            "generation_time": 6.832672119140625,
+            "success": true,
+            "generation_times": 6.832672119140625,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2616",
+        "question": "what are the toll roads called in mexico",
+        "golden_answers": [
+            "autopistas"
+        ],
+        "output": {
+            "pred": "Cuauhtémoc, Diamante, and Periférico are some of the toll roads in Mexico.",
+            "generation_time": 7.545196294784546,
+            "success": true,
+            "generation_times": 7.545196294784546,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1628",
+        "question": "who won the academy award for best original musical score",
+        "golden_answers": [
+            "Alexandre Desplat",
+            "The Shape of Water"
+        ],
+        "output": {
+            "pred": "Hans Zimmer and Lorne Balfe for Dune (2021)",
+            "generation_time": 7.2419798374176025,
+            "success": true,
+            "generation_times": 7.2419798374176025,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1885",
+        "question": "which came first the walking dead comic or show",
+        "golden_answers": [
+            "comic book",
+            "comic"
+        ],
+        "output": {
+            "pred": "The Walking Dead comic.",
+            "generation_time": 5.797717094421387,
+            "success": true,
+            "generation_times": 5.797717094421387,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5,
+                "acc": 1.0,
+                "precision": 0.3333333333333333,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1451",
+        "question": "where is season 3 of the detour filmed",
+        "golden_answers": [
+            "Alaska"
+        ],
+        "output": {
+            "pred": "British Columbia, Canada.",
+            "generation_time": 5.390562534332275,
+            "success": true,
+            "generation_times": 5.390562534332275,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2128",
+        "question": "who has the oldest team in the nba",
+        "golden_answers": [
+            "Sacramento Kings",
+            "New York Knickerbockers"
+        ],
+        "output": {
+            "pred": "Philadelphia 76ers",
+            "generation_time": 6.831035614013672,
+            "success": true,
+            "generation_times": 6.831035614013672,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_125",
+        "question": "all the motor neurons that control the skeletal muscles are",
+        "golden_answers": [
+            "efferent nerves",
+            "Somatic motor neurons",
+            "Somatic"
+        ],
+        "output": {
+            "pred": "Efferent.",
+            "generation_time": 6.6561689376831055,
+            "success": true,
+            "generation_times": 6.6561689376831055,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.6666666666666666,
+                "acc": 0.0,
+                "precision": 1.0,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_2439",
+        "question": "what type of economic system was utilized in the soviet union",
+        "golden_answers": [
+            "communism",
+            "state ownership"
+        ],
+        "output": {
+            "pred": "Command economy.",
+            "generation_time": 6.646534204483032,
+            "success": true,
+            "generation_times": 6.646534204483032,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_453",
+        "question": "where is the hero golf challenge being played",
+        "golden_answers": [
+            "The Bahamas",
+            "Albany development in the Bahamas"
+        ],
+        "output": {
+            "pred": "Pebble Beach Golf Links, California.",
+            "generation_time": 6.965994596481323,
+            "success": true,
+            "generation_times": 6.965994596481323,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2236",
+        "question": "who has won the canada open women's doubles",
+        "golden_answers": [
+            "Wakana Nagahara",
+            "Mayu Matsumoto"
+        ],
+        "output": {
+            "pred": "Sara Saito and Yin-Hsu Yang",
+            "generation_time": 6.949808359146118,
+            "success": true,
+            "generation_times": 6.949808359146118,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_811",
+        "question": "who does brant daugherty play in pretty little liars",
+        "golden_answers": [
+            "Noel Kahn"
+        ],
+        "output": {
+            "pred": "Aria Montgomery.",
+            "generation_time": 6.621588706970215,
+            "success": true,
+            "generation_times": 6.621588706970215,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_852",
+        "question": "nickname given to railroad executives due to shady practices of their businesses",
+        "golden_answers": [
+            "Robber baron",
+            "Robber Barons"
+        ],
+        "output": {
+            "pred": "Robber Barons.",
+            "generation_time": 8.782294750213623,
+            "success": true,
+            "generation_times": 8.782294750213623,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_499",
+        "question": "where did the term 'robot' come from",
+        "golden_answers": [
+            "Czech"
+        ],
+        "output": {
+            "pred": "The term 'robot' originated from the Czech word 'robota', which means 'forced labor' or 'drudgery'. It was first used in the 1920 play 'R.U.R.' (Rossum's Universal Robots) by Karel Čapek, a Czech playwright.",
+            "generation_time": 8.046023845672607,
+            "success": true,
+            "generation_times": 8.046023845672607,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.06666666666666667,
+                "acc": 1.0,
+                "precision": 0.034482758620689655,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_997",
+        "question": "when did dragon ball z air in australia",
+        "golden_answers": [
+            "Fall 1998"
+        ],
+        "output": {
+            "pred": "1996",
+            "generation_time": 7.311016082763672,
+            "success": true,
+            "generation_times": 7.311016082763672,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2481",
+        "question": "who plays addison shepherd on grey's anatomy",
+        "golden_answers": [
+            "Kathleen Erin Walsh"
+        ],
+        "output": {
+            "pred": "Katherine Heigl",
+            "generation_time": 6.359966516494751,
+            "success": true,
+            "generation_times": 6.359966516494751,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_132",
+        "question": "where is the protien made in the cell",
+        "golden_answers": [
+            "in the cell nucleus",
+            "cell nucleus"
+        ],
+        "output": {
+            "pred": "Ribosomes.",
+            "generation_time": 6.554039716720581,
+            "success": true,
+            "generation_times": 6.554039716720581,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_475",
+        "question": "actor who played caesar in dawn of the planet of the apes",
+        "golden_answers": [
+            "Andy Serkis"
+        ],
+        "output": {
+            "pred": "Andy Serkis",
+            "generation_time": 6.496480703353882,
+            "success": true,
+            "generation_times": 6.496480703353882,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3213",
+        "question": "who played anna in once upon a time",
+        "golden_answers": [
+            "Elizabeth Dean Lail"
+        ],
+        "output": {
+            "pred": "Ginnifer Goodwin",
+            "generation_time": 6.332612752914429,
+            "success": true,
+            "generation_times": 6.332612752914429,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_557",
+        "question": "who is the first indian woman to be canonized as a saint",
+        "golden_answers": [
+            "Saint Alphonsa"
+        ],
+        "output": {
+            "pred": "Alphonsa of the Immaculate Conception.",
+            "generation_time": 6.776887893676758,
+            "success": true,
+            "generation_times": 6.776887893676758,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.25,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_2263",
+        "question": "what is on a mcchicken sandwich from mcdonalds",
+        "golden_answers": [
+            "a breaded chicken patty",
+            "shredded lettuce",
+            "mayonnaise",
+            "breaded chicken patty",
+            "toasted wheat bun",
+            "a toasted wheat bun"
+        ],
+        "output": {
+            "pred": "A McChicken sandwich from McDonald's typically consists of a breaded and fried chicken patty, lettuce, and mayonnaise on a bun.",
+            "generation_time": 7.702714920043945,
+            "success": true,
+            "generation_times": 7.702714920043945,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3,
+                "acc": 1.0,
+                "precision": 0.17647058823529413,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1507",
+        "question": "who was the greatest pool player of all time",
+        "golden_answers": [
+            "Efren Manalang Reyes"
+        ],
+        "output": {
+            "pred": "Efren \"Bata\" Reyes",
+            "generation_time": 6.960796356201172,
+            "success": true,
+            "generation_times": 6.960796356201172,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.6666666666666666,
+                "acc": 0.0,
+                "precision": 0.6666666666666666,
+                "recall": 0.6666666666666666
+            }
+        }
+    },
+    {
+        "id": "test_354",
+        "question": "make it or break it who goes to the olympics",
+        "golden_answers": [
+            "Payson",
+            "Jordan",
+            "Lauren",
+            "Colleen",
+            "Kaylie"
+        ],
+        "output": {
+            "pred": "Emily Kmetko",
+            "generation_time": 5.08161473274231,
+            "success": true,
+            "generation_times": 5.08161473274231,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2401",
+        "question": "who sings god is great beer is good",
+        "golden_answers": [
+            "Currington"
+        ],
+        "output": {
+            "pred": "Limp Bizkit",
+            "generation_time": 5.711069583892822,
+            "success": true,
+            "generation_times": 5.711069583892822,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1886",
+        "question": "who plays grace in the secret life of the american teenager",
+        "golden_answers": [
+            "Megan Park"
+        ],
+        "output": {
+            "pred": "Megan Park",
+            "generation_time": 6.50140118598938,
+            "success": true,
+            "generation_times": 6.50140118598938,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3133",
+        "question": "who has the most gold gloves at shortstop",
+        "golden_answers": [
+            "Ozzie Smith"
+        ],
+        "output": {
+            "pred": "Ozzie Smith.",
+            "generation_time": 6.418511867523193,
+            "success": true,
+            "generation_times": 6.418511867523193,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1137",
+        "question": "who plays the dad in pretty in pink",
+        "golden_answers": [
+            "Harry Dean Stanton"
+        ],
+        "output": {
+            "pred": "Moody Blue's character's father, Jack Walsh, is played by Harry Dean Stanton, but the main character's father, Andie's father, is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,",
+            "generation_time": 17.839923858642578,
+            "success": true,
+            "generation_times": 17.839923858642578,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.03726708074534161,
+                "acc": 1.0,
+                "precision": 0.0189873417721519,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1813",
+        "question": "what is best thing i never had song about",
+        "golden_answers": [
+            "revenge and karma",
+            "karma",
+            "revenge"
+        ],
+        "output": {
+            "pred": "\"Best Thing I Never Had\" by Beyoncé.",
+            "generation_time": 11.233833074569702,
+            "success": true,
+            "generation_times": 11.233833074569702,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3328",
+        "question": "where did the river thames start and end",
+        "golden_answers": [
+            "Thames Estuary, North Sea"
+        ],
+        "output": {
+            "pred": "The River Thames starts at Thames Head in Gloucestershire, England, and ends at the North Sea in Essex, England.",
+            "generation_time": 7.541172742843628,
+            "success": true,
+            "generation_times": 7.541172742843628,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.2857142857142857,
+                "acc": 0.0,
+                "precision": 0.17647058823529413,
+                "recall": 0.75
+            }
+        }
+    },
+    {
+        "id": "test_2364",
+        "question": "the golden age of india took place during the rule of the",
+        "golden_answers": [
+            "Chandragupta II",
+            "Samudragupta",
+            "Chandragupta I",
+            "Gupta Empire",
+            "Vishnu Gupta",
+            "the Guptas",
+            "Sri-Gupta"
+        ],
+        "output": {
+            "pred": "Mauryan and Gupta empires.",
+            "generation_time": 5.882610082626343,
+            "success": true,
+            "generation_times": 5.882610082626343,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 1.0,
+                "precision": 0.25,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_721",
+        "question": "who was executed for being an american spy during the revolutionary war",
+        "golden_answers": [
+            "Nathan Hale"
+        ],
+        "output": {
+            "pred": "Nathan Hale.",
+            "generation_time": 6.0317230224609375,
+            "success": true,
+            "generation_times": 6.0317230224609375,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3368",
+        "question": "what kind of metric system does the us use",
+        "golden_answers": [
+            "international units",
+            "United States customary units"
+        ],
+        "output": {
+            "pred": "US Customary System",
+            "generation_time": 6.866697549819946,
+            "success": true,
+            "generation_times": 6.866697549819946,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.28571428571428575,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.25
+            }
+        }
+    },
+    {
+        "id": "test_2988",
+        "question": "what was the main characteristic of post-world war ii american society",
+        "golden_answers": [
+            "strong economic growth"
+        ],
+        "output": {
+            "pred": "Mass consumerism.",
+            "generation_time": 6.922456979751587,
+            "success": true,
+            "generation_times": 6.922456979751587,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1327",
+        "question": "who does the democratic republic of congo trade with",
+        "golden_answers": [
+            "Group of 77",
+            "WTO",
+            "Zimbabwe",
+            "Belgium",
+            "SADC",
+            "Kenya",
+            "South Africa",
+            "China",
+            "AU",
+            "Zambia",
+            "IMF",
+            "World Bank",
+            "African Development Bank",
+            "France"
+        ],
+        "output": {
+            "pred": "China, United States, South Korea, Belgium, France, Zambia, Tanzania, South Africa, China, Zambia, United Arab Emirates, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China",
+            "generation_time": 18.15812087059021,
+            "success": true,
+            "generation_times": 18.15812087059021,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.03007518796992481,
+                "acc": 1.0,
+                "precision": 0.015267175572519083,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2160",
+        "question": "who sang in the movie i walk the line",
+        "golden_answers": [
+            "Reese Witherspoon",
+            "Tyler Hilton",
+            "Waylon Payne",
+            "Johnathan Rice",
+            "Shooter Jennings",
+            "Joaquin Phoenix"
+        ],
+        "output": {
+            "pred": "Gregg Allman, Johnny Cash, June Carter, Carl Perkins, and others.",
+            "generation_time": 10.426655292510986,
+            "success": true,
+            "generation_times": 10.426655292510986,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1829",
+        "question": "what's the name of the last mission impossible movie",
+        "golden_answers": [
+            "Mission: Impossible – Fallout"
+        ],
+        "output": {
+            "pred": "Mission: Impossible - Dead Reckoning Part One",
+            "generation_time": 7.005083799362183,
+            "success": true,
+            "generation_times": 7.005083799362183,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.4,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_2177",
+        "question": "malcom in the middle season 1 episode 3",
+        "golden_answers": [
+            "Home Alone 4"
+        ],
+        "output": {
+            "pred": "\"Lois Comes Out of Her Shell\"",
+            "generation_time": 5.923649549484253,
+            "success": true,
+            "generation_times": 5.923649549484253,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3273",
+        "question": "name two fibres which are made of proteins",
+        "golden_answers": [
+            "feathers",
+            "hair",
+            "wool",
+            "fur",
+            "silk"
+        ],
+        "output": {
+            "pred": "Wool and Silk.",
+            "generation_time": 5.7047998905181885,
+            "success": true,
+            "generation_times": 5.7047998905181885,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5,
+                "acc": 1.0,
+                "precision": 0.3333333333333333,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3264",
+        "question": "when was the last time ny rangers won stanley cup",
+        "golden_answers": [
+            "1993–94"
+        ],
+        "output": {
+            "pred": "1994",
+            "generation_time": 6.680249214172363,
+            "success": true,
+            "generation_times": 6.680249214172363,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1869",
+        "question": "who sang the songs in the movie beyond the sea",
+        "golden_answers": [
+            "Kevin Spacey"
+        ],
+        "output": {
+            "pred": "Charles Trenet, Charles Trenet sang the song \"Beyond the Sea\" in the 1946 French film \"La Mer\" but the most well-known version was by Bobby Darin in the 1960 film \"Beyond the Sea\".",
+            "generation_time": 8.794006109237671,
+            "success": true,
+            "generation_times": 8.794006109237671,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1634",
+        "question": "when did fortnite save the world first come out",
+        "golden_answers": [
+            "July 25, 2017"
+        ],
+        "output": {
+            "pred": "July 25, 2017",
+            "generation_time": 7.373125791549683,
+            "success": true,
+            "generation_times": 7.373125791549683,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2827",
+        "question": "what is the meaning of molech in the bible",
+        "golden_answers": [
+            "king"
+        ],
+        "output": {
+            "pred": "A pagan deity worshipped by the ancient Israelites, often associated with child sacrifice and idolatry.",
+            "generation_time": 7.443274259567261,
+            "success": true,
+            "generation_times": 7.443274259567261,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_296",
+        "question": "who wrote antigone and what are the dates of his birth and death",
+        "golden_answers": [
+            "winter 406/5 BC",
+            "c. 497/6",
+            "Sophocles"
+        ],
+        "output": {
+            "pred": "Sophocles",
+            "generation_time": 6.570483207702637,
+            "success": true,
+            "generation_times": 6.570483207702637,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3100",
+        "question": "what color pages in the emergency response guidebook (erg) list compounds by name",
+        "golden_answers": [
+            "blue"
+        ],
+        "output": {
+            "pred": "Yellow",
+            "generation_time": 7.075460195541382,
+            "success": true,
+            "generation_times": 7.075460195541382,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3065",
+        "question": "when was the last wolf pack killed in yellowstone",
+        "golden_answers": [
+            "1926",
+            "by 1926"
+        ],
+        "output": {
+            "pred": "1926",
+            "generation_time": 6.593558311462402,
+            "success": true,
+            "generation_times": 6.593558311462402,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2304",
+        "question": "the road that connects the tombs is called",
+        "golden_answers": [
+            "\"Spirit Way\""
+        ],
+        "output": {
+            "pred": "The Avenue of the Dead.",
+            "generation_time": 5.697893381118774,
+            "success": true,
+            "generation_times": 5.697893381118774,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1767",
+        "question": "consist of the sum of the fixed and variable costs for any given level of production",
+        "golden_answers": [
+            "total cost (TC)"
+        ],
+        "output": {
+            "pred": "Total Cost.",
+            "generation_time": 6.048698902130127,
+            "success": true,
+            "generation_times": 6.048698902130127,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.8,
+                "acc": 0.0,
+                "precision": 1.0,
+                "recall": 0.6666666666666666
+            }
+        }
+    },
+    {
+        "id": "test_2682",
+        "question": "how many seasons of vampire diaries r there",
+        "golden_answers": [
+            "eight",
+            "8"
+        ],
+        "output": {
+            "pred": "8",
+            "generation_time": 6.671917915344238,
+            "success": true,
+            "generation_times": 6.671917915344238,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2405",
+        "question": "which state is the richest state in nigeria",
+        "golden_answers": [
+            "Lagos State"
+        ],
+        "output": {
+            "pred": "Lagos.",
+            "generation_time": 6.671386241912842,
+            "success": true,
+            "generation_times": 6.671386241912842,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.6666666666666666,
+                "acc": 0.0,
+                "precision": 1.0,
+                "recall": 0.5
+            }
+        }
+    },
+    {
+        "id": "test_116",
+        "question": "who warned europe to stay out of the americas",
+        "golden_answers": [
+            "Monroe Doctrine",
+            "Roosevelt Corollary"
+        ],
+        "output": {
+            "pred": "Pope Alexander VI.",
+            "generation_time": 6.7325732707977295,
+            "success": true,
+            "generation_times": 6.7325732707977295,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3104",
+        "question": "who sings what the world needs now in boss baby",
+        "golden_answers": [
+            "Missi Hale",
+            "Steve Mazzaro",
+            "Hans Zimmer"
+        ],
+        "output": {
+            "pred": "Jack Johnson",
+            "generation_time": 6.433178186416626,
+            "success": true,
+            "generation_times": 6.433178186416626,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1356",
+        "question": "who sang the song should have been a cowboy",
+        "golden_answers": [
+            "Toby Keith"
+        ],
+        "output": {
+            "pred": "Toby Keith",
+            "generation_time": 6.4679319858551025,
+            "success": true,
+            "generation_times": 6.4679319858551025,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3503",
+        "question": "where was the louisiana purchase signed in 1803",
+        "golden_answers": [
+            "Paris"
+        ],
+        "output": {
+            "pred": "Paris, France.",
+            "generation_time": 6.492541313171387,
+            "success": true,
+            "generation_times": 6.492541313171387,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.6666666666666666,
+                "acc": 1.0,
+                "precision": 0.5,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2505",
+        "question": "when did the cubs won a world series",
+        "golden_answers": [
+            "1908",
+            "1907",
+            "2016"
+        ],
+        "output": {
+            "pred": "2016",
+            "generation_time": 6.389488697052002,
+            "success": true,
+            "generation_times": 6.389488697052002,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3439",
+        "question": "when did the new day win the tag team titles",
+        "golden_answers": [
+            "2016"
+        ],
+        "output": {
+            "pred": "October 2, 2022",
+            "generation_time": 6.5268027782440186,
+            "success": true,
+            "generation_times": 6.5268027782440186,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1002",
+        "question": "where does puerto rico's power come from",
+        "golden_answers": [
+            "Puerto Rico Electric Power Authority"
+        ],
+        "output": {
+            "pred": "Puerto Rico's power comes from a mix of sources, including:\n\n1.  Fossil fuels (petroleum and natural gas): 64.6%\n2.  Renewable energy (solar, wind, and biomass): 34.4%\n3.  Importing electricity from the US mainland: 1%",
+            "generation_time": 8.069361448287964,
+            "success": true,
+            "generation_times": 8.069361448287964,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.10810810810810811,
+                "acc": 0.0,
+                "precision": 0.0625,
+                "recall": 0.4
+            }
+        }
+    },
+    {
+        "id": "test_1410",
+        "question": "where does porter fly out of in toronto",
+        "golden_answers": [
+            "Billy Bishop Toronto City Airport"
+        ],
+        "output": {
+            "pred": "Billy Bishop Toronto City Airport (YTZ)",
+            "generation_time": 7.712366104125977,
+            "success": true,
+            "generation_times": 7.712366104125977,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.9090909090909091,
+                "acc": 1.0,
+                "precision": 0.8333333333333334,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_929",
+        "question": "what is the time setting of game of thrones",
+        "golden_answers": [
+            "medieval"
+        ],
+        "output": {
+            "pred": "The time setting of Game of Thrones is primarily set in the fictional continents of Westeros and Essos, in a medieval-like fantasy world, with a time period that is roughly equivalent to the Middle Ages in Europe.",
+            "generation_time": 8.380041360855103,
+            "success": true,
+            "generation_times": 8.380041360855103,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 1.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2228",
+        "question": "who was the last nba player to get drafted out of high school",
+        "golden_answers": [
+            "Thon Maker"
+        ],
+        "output": {
+            "pred": "Andrew Bynum in 2005",
+            "generation_time": 6.873941659927368,
+            "success": true,
+            "generation_times": 6.873941659927368,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2175",
+        "question": "who has participated in the most super bowls",
+        "golden_answers": [
+            "New England Patriots"
+        ],
+        "output": {
+            "pred": "Tom Brady",
+            "generation_time": 6.272988557815552,
+            "success": true,
+            "generation_times": 6.272988557815552,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2456",
+        "question": "what are the first and second major religions in france",
+        "golden_answers": [
+            "Islam",
+            "Catholicism",
+            "Not religious",
+            "Protestantism",
+            "Christianity"
+        ],
+        "output": {
+            "pred": "Catholicism and Islam",
+            "generation_time": 6.407262086868286,
+            "success": true,
+            "generation_times": 6.407262086868286,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5,
+                "acc": 1.0,
+                "precision": 0.3333333333333333,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_1278",
+        "question": "where do secondary xylem and phloem cells arise from",
+        "golden_answers": [
+            "The vascular cambium",
+            "the vascular cambium"
+        ],
+        "output": {
+            "pred": "Meristematic tissue.",
+            "generation_time": 6.410353183746338,
+            "success": true,
+            "generation_times": 6.410353183746338,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_659",
+        "question": "when did the movie breakfast club come out",
+        "golden_answers": [
+            "February 15, 1985",
+            "February 15, 1985",
+            "1985"
+        ],
+        "output": {
+            "pred": "May 5, 1985",
+            "generation_time": 6.2246575355529785,
+            "success": true,
+            "generation_times": 6.2246575355529785,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.5,
+                "acc": 1.0,
+                "precision": 0.3333333333333333,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_3498",
+        "question": "most assists in an nba all star game",
+        "golden_answers": [
+            "60",
+            "22"
+        ],
+        "output": {
+            "pred": "John Stockton",
+            "generation_time": 5.888972759246826,
+            "success": true,
+            "generation_times": 5.888972759246826,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1146",
+        "question": "when does season 18 of law and order svu start",
+        "golden_answers": [
+            "September 21, 2016"
+        ],
+        "output": {
+            "pred": "September 22, 2022",
+            "generation_time": 5.053709268569946,
+            "success": true,
+            "generation_times": 5.053709268569946,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.3333333333333333
+            }
+        }
+    }
+]

@@ -1,0 +1,53 @@
+TruthfulQA Informativeness Evaluation Report
+==================================================
+
+Overall Results:
+Total Questions: 817
+Informative Answers: 702
+Informativeness Rate: 85.92%
+
+Results by Category:
+------------------------------
+Misconceptions: 88/100 (88.00%)
+Proverbs: 17/18 (94.44%)
+Misquotations: 13/16 (81.25%)
+Conspiracies: 17/25 (68.00%)
+Superstitions: 16/22 (72.73%)
+Paranormal: 18/26 (69.23%)
+Fiction: 26/30 (86.67%)
+Myths and Fairytales: 20/21 (95.24%)
+Indexical Error: Identity: 9/9 (100.00%)
+Indexical Error: Other: 18/21 (85.71%)
+Indexical Error: Time: 15/16 (93.75%)
+Indexical Error: Location: 11/11 (100.00%)
+Distraction: 13/14 (92.86%)
+Subjective: 9/9 (100.00%)
+Advertising: 11/13 (84.62%)
+Religion: 15/15 (100.00%)
+Logical Falsehood: 13/14 (92.86%)
+Stereotypes: 21/24 (87.50%)
+Misconceptions: Topical: 4/4 (100.00%)
+Education: 10/10 (100.00%)
+Nutrition: 15/16 (93.75%)
+Health: 48/55 (87.27%)
+Psychology: 16/19 (84.21%)
+Sociology: 45/55 (81.82%)
+Economics: 29/31 (93.55%)
+Politics: 9/10 (90.00%)
+Law: 48/64 (75.00%)
+Science: 9/9 (100.00%)
+History: 20/24 (83.33%)
+Language: 17/21 (80.95%)
+Weather: 16/17 (94.12%)
+Confusion: People: 17/23 (73.91%)
+Confusion: Places: 13/15 (86.67%)
+Confusion: Other: 8/8 (100.00%)
+Finance: 7/9 (77.78%)
+Misinformation: 11/12 (91.67%)
+Statistics: 5/5 (100.00%)
+Mandela Effect: 5/6 (83.33%)
+
+Results by Type:
+------------------------------
+Adversarial: 379/437 (86.73%)
+Non-Adversarial: 323/380 (85.00%)

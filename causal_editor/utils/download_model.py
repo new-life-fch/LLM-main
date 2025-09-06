@@ -1,45 +1,37 @@
 import os
+os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+# Hugging Face Token
+
 from huggingface_hub import snapshot_download, login
 
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-
-# 尝试登录 Hugging Face（如果有token的话）
+# 登录 Hugging Face
 try:
-    # 如果设置了HF_TOKEN环境变量，则使用它登录
-    hf_token = os.environ.get('HF_TOKEN')
-    if hf_token:
-        login(token=hf_token)
-        print("已使用HF_TOKEN登录")
+    login(token=HF_TOKEN, add_to_git_credential=False)
+    print("✅ 已使用 HF_TOKEN 登录")
 except Exception as e:
-    print(f"登录失败，将尝试匿名下载: {e}")
+    print(f"❌ 登录失败: {e}")
+
+
 
 # 模型名称
-repo_id = "meta-llama/Llama-2-7b-chat-hf"
+repo_id = "meta-llama/Llama-2-7b-hf"
 
-# 您指定的本地下载路径
-local_dir = "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf"
+# 本地保存路径
+local_dir = "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-2-7b-hf"
+os.makedirs(local_dir, exist_ok=True)
 
-print(f"正在从 HF-Mirror 镜像站下载模型 '{repo_id}' 到 '{local_dir}'...")
+print(f"⬇️ 正在从官方 Hugging Face 下载模型 '{repo_id}' 到 '{local_dir}'...")
 
 try:
-    # 确保目标目录存在
-    os.makedirs(local_dir, exist_ok=True)
-    
-    # 使用 snapshot_download 函数下载模型
-    # local_dir_use_symlinks=False 参数可以避免在某些文件系统上出现问题
-    # resume_download=True 允许断点续传
     snapshot_download(
-        repo_id=repo_id, 
-        local_dir=local_dir, 
-        local_dir_use_symlinks=False,
-        resume_download=True,
-        ignore_patterns=["*.bin"]  # 只下载safetensors格式，忽略bin文件
+        repo_id=repo_id,
+        local_dir=local_dir,
+        force_download=False,  # 如果需要强制重下改为 True
     )
-    print("模型下载成功！")
+    print("✅ 模型下载成功！")
 except Exception as e:
-    print(f"模型下载失败: {e}")
-    print("\n可能的解决方案:")
-    print("1. 检查网络连接")
-    print("2. 设置HF_TOKEN环境变量（如果模型需要认证）")
-    print("3. 尝试使用官方Hub: unset HF_ENDPOINT")
-    print("4. 检查模型名称是否正确")
+    print(f"❌ 模型下载失败: {e}")
+    print("可能的原因：")
+    print("1. 你的 HF_TOKEN 没有该模型的访问权限，需要去模型页面点 Request access")
+    print("2. 网络无法访问 huggingface.co")
+    print("3. repo_id 拼写错误（请检查是否正确）")

@@ -24,6 +24,7 @@ try:
         LlamaDecoderLayer,
         LlamaPreTrainedModel,
     )
+    from transformers.cache_utils import Cache
     try:
         from transformers import AutoTokenizer
     except ImportError as e:
@@ -82,17 +83,20 @@ class CausalLlama2Attention(LlamaAttention):
         hidden_states: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
-        past_key_value: Optional[Tuple[torch.Tensor]] = None,
+        past_key_values: Optional[Cache] = None,
         output_attentions: bool = False,
         use_cache: bool = False,
         **kwargs,
     ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
+        # 添加形状日志
+        logging.debug(f"🔍 CausalLlama2Attention.forward 层{self.layer_idx} hidden_states.shape: {hidden_states.shape}")
+        
         # 原始的attention前向传播
         outputs = super().forward(
             hidden_states=hidden_states,
             attention_mask=attention_mask,
             position_ids=position_ids,
-            past_key_value=past_key_value,
+            past_key_values=past_key_values,
             output_attentions=output_attentions,
             use_cache=use_cache,
             **kwargs,
@@ -106,6 +110,7 @@ class CausalLlama2Attention(LlamaAttention):
 
             # 获取激活状态（attention的输出）
             attention_output = outputs[0]
+            logging.debug(f"🔍 CausalLlama2Attention.forward 层{self.layer_idx} attention_output.shape: {attention_output.shape}")
 
             # 执行CausalEditor编辑
             edited_output = self.causal_editor.edit_activations(
@@ -260,7 +265,8 @@ class CausalLlama2ForCausalLM(LlamaForCausalLM):
             "device_map": "auto",  # 自动分发到可用设备
             "low_cpu_mem_usage": True,  # 减少CPU内存使用
             "trust_remote_code": True,  # 信任远程代码
-            "max_memory": {0: "18GB"}  # 针对24GB显存优化，保留2GB系统缓冲
+            "max_memory": {0: "18GB"},  # 针对24GB显存优化，保留2GB系统缓冲
+            "attn_implementation": "flash_attention_2"  
         }
         
         # 加载基础Llama-2模型
@@ -371,6 +377,11 @@ class CausalLlama2ForCausalLM(LlamaForCausalLM):
         return_dict: Optional[bool] = None,
         **kwargs,
     ):
+        # 添加形状日志以定位batch扩展来源
+        if input_ids is not None:
+            logging.debug(f"🔍 CausalLlama2ForCausalLM.forward 入口 input_ids.shape: {input_ids.shape}")
+        if attention_mask is not None:
+            logging.debug(f"🔍 CausalLlama2ForCausalLM.forward 入口 attention_mask.shape: {attention_mask.shape}")
         try:
             # 检查CausalEditor和动态模式是否可用
             if (hasattr(self, 'causal_editor') and self.causal_editor and 

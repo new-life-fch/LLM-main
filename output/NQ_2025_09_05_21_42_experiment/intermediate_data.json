@@ -1,0 +1,2257 @@
+[
+    {
+        "id": "dev_4569",
+        "question": "The royal anthem is changed from what to \"long live our noble Duke\"?",
+        "golden_answers": [
+            "Long live our noble Queen"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Long live our noble Duke",
+                    "God Save the Queen"
+                ],
+                "sent_id": [
+                    1,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Long live our noble Duke",
+                    "Anthem of His Majesty the Tsar",
+                    "E Ola Ke Alii Ke Akua",
+                    "Vive le Québec libre",
+                    "Fair Antigua, We Salute Thee",
+                    "The Discocks",
+                    "The Grand Old Duke of York",
+                    "Rock Is Dead—Long Live Rock!",
+                    "Long Live Tonight",
+                    "List of national anthems"
+                ],
+                "sentences": [
+                    [
+                        "\"Long live our noble Duke\" is an alteration traditionally made within the historic county boundaries of Lancashire to the anthem 'God Save the Queen'.",
+                        " The anthem still uses the same lyrics and instrumental tune, but the second line \"Long live our noble Queen\" is changed to \"Long live our noble Duke\" out of respect to the reigning monarch in their capacity as the Duke of Lancaster.",
+                        " The title is always held by the monarch as head of the royal Duchy of Lancaster, historically Lancaster being the county town of Lancashire.",
+                        " No matter if the sovereign is male or female, they always retain the style of Duke, therefore the variant second line never changes even if 'God save the Queen' changes to 'God Save the King' and vice versa."
+                    ],
+                    [
+                        "Anthem of His Majesty the Tsar or God Save the Tsar (Bulgarian: Химн на Негово Величество Царя ] ) was the royal anthem of the Kingdom of Bulgaria from 1908 to 1944.",
+                        "The original music was written by Emil von Sauer.",
+                        " Later the composition by Emanuil Manolov was adopted, and the lyrics were written by Major General Georgi Agura.",
+                        " During this period, the national anthem of the Kingdom of Bulgaria was \"Shumi Maritsa\" and the \"Anthem of His Majesty the Tsar\" was played immediately after it on every solemn occasion in the Tsar's presence."
+                    ],
+                    [
+                        "\"E Ola Ke Aliʻ i Ke Akua\", translated as \"God Save the King\", was one of Hawaii's four national anthems.",
+                        " It was composed in 1860 by Prince William Charles Lunalilo, who later became King Lunalilo.",
+                        " Prior to 1860, the Kingdom of Hawaii lacked its own national anthem and had used the British royal anthem \"God Save The King\".",
+                        " A contest was sponsored in 1860 by Kamehameha IV, who wanted a song with Hawaiian lyrics set to the tune of the British anthem.",
+                        " The winning entry was written by the 25-year-old Lunalilo and was reputed to have been written in 20 minutes.",
+                        " Lunalilo was awarded 10 dollars, which later donated to the Queen's Hospital.",
+                        " His composition became Hawaii's first national anthem.",
+                        " It remained Hawaii's national anthem until 1866, when it was replaced by Queen Liliʻ uokalani's composition \"He Mele Lahui Hawaii\"."
+                    ],
+                    [
+                        "\"\"Vive le Québec libre!\"\"",
+                        " (] , \"Long live free Quebec!\")",
+                        " was a controversial phrase in a speech delivered by President Charles de Gaulle of France on July 24, 1967, during an official visit to Canada under the pretext of attending Expo 67 in Montreal, Quebec.",
+                        " While giving an address to a large crowd from a balcony at Montreal City Hall, he uttered \"\"Vive Montréal; Vive le Québec!\"\"",
+                        " (\"Long live Montreal, Long live Quebec!\")",
+                        " and then added, followed by loud applause, \"\"Vive le Québec \"libre\"!\"\"",
+                        " (\"Long live \"free\" Quebec!\")",
+                        " with particular emphasis on the word 'libre'.",
+                        " The phrase, a slogan used by Quebecers who favoured Quebec sovereignty, and de Gaulle's use of it was seen by them as giving his support to the movement.",
+                        " The speech sparked a diplomatic incident with Canada's government, and was condemned by Prime Minister Lester B. Pearson, saying that \"Canadians do not need to be liberated\".",
+                        " In France, though many were sympathetic to the cause of Quebec nationalism, de Gaulle's speech was criticized as a breach of protocol."
+                    ],
+                    [
+                        "\"Fair Antigua, We Salute Thee\" is the national anthem of Antigua and Barbuda.",
+                        " Written by Novelle Hamilton Richards and composed by Walter Garnet Picart Chambers, it was adopted as the anthem in 1967 while Antigua and Barbuda were still a British colony.",
+                        " It was adopted as the national anthem upon independence in 1981. \"",
+                        "God Save the Queen\" is still the royal anthem."
+                    ],
+                    [
+                        "The Discocks are a punk rock band formed in 1989 with Peter (Ohashi) and bass, Naka-chin on guitar and early D.S.B. drummer Hiroichi on drums.",
+                        " In 1994 the band released their first EP \"Voice Of Youth\" on their own New Age Records.",
+                        " The EP was re-released with a different cover on Helen Of Oi!",
+                        " Records.",
+                        " The band continued to play shows in Japan before in 1995 releasing The \"Class Of '94\" EP on Knock Out Records.",
+                        " This EP contained two covers of English Oi!",
+                        "/Punk band The Ejected.",
+                        " They also released the split EP with Tom And Boot Boys on Knock Out Records which contained three songs from Tom And Boot Boys and two from the Discocks (one of which was a cover of Menace's \"Last Year's Youth\").",
+                        " New Age Records also released a compilation LP in 1995 called \"Noise For The Boys\" with the bands Raise A Flag, Taisho as well as five new songs from The Discocks.",
+                        " In 1997 the band went to North America with Tom And Boot Boys to record their first full length Long Live Oi!",
+                        " During their time they toured the east coast with The Unseen, The Casualties and Blanks 77.",
+                        " The Unseen members Mark and Paul also contributed to the choruses on Long Live Oi!",
+                        ".",
+                        " After returning to Japan in late 1997 the band recorded a two track EP on Overthrow Records called \"Bootboys Anthem\".",
+                        " Soon saw the departure of longtime members Naka-Chin and Hiroishi, however they were quickly replaced with YAS and Ben from fellow Oi!",
+                        " band Blockbuster this lineup recorded the O.P.D.L. demo and appeared on the 7\" compilation \"Transition Period\" alongside The Dick Spikie and Youth Anthem."
+                    ],
+                    [
+                        "‘The Grand Old Duke of York’ (also sung as The Noble Duke of York) is an English children's nursery rhyme, often performed as an action song.",
+                        " The Duke of the title has been argued to be a number of the holders of that office, particularly Prince Frederick, Duke of York and Albany (1763–1827) and its lyrics have become proverbial for futile action.",
+                        " It has a Roud Folk Song Index number of 742."
+                    ],
+                    [
+                        "Rock Is Dead—Long Live Rock was the title of an unreleased 1972 autobiographical album by the British rock band The Who.",
+                        " In the liner notes for the Who's 1974 rarities collection \"Odds & Sods\", guitarist and lead songwriter Pete Townshend said, \"I had an idea once for a new album about the history of The Who called \"Rock Is Dead—Long Live Rock\".",
+                        " That idea later blossomed into \"Quadrophenia\".\"",
+                        " The sessions for the album spanned from 19 May to 6 June at Olympic Studios in London.",
+                        " \"Rock Is Dead—Long Live Rock\" was to be produced by The Who and Glyn Johns and scheduled for release in October 1972, but although the album was nearly completed (according to Townshend) the band felt as though it sounded too much like their 1971 LP \"Who's Next\".",
+                        " Townshend later stated that \"Rock Is Dead—Long Live Rock\" was also going to be a TV special about The Who.",
+                        " Some of the songs recorded during the \"Rock Is Dead—Long Live Rock\" sessions were originally written for another unreleased Who album, 1971's failed \"Lifehouse\"."
+                    ],
+                    [
+                        "Long Live Tonight is the second album from Crashcarburn, released in 2010.",
+                        " With the most popular songs in South Africa being \"Twisted\", \"Long Live Tonight\" and \"Skin Versus Bone\" on radio and South African charts.",
+                        " \"Long Live Tonight\" earned the band two SAMA nominations.",
+                        " This is the band's second album after first major album \"This City Needs a Hero\"."
+                    ],
+                    [
+                        "Most nation-states have anthems, defined as \"a song, as of praise, devotion, or patriotism\"; most anthems are either marches or hymns in style.",
+                        " A hymn can become a national anthem by a provision in the state's constitution, by a law enacted by its legislature, or simply by tradition.",
+                        " A royal anthem is a patriotic song similar to a national anthem, but it specifically praises or prays for a monarch or royal dynasty.",
+                        " Such anthems are usually performed at public appearances by the monarch or during other events of royal importance.",
+                        " Some states use the royal anthem as the national anthem, such as the anthem of Jordan."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "God Save the King",
+            "generation_time": 10.025702953338623,
+            "success": true,
+            "generation_times": 10.025702953338623,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_677",
+        "question": "Where was the armory at which Model 1840 flintlock musket was produced located? ",
+        "golden_answers": [
+            "city of Springfield, Massachusetts"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Springfield Model 1840 flintlock musket",
+                    "Springfield Armory"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Samuel Guthrie (physician)",
+                    "Springfield Model 1840 flintlock musket",
+                    "Black Betty",
+                    "Dane gun",
+                    "Springfield Model 1835",
+                    "Model 1822 Musket",
+                    "Model 1795 Musket",
+                    "Model 1816 Musket",
+                    "Springfield Model 1812 Musket",
+                    "Musket"
+                ],
+                "sentences": [
+                    [
+                        "Samuel Guthrie (1782–1848) was an American physician from Hounsfield, New York.",
+                        " He invented a form of percussion powder and also the punch lock for igniting it, which made the flintlock musket obsolete.",
+                        " He discovered chloroform independently in 1831."
+                    ],
+                    [
+                        "The Model 1840 flintlock musket was produced at Springfield Armory.",
+                        " The .69 caliber musket had a 42\" barrel, an overall length of 58\", and a weight of 9.8 lbs.",
+                        " More than 30,000 were produced by the Springfield Armory and two independent contractors between 1840 and 1846."
+                    ],
+                    [
+                        "\"Black Betty\" (Roud 11668) is a 20th-century African-American work song often credited to Huddie \"Lead Belly\" Ledbetter as the author, though the earliest recordings are not by him.",
+                        " Some sources claim it is one of Lead Belly's many adaptations of earlier folk material; in this case an 18th-century marching cadence about a flintlock musket.",
+                        " There are numerous recorded versions, including a cappella, folk, and rock arrangements.",
+                        " The best known modern recordings are rock versions by Ram Jam, Tom Jones, and Spiderbait, all of which were hits."
+                    ],
+                    [
+                        "The Dane gun was originally a type of long-barreled flintlock musket imported into West Africa by Danish traders prior to the mid-19th century.",
+                        " The term is now used chiefly by Europeans living along the west African coast to generally describe any indigenously made firearm of this type."
+                    ],
+                    [
+                        "The US Model 1835 Musket was a .69 caliber flintlock musket used in the United States during the early 19th Century."
+                    ],
+                    [
+                        "The Springfield Model 1822 Musket is a .69 caliber, flintlock musket produced by the Springfield Armory."
+                    ],
+                    [
+                        "The Model 1795 Musket was a .69 caliber flintlock musket produced in the late 18th and early 19th century at both the Springfield and Harper's Ferry US Armories."
+                    ],
+                    [
+                        "The US Model 1816 Musket was a .69 caliber flintlock musket used in the United States during the early 19th century."
+                    ],
+                    [
+                        "The Springfield Model 1812 Musket is a .69 caliber, flintlock musket produced by the Springfield Armory."
+                    ],
+                    [
+                        "A musket is a muzzle-loaded, smoothbore long gun that appeared in early 16th century Europe, at first as a heavier variant of the arquebus capable of penetrating heavy armor.",
+                        " By the mid-16th century, this type of musket went out of use as heavy armor declined, but as the matchlock became standard, the term \"musket\" continued as the name given for any long gun with a flintlock, and then its successors, all the way through the mid 1800s.",
+                        " This style of musket was retired in the 19th century when rifled muskets (technically rifles, but still referred to as muskets) became common as a result of cartridged breech-loading firearms introduced by Casimir Lefaucheux in 1835, the invention of the Minié ball by Claude-Étienne Minié in 1849, and the first reliable repeating rifle produced by Volcanic Repeating Arms in 1854.",
+                        " By the time repeating rifles became common, they were known as simply \"rifles\", ending the era of the musket."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Harper's Ferry Armory.",
+            "generation_time": 10.660118103027344,
+            "success": true,
+            "generation_times": 10.660118103027344,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_5290",
+        "question": "Who starred as a divorced mother in an American sitcom produced by Danny Bonaduce's father?",
+        "golden_answers": [
+            "Bonnie Franklin"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Danny Bonaduce",
+                    "Danny Bonaduce",
+                    "One Day at a Time",
+                    "One Day at a Time"
+                ],
+                "sent_id": [
+                    0,
+                    1,
+                    0,
+                    1
+                ]
+            },
+            "context": {
+                "title": [
+                    "VH1 Big in '06 Awards",
+                    "Skip Kelly",
+                    "Greatest Hits (Partridge Family album)",
+                    "The Other Half (TV series)",
+                    "One Day at a Time",
+                    "Come On Get Happy: The Partridge Family Story",
+                    "I Know My Kid's a Star",
+                    "Danny (talk show)",
+                    "H.O.T.S.",
+                    "Breaking Bonaduce"
+                ],
+                "sentences": [
+                    [
+                        "VH1's Big in '06 was an award show that aired on VH1 on December 3, 2006 on VH1 in the United States.",
+                        " It was the annual VH1 Big Awards.",
+                        " The show was hosted by comedian D. L. Hughley, and featured many guests, including Paris Hilton, Hulk Hogan, Janelle Pierzina, Will Kirby, Danny Bonaduce, Justin Timberlake, Fergie, The Killers, the Fray, \"Weird Al\" Yankovic, Flavor Flav, Tiffany \"New York\" Pollard, Britney \"Tiger\" Morano, Abigail \"Red Oyster\" Kintanar, Jesselynn \"Wire\" Desmond, Jenna Jameson, Hayden Panettiere, Tommy Lee, Katharine McPhee, George Takei, Miley Cyrus, Masi Oka, Eva Longoria, David Hasselhoff, Mario Lopez, Joey Lawrence, will.i.am, Perez Hilton, lonelygirl15, Kiefer Sutherland, Xzibit and Dominic Monaghan, and many other celebrities associated with today's pop culture, most being reality tv stars.",
+                        " The show was broadcast across the United States."
+                    ],
+                    [
+                        "Skip Kelly is an American radio personality and Program Director known for his voice work and radio shows.",
+                        " He has spent over 25 years in the broadcast radio industry.",
+                        " On air, he has shared the same mic as well known personalities Ryan Seacrest, Danny Bonaduce, Delilah, Matt Siegel, and Dale Dorman.",
+                        " He has also produced live music from Dave Matthews, Coldplay, Dido and Sarah McLachlan.",
+                        " Skip has appeared in Billboard Magazine and Teen People Magazine.",
+                        " His voice has been heard in campaigns for brands and products like Volkswagen, Rain-X, Nabisco, Budweiser, Ringling Bros. and Barnum & Bailey, Disney, and Volvo."
+                    ],
+                    [
+                        "The Partridge Family's Greatest Hits album was issued by Arista in 1989.",
+                        " It was never released on vinyl, only on cassette and compact disc, and is the first Partridge Family album to ever be released on CD.",
+                        " It contains 16 songs, including the TV show's second theme song, \"Come on Get Happy\" which was never featured on a Partridge family album, and two songs by David Cassidy as a solo act: \"Cherish\" and \"Could It Be Forever\".",
+                        " It has liner notes by Danny Bonaduce and a Partridge Family trivia quiz.",
+                        " The cover has a picture of a period lunchbox with a cartoon picture of the family in red velvet suits."
+                    ],
+                    [
+                        "The Other Half is an American daytime talk show produced for broadcast syndication by NBC Studios, which aired from 2001-2003, mainly on NBC's owned-and-operated stations but syndicated to markets outside those in which NBC owned a station.",
+                        " The show was hosted by Dick Clark, former child actors Mario Lopez and Danny Bonaduce, and cosmetic surgeon Dr. Jan Adams, who was later replaced by actor Dorian Gregory."
+                    ],
+                    [
+                        "One Day at a Time is an American sitcom that aired on CBS from December 16, 1975, until May 28, 1984.",
+                        " It starred Bonnie Franklin as a divorced mother raising two teenage daughters, played by Mackenzie Phillips and Valerie Bertinelli, in Indianapolis."
+                    ],
+                    [
+                        "Come On, Get Happy: The Partridge Family Story is a 1999 ABC television biopic about the 1970–1974 television series \"The Partridge Family\", focusing on star David Cassidy and co-star Danny Bonaduce through the four years the show was on."
+                    ],
+                    [
+                        "I Know My Kid's a Star is an American competitive reality television TV show for aspiring child actors and their parents.",
+                        " The show aired from March to May 2008 on VH1.",
+                        " The show's host and primary judge is Danny Bonaduce, who is best known as having been a child actor himself on the 1970s TV show \"The Partridge Family\".",
+                        " Casting agent Marki Costello stars as co-host and secondary judge.",
+                        " The show features ten parent/child pairings, with each pair working together as a team to further the child's career."
+                    ],
+                    [
+                        "Danny (aka The Danny Bonaduce Show) is a short-lived syndicated talk show.",
+                        " Its only memorable episode was the first episode when he had his fellow cast members from \"The Partridge Family\", as his guests."
+                    ],
+                    [
+                        "H.O.T.S. is a 1979 sex comedy.",
+                        " The film stars three Playboy Playmates — Susan Kiger (January 1977), Pamela Bryant (April, 1978) and Sandy Johnson (June, 1974) — as well as former Miss USA of 1972, Lindsay Bloom, sexploitation actress Angela Aames and B-movie veteran Lisa London.",
+                        " Danny Bonaduce appears in a supporting role."
+                    ],
+                    [
+                        "Breaking Bonaduce is an American reality television series that aired on VH1, focusing on former child-actor Danny Bonaduce, and how his (then-) increasingly unstable lifestyle impacted his then-wife, Gretchen, and their two children.",
+                        " The series premiered in September 2005 and ended in December 2006."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Ann B. Davis",
+            "generation_time": 9.052454710006714,
+            "success": true,
+            "generation_times": 9.052454710006714,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_6861",
+        "question": "What musical was inspired by the films that included Ruth Leuwerik's best known role?",
+        "golden_answers": [
+            "The Sound of Music"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Ruth Leuwerik",
+                    "Maria von Trapp"
+                ],
+                "sent_id": [
+                    2,
+                    2
+                ]
+            },
+            "context": {
+                "title": [
+                    "Barbara Sheldon",
+                    "Robbie Tucker",
+                    "Ruth Leuwerik",
+                    "Hiroki Aiba",
+                    "Queenie Ashton",
+                    "Don Terry",
+                    "John Matuszak",
+                    "Tiffany Helm",
+                    "Marco Antonio Campos",
+                    "Beverlee McKinsey"
+                ],
+                "sentences": [
+                    [
+                        "Barbara Sheldon (November 24, 1912 – October 19, 2007) was an American film actress of the early 1930s.",
+                        " She started her film career in 1933 in \"Stolen by Gypsies or Beer and Bicycles\", and starred in two other films that same year.",
+                        " Her best known role was when she starred opposite John Wayne in the 1934 film \"The Lucky Texan\".",
+                        " It would be her last film.",
+                        " With no other roles coming her way, she retired from acting.",
+                        " She died at the age of 94 on October 19, 2007."
+                    ],
+                    [
+                        "Robbie Tucker (born April 5, 2001) is an American actor.",
+                        " His best known role to date is that of Fenmore Baldwin on the CBS soap opera \"The Young and the Restless\".",
+                        " Tucker has also starred on other series, such as \"Criminal Minds\", \"FlashForward\" and \"It's Always Sunny in Philadelphia\".",
+                        " He has also appeared in the films \"Prom\" and \"Little Fockers\"."
+                    ],
+                    [
+                        "Ruth Leuwerik (23 April 1924 – 12 January 2016) was a German film actress, one of the most popular stars of German film during the 1950s.",
+                        " She appeared in 34 films between 1950 and 1977.",
+                        " Leuwerik is probably best known for her portrayal of Maria von Trapp in the films \"The Trapp Family\" and \"The Trapp Family in America\"."
+                    ],
+                    [
+                        "Hiroki Aiba (相葉 裕樹 , Aiba Hiroki ) is an actor, dancer and singer.",
+                        " He is best known for his role as Shusuke Fuji in \"The Prince of Tennis\" musical series, Tenimyu, and the live film adaptation.",
+                        " He was also part of a young men's 3-member streetdancing group called \"Brights\", which was disbanded in 2004.",
+                        " His other most known role was the part of Ryūnosuke Ikenami/ShinkenBlue in the 33rd Super Sentai series, \"Samurai Sentai Shinkenger\"."
+                    ],
+                    [
+                        "Ethel Muriel Ashton AM (11 November 190321 October 1999), known professionally as Queenie Ashton, was an English-born character actress and comedian.",
+                        " She had a long career, beginning in her native England as a soprano and theatre performer, before immigrating to Australia where she became best known for her radio and television soap opera roles, although she did also feature briefly in film's.",
+                        " Ashton's best known role played was of \"Granny Bishop\" a character many years her senior in the long-running Gwen Meredith radio serial \"Blue Hills, a role she would later reprise for television, with the first locally produced soap opera Autumn Affair"
+                    ],
+                    [
+                        "Don Terry (born Donald Prescott Loker, 8 August 1902 – 6 October 1988) was an American film actor, best known for his lead appearances in B films and serials in the 1930s and early 1940s.",
+                        " His best known role is probably playing the recurring character of Naval Commander Don Winslow in Universal Pictures serials of the early 1940s, including \"Don Winslow of the Navy\" (1942) and \"Don Winslow of the Coast Guard\" (1943)."
+                    ],
+                    [
+                        "John Daniel \"Tooz\" Matuszak (October 25, 1950June 17, 1989) was an American football defensive end in the National Football League who later became an actor.",
+                        " He was the first draft pick of 1973 and played most of his career with the Oakland Raiders until he retired after winning his second Super Bowl in 1981.",
+                        " Matuszak participated in the 1978 World's Strongest Man competition, where he placed ninth.",
+                        " As an actor, he played in both films and television, appearing first as O.W. Shaddock in 1979 in \"North Dallas Forty\" followed by Tonda in the 1981 film \"Caveman\".",
+                        " His best known role was as the deformed Sloth in the 1985 movie \"The Goonies\".",
+                        " His biography, \"Cruisin' with the Tooz\", written with Steve Delsohn, was published in 1987.",
+                        " In 1989, he died of an accidental propoxyphene overdose.",
+                        " There were also traces of cocaine found in the blood stream."
+                    ],
+                    [
+                        "Tiffany Helm (born May 12, 1964) is an American film and television actress.",
+                        " Her best known role was in the 1985 horror film \"\" as Violet.",
+                        " She also starred in \"The Zoo Gang\" (1985) and \"Reform School Girls\" (1986) a B movie spoof of women in prison films."
+                    ],
+                    [
+                        "Marco Antonio Campos (9 July 1919 – 19 February 1996) was a Mexican comedian, actor, and singer best known as Viruta in the double act Viruta y Capulina with Gaspar Henaine.",
+                        " His best known role is as the straight man in the comic duo Viruta y Capulina along with Gaspar Henaine.",
+                        " Campos and Henaine worked together in 35 comedy films and one television series until they separated over work issues in 1967.",
+                        " He died in 1996 from an aortic aneurysm."
+                    ],
+                    [
+                        "Beverlee McKinsey (August 9, 1935 – May 2, 2008) was an American actress.",
+                        " She is best known for her roles on two daytime serials.",
+                        " Her first known role was as Iris Cory Carrington on the soap opera \"Another World\" from 1972 to 1980.",
+                        " Subsequently, she portrayed the same role until November 1981 on the spin-off show \"Texas\".",
+                        " Her other famous role was as the Baroness Alexandra Spaulding Von Halkein, on the soap opera \"Guiding Light\", from 1984 to 1992.",
+                        " In 1994, she made a brief return to daytime, appearing in 6 episodes of \"General Hospital\" as Myrna Slaughter, a witness in Edward Quartermain's trial for the murder of Jack Boland."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "The Sound of Music",
+            "generation_time": 7.58886456489563,
+            "success": true,
+            "generation_times": 7.58886456489563,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "dev_3912",
+        "question": "What time did the show, in which Gordon Burns was the host, usually air on Monday?",
+        "golden_answers": [
+            "7pm"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "The Krypton Factor",
+                    "Gordon Burns"
+                ],
+                "sent_id": [
+                    1,
+                    1
+                ]
+            },
+            "context": {
+                "title": [
+                    "CNN World News",
+                    "A Word in Your Ear",
+                    "Gordon Burns (footballer)",
+                    "The Krypton Factor",
+                    "Krypto the Superdog",
+                    "Soil mechanics",
+                    "Password (UK game show)",
+                    "Foil bearing",
+                    "List of TNA Television Champions",
+                    "Spray painting"
+                ],
+                "sentences": [
+                    [
+                        "CNN World News, a program that airs on CNN International and CNN International Asia Pacific.",
+                        " It is supplemented by CNN World News Asia and CNN World News Europe The show's traditional time run is 24-hours if it is followed by CNN World News Middle East The show's regular presenters include Errol Barnett.",
+                        " Its main role is to update viewers of the latest news in the world.",
+                        " It contains a weather update from the CNN World Weather Forecast News.",
+                        " CNN World News can usually air up to three times on weekends, and is known to be bringing the latest on a story."
+                    ],
+                    [
+                        "A Word in Your Ear is a game show that originally aired BBC1 from 19 April 1993 to 14 October 1994 then on The Family Channel from 1995.",
+                        " It was hosted by Gordon Burns.",
+                        " The host presided over male and female pairs of celebrities as they participate in a few rounds of communication games.",
+                        " Celebrities appearing included Lynsey De Paul, Nick Owen, Philippa Kennedy and Bob Holness."
+                    ],
+                    [
+                        "Gordon Burns (born 2 December 1978) is a Scottish former professional footballer who is currently manager of Troon in the Scottish Junior Football Association, West Region.",
+                        " He has previously played in the Scottish Championship for Ayr United."
+                    ],
+                    [
+                        "The Krypton Factor is a British game show produced by Granada for broadcast on ITV.",
+                        " The show originally ran from 7 September 1977 to 20 November 1995, and was hosted by Gordon Burns and usually broadcast on the ITV network on Mondays at 7pm."
+                    ],
+                    [
+                        "Krypto the Superdog is an American animated television series produced by Warner Bros.",
+                        " Animation, based on the DC Comics character Krypto.",
+                        " The show premiered on Cartoon Network on March 25, 2005, and aired on Kids' WB in September 2006.",
+                        " It would usually air after the \"Tickle-U\" block."
+                    ],
+                    [
+                        "Soil mechanics is a branch of soil physics and applied mechanics that describes the behavior of soils.",
+                        " It differs from fluid mechanics and solid mechanics in the sense that soils consist of a heterogeneous mixture of fluids (usually air and water) and particles (usually clay, silt, sand, and gravel) but soil may also contain organic solids and other matter.",
+                        " Along with rock mechanics, soil mechanics provides the theoretical basis for analysis in geotechnical engineering, a subdiscipline of civil engineering, and engineering geology, a subdiscipline of geology.",
+                        " Soil mechanics is used to analyze the deformations of and flow of fluids within natural and man-made structures that are supported on or made of soil, or structures that are buried in soils.",
+                        " Example applications are building and bridge foundations, retaining walls, dams, and buried pipeline systems.",
+                        " Principles of soil mechanics are also used in related disciplines such as engineering geology, geophysical engineering, coastal engineering, agricultural engineering, hydrology and soil physics."
+                    ],
+                    [
+                        "Password was a British panel game show based on the US version of the same name.",
+                        " It was originally aired on ITV produced by ATV from 12 March to 10 September 1963 hosted by Shaw Taylor, then it aired on BBC2 from 24 March to 28 April 1973 hosted by Brian Redhead before moving to its flagship channel BBC1 from 7 January 1974 to 1976 first hosted by Eleanor Summerfield then by Esther Rantzen, it was then aired on Channel 4 produced by Thames in association with Talbot Television and Goodson-Todman Productions from 6 November 1982 to 14 May 1983 hosted by Tom O'Connor and then finally aired back on ITV produced by Ulster from 22 July 1987 to 5 August 1988 hosted by Gordon Burns."
+                    ],
+                    [
+                        "Foil bearings, also known as foil-air bearings, are a type of air bearing.",
+                        " A shaft is supported by a compliant, spring-loaded foil journal lining.",
+                        " Once the shaft is spinning fast enough, the working fluid (usually air) pushes the foil away from the shaft so that there is no contact.",
+                        " The shaft and foil are separated by the air's high pressure which is generated by the rotation which pulls gas into the bearing via viscosity effects.",
+                        " A high speed of the shaft with respect to the foil is required to initiate the air gap, and once this has been achieved, no wear occurs.",
+                        " Unlike aerostatic or hydrostatic bearings, foil bearings require no external pressurisation system for the working fluid, so the hydrodynamic bearing is self-starting."
+                    ],
+                    [
+                        "The TNA Television Championship was a professional wrestling championship owned by the Total Nonstop Action Wrestling (TNA) professional wrestling promotion.",
+                        " Being a professional wrestling championship, it is won via a scripted ending to a match or awarded to a wrestler because of a storyline.",
+                        " All title changes have occurred at TNA-promoted events thus far.",
+                        " Title changes that occur on TNA's television program \"Impact Wrestling\" (also known as \"TNA Impact!\"",
+                        " until May 3, 2011) usually air on tape delay and as such are listed with the day the tapings occurred, rather than the air date."
+                    ],
+                    [
+                        "Spray painting is a painting technique where a device sprays a coating (paint, ink, varnish, etc.) through the air onto a surface.",
+                        " The most common types employ compressed gas—usually air—to atomize and direct the paint particles.",
+                        " Spray guns evolved from airbrushes, and the two are usually distinguished by their size and the size of the spray pattern they produce.",
+                        " Airbrushes are hand-held and used instead of a brush for detailed work such as photo retouching, painting nails or fine art.",
+                        " Air gun spraying uses equipment that is generally larger.",
+                        " It is typically used for covering large surfaces with an even coating of liquid.",
+                        " Spray guns can be either automated or hand-held and have interchangeable heads to allow for different spray patterns.",
+                        " Single color aerosol paint cans are portable and easy to store."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "The Krypton Factor",
+            "generation_time": 7.666584491729736,
+            "success": true,
+            "generation_times": 7.666584491729736,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_1419",
+        "question": "Richard Münch portrayed the German general who served in what capacity during WWII in the 1970 movie Patton?",
+        "golden_answers": [
+            "Oberkommando der Wehrmacht"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Richard Münch (actor)",
+                    "Alfred Jodl"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Richard Münch (actor)",
+                    "Johannes Steinhoff",
+                    "Donald Shebib",
+                    "M48 Patton",
+                    "Ludwig Beck",
+                    "Dorian Gray (1970 film)",
+                    "Richard Münch (sociologist)",
+                    "The Last Days of Patton",
+                    "From Denver to L.A.",
+                    "Wilhelm Burgdorf"
+                ],
+                "sentences": [
+                    [
+                        "Richard Heinrich Ludwig Münch (10 January 1916 – 6 June 1987), better known as Richard Münch, was a German actor, best known for portraying Alfred Jodl in \"Patton\" (1970).",
+                        " He also portrayed General Erich Marcks in \"The Longest Day\" (1962)."
+                    ],
+                    [
+                        "Johannes \"Macky\" Steinhoff (15 September 1913 – 21 February 1994) was a German general, NATO official and Luftwaffe fighter ace during World War II.",
+                        " He joined the West German government's Rearmament Office as a consultant on military aviation in 1952 and became one of the principal officials tasked with building the German Air Force during the Cold War.",
+                        " He became the German Military Representative to the NATO Military Committee in 1960, served as Acting Commander Allied Air Forces Central Europe in NATO 1965–1966, as Inspector of the Air Force 1966–1970 and as Chairman of the NATO Military Committee 1971–1974.",
+                        " In retirement, Steinhoff became a widely read author of books on German military aviation during the Second World War and the experiences of the German people at that time."
+                    ],
+                    [
+                        "Donald Shebib (born 17 January 1938, Toronto), often called Don Shebib, is a Canadian film director, writer, producer and editor.",
+                        " A graduate of UCLA film school, Shebib gained prominence and critical acclaim in Canadian cinema for his seminal 1970 movie \"Goin' Down the Road\", which combined narrative storytelling with Canadian documentary tradition influenced by the British.",
+                        " The low-budget film crew travelled around Toronto in a station wagon, supported by funding from the newly-formed Canadian Film Development Corporation.",
+                        " The movie was screened in New York and hailed by Pauline Kael and Roger Ebert.",
+                        " Kael wrote that the movie showed up the ostensibly forced sincerity and perceived honesty of the films of John Cassavetes.",
+                        " Shebib is the father of Noah \"40\" Shebib.",
+                        " Goin' Down the Road was digitally remastered as one of the key films in the Canadian film canon and was honoured with a screening at the Art Gallery of Ontario.",
+                        " A sequel was shot in 2011, called \"Goin' Down the Road Again,\" featuring some of the original cast members as well as a new generation of characters."
+                    ],
+                    [
+                        "The M48 Patton is a main battle tank (MBT) that was designed in the United States.",
+                        " It was the third tank to be officially named after General George S. Patton, commander of the U.S. Third Army during World War II and one of the earliest American advocates for the use of tanks in battle.",
+                        " It was a further development of the M47 Patton tank.",
+                        " The M48 Patton was in U.S. service until replaced by the M60 and served as the U.S. Army and Marine Corps's primary battle tank in South Vietnam during the Vietnam War.",
+                        " It was widely used by U.S. Cold War allies, especially other NATO countries."
+                    ],
+                    [
+                        "Ludwig August Theodor Beck (29 June 1880 – 21 July 1944) was a German general and Chief of the German General Staff during the early years of the Nazi regime in Germany before World War II.",
+                        " Ludwig Beck was never a member of the Nazi Party, though in the early 1930s he supported Adolf Hitler's forceful denunciation of the Versailles Treaty and belief in the need for Germany to rearm.",
+                        " Beck had grave misgivings regarding the Nazi demand that all German officers swear an oath of fealty to the person of Hitler in 1934, though he believed that Germany needed strong government and that Hitler could successfully provide this so long as he was influenced by traditional elements within the military rather than the SA and SS."
+                    ],
+                    [
+                        "Dorian Gray (Italian: \"Il dio chiamato Dorian\") aka \"The Sins of Dorian Gray\" is a 1970 movie adaptation of Oscar Wilde's novel \"The Picture of Dorian Gray\" starring Helmut Berger.",
+                        " The Italian title translates as \"A God Called Dorian\"."
+                    ],
+                    [
+                        "Richard Münch (born 13 May 1945 in Niefern near Pforzheim, Germany) is a German sociologist and, as of 2013, professor emeritus at the University of Bamberg.",
+                        " His primary field is sociological theory, in particular the work of Talcott Parsons.",
+                        " In the 1980s, he was instrumental in popularizing Parsons in Germany and defended his functionalist \"grand theory\" of action against competing approaches, such as rational choice and Niklas Luhmann's systems theory, which had been gaining ground since the 1970s."
+                    ],
+                    [
+                        "The Last Days of Patton is a 1986 made-for-television film sequel to the 1970 film \"Patton\", which portrays the last few months of the general's life.",
+                        " George C. Scott reprises the role of General George S. Patton, and Eva Marie Saint portrays Beatrice Patton, the general's wife.",
+                        " It was directed by Delbert Mann."
+                    ],
+                    [
+                        "\"From Denver to L.A.\" is a song sung by Elton John, appearing on the soundtrack of the 1970 movie, \"The Games\".",
+                        " The song was released as a single in the U.S. in July 1970, miscredited on the record label to \"Elton Johns\".",
+                        " The single was issued just as John's career was starting to take off, but was quickly withdrawn because both John and his then-current record company objected to its release.",
+                        " It is now an extremely rare collectors' item."
+                    ],
+                    [
+                        "Wilhelm Emanuel Burgdorf (15 February 1895 – 2 May 1945) was a German general in the Wehrmacht during World War II, who served as a commander and staff officer in the German Army (Wehrmacht) (army).",
+                        " In October 1944, Burgdorf assumed the role of the Chief of the Army Personnel Office (\"Heerespersonalamt\") and Chief Adjutant to Adolf Hitler.",
+                        " In this capacity, he played a role in the forced suicide of Field Marshal Erwin Rommel.",
+                        " Burgdorf committed suicide in the \"Führerbunker\" on 2 May 1945 at the conclusion of the Battle of Berlin."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Field Marshal Friedrich Paulus.",
+            "generation_time": 10.433632850646973,
+            "success": true,
+            "generation_times": 10.433632850646973,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_4335",
+        "question": "What was Mary Edna González sexuality? ",
+        "golden_answers": [
+            "omnisexuality"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Mary González",
+                    "Pansexuality"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Michael and Mary",
+                    "Mark Bin Bakar",
+                    "Mary Jane Sherfey",
+                    "Bonk: The Curious Coupling of Science and Sex",
+                    "Mary Marcy",
+                    "Michael Poole (producer)",
+                    "Golandsky Institute",
+                    "Mary González",
+                    "The Making of Maddalena",
+                    "Edna Henry Lee Turpin"
+                ],
+                "sentences": [
+                    [
+                        "Michael and Mary was a 1931 British drama film directed by Victor Saville and starring Elizabeth Allan, Edna Best, Frank Lawton, and Herbert Marshall.",
+                        " This was the first of the Edna Best and Herbert Marshall co-starring talkies.",
+                        " It was based on a play of the same name by A. A. Milne."
+                    ],
+                    [
+                        "Mark Bin Bakar is an Indigenous Australian musician, comedian and radio announcer, writer, director/producer as well as an indigenous rights campaigner based in Broome, in the Kimberley region of Western Australia.",
+                        " He is best known for his radio and television character, the acid-tongued Mary Geddarrdyu or Mary G, who has gained somewhat of a national cult following and has been described as a Dame Edna Everage in thongs.",
+                        " In character Mary G has hosted a radio program and hosted a variety show broadcast nationally on SBS Television."
+                    ],
+                    [
+                        "Mary Jane Sherfey (1918–1983) was an American psychiatrist and writer on female sexuality, she received her medical degree from Indiana University, where she attended lectures on marriage and sexuality given by Alfred Kinsey.",
+                        " Sherfey had a private practice in New York City and was on the staff of the Payne Whitney Clinic of the New York Hospital – Cornell Medical Center.",
+                        " In 1961, Sherfey’s interest in female biology was intensified when she came upon the inductor theory, which demonstrated that the human embryo is female until hormonally “induced” to become male.",
+                        " Determined to popularize a fact that had lain in neglect since its discovery in the 1950s, Sherfey began researching the subject and familiarizing herself with a variety of disciplines, including embryology, anatomy, primatology and anthropology.",
+                        " Many of her findings appear in \"The Nature and Evolution of Female Sexuality\", which initially took form as an article contesting the existence of vaginal orgasm, published in the Journal of the American Psychoanalytic Association in 1966."
+                    ],
+                    [
+                        "Bonk: The Curious Coupling of Science and Sex is a 2008 book by Mary Roach.",
+                        " It follows the winding history of science and its exploration of human sexuality, going back as far as Aristotle and finally ending with recent discoveries about the origination and anatomy of the female orgasm.",
+                        " Throughout, Mary Roach provides a humorous and often very personal view—both as a participant and observer—of humans, scientists, animals, and sex machines.",
+                        " Of the book's numerous accounts, Roach discusses artificial insemination of sows in Denmark, the notorious history of sex machines, as well as much discussion and commentary on Kinsey's notorious attic sex experiments.",
+                        " Her footnotes provide additional humor; as in a sentence which includes several DSM diagnoses listed as acronyms she adds \"And from HAFD (hyperactive acronym formation disorder)\".",
+                        " In the book, Mary Roach describes a session in which she and her husband Ed volunteer to have sex while being recorded by a groundbreaking 4D ultrasound in the interests of science.",
+                        " During the experiment, a doctor looks on, making suggestions, and finally telling Ed that he \"may ejaculate now.\""
+                    ],
+                    [
+                        "Mary Edna Tobias Marcy (May 8, 1877 – December 8, 1922) was an American socialist author, pamphleteer, poet, and magazine editor.",
+                        " She is best remembered for her muckraking series of magazine articles on the meat industry, \"Letters of a Pork Packer's Stenographer,\" as author of a widely translated socialist propaganda pamphlet regarded as a classic of the genre, \"Shop Talks on Economics,\" and as an assistant editor of the \"International Socialist Review\", one of the most influential American socialist magazines of the first two decades of the 20th Century."
+                    ],
+                    [
+                        "Michael \"Mike\" Poole was a Canadian film maker and author.",
+                        " He began his career as a copy runner for the \"Vancouver Sun\" before becoming a reporter.",
+                        " He earned a journalism degree in Virginia, USA, started in the film business in the 1960s and went on to be a television producer for the Canadian Broadcasting Corporation for ten years.",
+                        " He then worked as a freelance filmmaker, spending two decades producing documentaries with the well-known Canadian environmentalist, David Suzuki.",
+                        " His books are \"Romancing Mary Jane: A Year in the Life of a Failed Marijuana Grower\", \"Ragged Islands: A Journey by Canoe Through the Inside Passage\" and \"Rain Before Morning\", a novel about Canadian draft dodgers during World War I.",
+                        " In his retirement Poole lived full-time on the Sunshine Coast, British Columbia, Canada with his wife Carole and his two beloved Labradors.",
+                        " He won the Edna Staebler Award, a Canadian literary award for creative nonfiction, in 1999 for \"Romancing Mary Jane: A Year in the Life of a Failed Marijuana Grower\".",
+                        " He died of prostate cancer at the age of 74 in 2010."
+                    ],
+                    [
+                        "The Golandsky Institute is a not-for-profit organization dedicated to the Taubman Approach to piano playing.",
+                        " Led by Edna Golandsky, Artistic Director, the Institute holds an annual symposium at Princeton University and hosts workshops and master classes worldwide.",
+                        " The Golandsky Institute was founded in 2003 by Edna Golandsky, John Bloomfield, Robert Durso, and Mary Moran.",
+                        " It now has a teaching roster of fifteen faculty and associate faculty members as well as thirteen certified teachers from around the globe."
+                    ],
+                    [
+                        "Mary Edna González (born October 30, 1983) is an American politician who serves as State Representative of House District 75 in the Texas House of Representatives.",
+                        " She is a Democrat who was elected in November 2012 to represent an area that includes east El Paso County, parts of the city of El Paso and the towns of Socorro, Clint, Fabens, Horizon City, San Elizario and Tornillo.",
+                        " She is also the first openly pansexual elected official in the United States."
+                    ],
+                    [
+                        "The Making of Maddalena is a 1916 American silent drama film directed by Frank Lloyd and written by L.V. Jefferson based upon a play by Samuel Service and Mary Service.",
+                        " The film stars Edna Goodrich, Forrest Stanley, Howard Davies, John Burton, Mary Mersch, and Colin Chase.",
+                        " The film was released on June 8, 1916, by Paramount Pictures."
+                    ],
+                    [
+                        "Edna Henry Lee Turpin (1867–1952) was an American author.",
+                        " She was born on July 26, 1867, at Echo Hill, Mecklenburg County, Virginia.",
+                        " She was the daughter of Edward Henry Turpin and Petronella Lee Turpin, but her father died of tuberculosis four months before she was born.",
+                        " Two siblings, Mary Wilson Turpin and Edward Henry Turpin both died in infancy before Edna was born.",
+                        " She spent her childhood on the family farm with her mother and her older brother, Henderson Lee Turpin (1861–1957).",
+                        " She began writing at an early age and, during her fifteenth year, her first short story was accepted for publication."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Lesbian.",
+            "generation_time": 6.7358033657073975,
+            "success": true,
+            "generation_times": 6.7358033657073975,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_3",
+        "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+        "golden_answers": [
+            "no"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Laleli Mosque",
+                    "Esma Sultan Mansion"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Esma Sultan",
+                    "Esma Sultan (daughter of Abdul Hamid I)",
+                    "Laleli Mosque",
+                    "Gevheri Kadın",
+                    "Esma Sultan (daughter of Ahmed III)",
+                    "Djamaâ el Kebir",
+                    "Sultan Ahmed Mosque",
+                    "Esma Sultan (daughter of Abdülaziz)",
+                    "Küçük Hüseyin Pasha",
+                    "Esma Sultan Mansion"
+                ],
+                "sentences": [
+                    [
+                        "Esma Sultan is the name of three daughters of three Ottoman Sultans:"
+                    ],
+                    [
+                        "Esma Sultan (17 July 1778 – 4 June 1848) was an Ottoman princess, daughter of Sultan Abdul Hamid I, sister of Sultan Mustafa IV and Sultan Mahmud II.",
+                        " She was the adoptive mother of Bezmiâlem Sultan and Rahime Perestu Sultan."
+                    ],
+                    [
+                        "The Laleli Mosque (Turkish: \"Laleli Camii, or Tulip Mosque\" ) is an 18th-century Ottoman imperial mosque located in Laleli, Fatih, Istanbul, Turkey."
+                    ],
+                    [
+                        "Gevheri Kadın (8 July 1856 – 6 September 1884) was the fifth wife of 32nd Ottoman Sultan Abdülaziz.",
+                        " She was the mother of Şehzade Mehmed Seyfeddin and Esma Sultan of the Ottoman Empire."
+                    ],
+                    [
+                        "Esma Sultan (14 March 1726 – 13 August 1788) was an Ottoman princess, daughter of Sultan Ahmed III and his consort Zeynep Kadın.",
+                        " She was the half-sister of Sultan Mustafa III and Abdul Hamid I."
+                    ],
+                    [
+                        "The Great Mosque of Algiers (Arabic: الجامع الكبير‎ ‎ , \"Jemaa Kebir\") or “Djama’a al-Kebir” (meaning Great Mosque) is a mosque in Algiers, Algeria, located very close to Algiers Harbor.",
+                        " An inscription on the minbar (منبر) or the pulpit testifies to fact that the mosque was built in 1097.",
+                        " It is also known by several other names such as Grand Mosque d'Alger, Djamaa al-Kebir, El Kebir Mosque and Jami Masjid.",
+                        " It is one of the few remaining examples of Almoravid architecture.",
+                        " It is the oldest mosque in Algiers and is said to be the oldest mosque in Algeria after Sidi Okba Mosque.",
+                        " It was built under sultan Ali ibn Yusuf.",
+                        " Its minaret dates from 1332 (1324 in some sources) and was built by the Ziyyanid Sultan of Tlemcen.",
+                        " The gallery at the outside of the mosque was built in 1840.",
+                        " Its construction was a consequence of a complete reconstruction of the street by the French."
+                    ],
+                    [
+                        "The Sultan Ahmed Mosque or Sultan Ahmet Mosque (Turkish: \"Sultan Ahmet Camii\" ) is a historic mosque located in Istanbul, Turkey.",
+                        " A popular tourist site, the Sultan Ahmed Mosque continues to function as a mosque today; men still kneel in prayer on the mosque's lush red carpet after the call to prayer.",
+                        " The Blue Mosque, as it is popularly known, was constructed between 1609 and 1616 during the rule of Ahmed I.",
+                        " Its Külliye contains Ahmed's tomb, a madrasah and a hospice.",
+                        " Hand-painted blue tiles adorn the mosque’s interior walls, and at night the mosque is bathed in blue as lights frame the mosque’s five main domes, six minarets and eight secondary domes.",
+                        " It sits next to the Hagia Sophia, another popular tourist site."
+                    ],
+                    [
+                        "Esma Sultan (21 March 1873 – 7 May 1899) was an Ottoman princess, the daughter of Sultan Abdülaziz and his wife Gevheri Kadın, herself the daughter of Salih Bey Svatnba.",
+                        " She was the half-sister of Abdülmecid II, the last Caliph of the Muslim world."
+                    ],
+                    [
+                        "Küçük Hüseyin Pasha (1757 – 7 December 1803), also known as Tayazade Damat Küçük Hüseyin Pasha, was an Ottoman statesman and admiral who was Kapudan Pasha (Grand Admiral of the Ottoman Navy) from 11 March 1792 to 7 December 1803.",
+                        " He was a \"damat\" (\"bridegroom\") to the Ottoman dynasty after he married an Ottoman princess, Esma Sultan."
+                    ],
+                    [
+                        "The Esma Sultan Mansion (Turkish: \"Esma Sultan Yalısı\" ), a historical yalı (English: waterside mansion ) located at Bosphorus in Ortaköy neighborhood of Istanbul, Turkey and named after its original owner Esma Sultan, is used today as a cultural center after being redeveloped."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Yes.",
+            "generation_time": 8.37528109550476,
+            "success": true,
+            "generation_times": 8.37528109550476,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_3041",
+        "question": "Jim Sharman and Ava DuVernay both share what title concerning their actions leading actors in film or stage?",
+        "golden_answers": [
+            "director"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Jim Sharman",
+                    "Ava DuVernay"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Emayatzy Corinealdi",
+                    "Takeshi Fukunaga",
+                    "The Rocky Horror Picture Show",
+                    "Selma (film)",
+                    "Middle of Nowhere (2012 film)",
+                    "Howard Barish",
+                    "List of accolades received by Selma (film)",
+                    "Robert Glasper",
+                    "A Wrinkle in Time (2018 film)",
+                    "ARRAY"
+                ],
+                "sentences": [
+                    [
+                        "Emayatzy Evett Corinealdi ( ; born January 14, 1980) is an American actress.",
+                        " She is best known for her leading role in the Ava DuVernay film \"Middle of Nowhere\" (2012)."
+                    ],
+                    [
+                        "Takeshi Fukunaga is a Japanese filmmaker based in New York.",
+                        " His first feature film, \"Out of My Hand\" (2015) premiered in the Panorama section at the 65th Berlin International Film Festival and won the Top Prize at the 2015 Los Angeles Film Festival.",
+                        " The film was later released worldwide through Ava DuVernay’s distribution company, ARRAY.",
+                        " Takeshi was nominated for the John Cassavetes Award at the 2016 Independent Spirit Awards.",
+                        " In 2017, he was selected for The Residence by Cannes Film Festival's Cinéfondation to develop his second feature film."
+                    ],
+                    [
+                        "The Rocky Horror Picture Show is a 1975 British-American musical screwball comedy horror film by 20th Century Fox produced by Lou Adler and Michael White and directed by Jim Sharman.",
+                        " The screenplay was written by Sharman and actor Richard O'Brien, who appears in the film, which is based on the 1973 musical stage production \"of the same title\", with music, book, and lyrics by O'Brien.",
+                        " The production is a parody tribute to the science fiction and horror B movies of the 1930s through to the early 1970s.",
+                        " Along with O'Brien, the film stars Tim Curry, Susan Sarandon, and Barry Bostwick and is narrated by Charles Gray with cast members from the original Royal Court Theatre, Roxy Theatre, and Belasco Theatre productions."
+                    ],
+                    [
+                        "Selma is a 2014 American historical drama film directed by Ava DuVernay and written by Paul Webb.",
+                        " It is based on the 1965 Selma to Montgomery voting rights marches led by James Bevel, Hosea Williams, Martin Luther King, Jr. and John Lewis.",
+                        " The film stars actors David Oyelowo as King, Tom Wilkinson as President Lyndon B. Johnson, Tim Roth as George Wallace, Carmen Ejogo as Coretta Scott King and Common as Bevel."
+                    ],
+                    [
+                        "Middle of Nowhere is a 2012 independent feature film written and directed by Ava DuVernay and starring Emayatzy Corinealdi, David Oyelowo, Omari Hardwick and Lorraine Toussaint.",
+                        " The film was the winner of the Directing Award for U.S. Dramatic Film at the 2012 Sundance Film Festival."
+                    ],
+                    [
+                        "Howard Barish is an Oscar nominated, Emmy award winning producer and director known for his producing partnership with acclaimed director, writer Ava DuVernay.",
+                        " Their most recognized project to date, \"13TH\", is a 2016 American documentary from Netflix directed by DuVernay.",
+                        " Centered on race in the United States criminal justice system, the critically lauded film is titled after the Thirteenth Amendment to the United States Constitution, which outlawed slavery (unless as punishment for a crime).",
+                        " It argues that slavery is being effectively perpetuated through mass incarceration."
+                    ],
+                    [
+                        "\"Selma\" is a 2014 American historical drama film directed by Ava DuVernay, and produced by Dede Gardner, Jeremy Kleiner, Christian Colson, and Oprah Winfrey.",
+                        " The screenplay was written by Paul Webb.",
+                        " The film follows the events leading up to and during the Selma to Montgomery marches, and the resulting establishment of the Voting Rights Act of 1965 which prohibited racial discrimination in voting in the United States.",
+                        " The film stars David Oyelowo as civil rights activist Martin Luther King Jr., Tom Wilkinson as President Lyndon B. Johnson, and Tim Roth as Governor of Alabama George Wallace.",
+                        " Carmen Ejogo, Dylan Baker, Wendell Pierce, Common, and Winfrey feature in supporting roles."
+                    ],
+                    [
+                        "Robert Glasper (born April 6, 1978, in Houston, Texas) is an American pianist and record producer.",
+                        " He has been nominated for 6 Grammys, has won 3 Grammy Awards and is currently nominated for an Emmy Award.",
+                        " His 2012 album \"Black Radio\" won the Grammy Award for Best R&B Album at the 55th Grammy Awards.",
+                        " His 2014 album \"Black Radio 2\" won the Grammy Award for Best Traditional R&B Performance at the 56th Grammy Awards.",
+                        " The song \"These Walls\" from Kendrick Lamar's album \"To Pimp A Butterfly\" won Best Rap/Sung Collaboration at the 57th Grammy Awards, on which Glasper plays keys.",
+                        " The soundtrack for the film \"Miles Ahead\" won Best Soundtrack Compilation at the 58th Grammy Awards, for which Glasper was a producer.",
+                        " The song \"Letter To The Free\", written with Common, is nominated for an Emmy Award for Best Original Song in the Ava Duvernay documentary film \"13th\" (Netflix) at the 2017 Emmys."
+                    ],
+                    [
+                        "A Wrinkle in Time is an upcoming American science-fiction fantasy adventure film directed by Ava DuVernay and written by Jennifer Lee.",
+                        " It is based on the 1963 novel of the same name by Madeleine L'Engle.",
+                        " The film stars Oprah Winfrey, Reese Witherspoon, Mindy Kaling, Storm Reid, Zach Galifianakis and Chris Pine.",
+                        " Principal photography on the film began on November 2, 2016, in Los Angeles, California."
+                    ],
+                    [
+                        "ARRAY, also known as ARRAY Now, is an independent distribution company launched by film maker and former publicist Ava DuVernay in 2010 under the name African-American Film Festival Releasing Movement(AFFRM).",
+                        " In 2015 the company rebranded itself as ARRAY."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Director.",
+            "generation_time": 10.330870389938354,
+            "success": true,
+            "generation_times": 10.330870389938354,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "dev_3077",
+        "question": "What is the name of the studio album that the Miley Cyrus song, Who Owns My Heart is on?",
+        "golden_answers": [
+            "Can't Be Tamed"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Who Owns My Heart",
+                    "Can't Be Tamed"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Younger Now",
+                    "The Best of Both Worlds (song)",
+                    "Who Owns My Heart",
+                    "Lighter (Miley Cyrus song)",
+                    "Start All Over",
+                    "Hannah Montana 2: Meet Miley Cyrus",
+                    "Miley Cyrus &amp; Her Dead Petz",
+                    "Ready, Set, Don't Go",
+                    "Milky Milky Milk Tour",
+                    "BB Talk"
+                ],
+                "sentences": [
+                    [
+                        "Younger Now is the sixth studio album by American singer Miley Cyrus.",
+                        " It was released on September 29, 2017, by RCA Records.",
+                        " It is her first full-length project since \"Miley Cyrus & Her Dead Petz\" (2015), and her first commercially released project since \"Bangerz\" (2013).",
+                        " Cyrus began planning a commercial follow-up record to \"Bangerz\" while simultaneously making \"Miley Cyrus & Her Dead Petz\" in 2015, although later became influenced by her reconciliation with fiancé Liam Hemsworth in 2016.",
+                        " \"Younger Now\" was written and produced by Cyrus and Oren Yoel, with whom she had collaborated on her previous two full-lengths.",
+                        " Not concerning herself with radio airplay, their efforts resulted in an \"honest\" final product that sees Cyrus \"leaning into her roots.\"",
+                        " It features guest vocals from her godmother, country music singer Dolly Parton."
+                    ],
+                    [
+                        "\"The Best of Both Worlds\" is a pop rock song performed by American singer–songwriter and actress Miley Cyrus, performing as Hannah Montana – the alter ego of Miley Stewart – a character she played on the Disney Channel television series \"Hannah Montana\".",
+                        " It was released as the lead single from the \"Hannah Montana\" soundtrack album on March 18, 2006.",
+                        " \"The Best of Both Worlds\" is the theme song for the television series; in the series' third season, the 2009 Movie Mix is used as the theme.",
+                        " A live version is available on \"Hannah Montana & Miley Cyrus: Best of Both Worlds Concert\" (2008), a karaoke version is included in the soundtrack's karaoke series (2008), and the 2009 Movie Mix is featured on (2009).",
+                        " The song has elements of bubblegum pop and pop rock.",
+                        " Lyrically, it is a showcase of the double life lived by the series' protagonist Miley Stewart."
+                    ],
+                    [
+                        "\"Who Owns My Heart\" is a song by American singer Miley Cyrus for her third studio album \"Can't Be Tamed\" (2010).",
+                        " The song was written by Cyrus, Antonina Armato, Tim James and Devrim Karaoglu, and produced by Armato and James.",
+                        " \"Who Owns My Heart\" was released on October 22, 2010 by Hollywood Records as the second and final single from Cyrus' third studio album \"Can't Be Tamed\" only in selected European countries.",
+                        " It would become her final overall release with Hollywood Records after signing with RCA Records in 2013.",
+                        " The song was written about the feelings a club's environment can lead someone to believe.",
+                        " \"Who Owns My Heart\" is musically club-oriented and driven by synths.",
+                        " Lyrically, the song speaks of meeting a potential love interest at a nightclub."
+                    ],
+                    [
+                        "\"Lighter\" is a song by American singer Miley Cyrus for her fifth studio album \"Miley Cyrus & Her Dead Petz\" (2015).",
+                        " It was premiered through SoundCloud on August 30, 2015 with the parent record, and was supplemented with an accompanying music video on November 21, 2015.",
+                        " The song was written by Cyrus, and was produced by Mike Will Made It and A+.",
+                        " Cyrus performed the track during her Milky Milky Milk Tour in November and December.",
+                        " \"Lighter\" is the fifteenth track on \"Miley Cyrus & Her Dead Petz\"."
+                    ],
+                    [
+                        "\"Start All Over\" is a song performed by American recording artist Miley Cyrus.",
+                        " It was released as the second and final single of Cyrus' debut album \"Meet Miley Cyrus\", the second disc of the dual album \"\".",
+                        " A live version is available on \"Hannah Montana & Miley Cyrus: Best of Both Worlds Concert\" and as a karaoke in Cyrus's .",
+                        " The song was originally written by Fefe Dobson, who passed the song to Cyrus, as she did not desire to include it on \"Sunday Love\".",
+                        " The up-tempo song is lyrically about having a second chance in a romantic relationship."
+                    ],
+                    [
+                        "Hannah Montana 2: Meet Miley Cyrus is a double album by American singer and actress Miley Cyrus and her fictional character Hannah Montana from the television series of the same name.",
+                        " It was released on June 26, 2007, by Walt Disney Records and Hollywood Records.",
+                        " The first disc serves as the soundtrack album from the second season of \"Hannah Montana\", while the second disc serves as the debut studio album by Cyrus, the series' primary actress.",
+                        " All twenty tracks are performed by Cyrus, although the first disc is credited to her character Hannah Montana in the vein of the original soundtrack, \"Hannah Montana\" (2006).",
+                        " The lyrical themes revolve largely around \"girl power\", teen romance, and the double life that Cyrus' character lives on the program."
+                    ],
+                    [
+                        "Miley Cyrus & Her Dead Petz is the fifth studio album by American singer Miley Cyrus, which was independently released for free online streaming on SoundCloud on August 30, 2015.",
+                        " Opting for an album relying less on computerized elements than her previous release, \"Bangerz\" (2013), Cyrus began planning the project in 2013 before \"Bangerz\" was released.",
+                        " Work continued into 2014 and 2015, when she befriended and began collaborating with the Flaming Lips.",
+                        " In addition to the psychedelic rock band, Cyrus worked with producers Mike Will Made It and Oren Yoel (with whom she had collaborated on \"Bangerz\").",
+                        " The album features guest vocals by Big Sean (who had appeared on \"Bangerz\"), Sarah Barthel of Phantogram and Ariel Pink."
+                    ],
+                    [
+                        "\"Ready, Set, Don't Go\" is a country song performed by American singers Billy Ray Cyrus and Miley Cyrus.",
+                        " It was released as the lead single from \"Home at Last\", Billy Ray Cyrus' tenth studio album.",
+                        " The song is a soft country ballad with some use of pop and soft rock elements.",
+                        " The song has received different interpretations, although, in actuality, Cyrus wrote the song several years before its release when his middle daughter, Miley, moved to Los Angeles in order to pursue an acting career with an audition for the Disney Channel Original Series \"Hannah Montana\".",
+                        " \"Ready, Set, Don't Go\" received critical praise, with reviewers complimenting its lyrical content.",
+                        " It also reached positive commercial responses for Cyrus, compared to his downfall in previous years.",
+                        " Peaking at number 85 on the \"Billboard\" Hot 100, it became Cyrus' first entry on the chart since \"You Won't Be Lonely Now\" (2000)."
+                    ],
+                    [
+                        "The Milky Milky Milk Tour (initially called the Miley Cyrus & Her Dead Petz Tour) was the fifth concert tour by American recording artist Miley Cyrus, launched in support of her fifth studio album, \"Miley Cyrus & Her Dead Petz\" (2015).",
+                        " The limited-run tour visited eight cities across North America.",
+                        " She was joined by The Flaming Lips and Dan Deacon throughout the tour."
+                    ],
+                    [
+                        "\"BB Talk\" is a song by American singer Miley Cyrus for her fifth studio album \"Miley Cyrus & Her Dead Petz\" (2015).",
+                        " It was premiered through SoundCloud on August 30, 2015 alongside the parent record.",
+                        " Its lyrics discuss Cyrus' frustration with an overbearing romantic interest over primarily spoken verses.",
+                        " \"BB Talk\" was supplemented with an accompanying music video on December 11, 2015, featuring Cyrus as an adult baby.",
+                        " Cyrus performed the track during her Milky Milky Milk Tour in November and December."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Can't Be Tamed",
+            "generation_time": 11.42471718788147,
+            "success": true,
+            "generation_times": 11.42471718788147,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "dev_4667",
+        "question": "Which airport is used for both public and military, Shenandoah Valley Regional Airport or Louisville International Airport?",
+        "golden_answers": [
+            "Louisville International Airport"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Shenandoah Valley Regional Airport",
+                    "Shenandoah Valley Regional Airport",
+                    "Louisville International Airport"
+                ],
+                "sent_id": [
+                    0,
+                    1,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Clarence Valley Regional Airport",
+                    "Louisville International Airport",
+                    "Bowman Field (airport)",
+                    "Shenandoah Valley School District",
+                    "Shenandoah Valley Music Festival",
+                    "Yampa Valley Airport",
+                    "Pensacola International Airport",
+                    "Shenandoah Valley Junior Senior High School",
+                    "Shenandoah Valley Regional Airport",
+                    "Henson Airlines Flight 1517"
+                ],
+                "sentences": [
+                    [
+                        "Clarence Valley Regional Airport (IATA: GFN, ICAO: YGFN) is an airport located 7 NM southeast of Grafton, New South Wales, Australia.",
+                        " In addition 36 weekly services to Sydney operated by Regional Express, the airport is used by the Royal Flying Doctor Service and during summer months is often used as a base for aircraft engaged in aerial firefighting by the Rural Fire Service.",
+                        " In 2013, the Clarence Valley Council which operates the airport secured $2.12 million funding through loans and grants to upgrade the facilities at the airport."
+                    ],
+                    [
+                        "Louisville International Airport (IATA: SDF, ICAO: KSDF, FAA LID: SDF) is a public and military use public airport centrally located in the city of Louisville in Jefferson County, Kentucky, United States.",
+                        " The airport is situated on approximately 1500 acre and has three runways. Its IATA airport code, SDF, is based on the airport's former name, Standiford Field.",
+                        " Although it currently does not have regularly-scheduled international passenger flights, it is a port of entry, as it handles numerous international cargo flights."
+                    ],
+                    [
+                        "Bowman Field (IATA: LOU, ICAO: KLOU, FAA LID: LOU) is a public airport five miles (8 km) southeast of downtown Louisville, in Jefferson County, Kentucky, United States.",
+                        " The airport covers 426 acres (1.7 km²) and has two runways.",
+                        " The FAA calls it a reliever airport for nearby Louisville International Airport."
+                    ],
+                    [
+                        "The Shenandoah Valley School District is a diminutive, rural public school district in Schuylkill County, Pennsylvania.",
+                        " It serves the municipalities of Shenandoah, and West Mahanoy Township.",
+                        " The district encompasses approximately 11 sqmi in two noncontiguous areas.",
+                        " According to 2000 federal census data, it served a resident population of 11,790.",
+                        " By 2010, the district's population declined to 7,940 people.",
+                        " The educational attainment levels for the Shenandoah Valley School District population (25 years old and over) were 79.4% high school graduates and 10.3% college graduates.",
+                        " The district is one of the 500 public school districts of Pennsylvania."
+                    ],
+                    [
+                        "Shenandoah Valley Music Festival is a series of live-concert performances that take place over July, August and September in Orkney Springs, Virginia.",
+                        " Dating back to 1963, the Festival has a long history of bringing quality music to the Shenandoah Valley.",
+                        " The Shenandoah Valley Music Festival began when a group of volunteers began sponsoring public symphony and chamber music concerts each summer.",
+                        " More recently, the Festival has expanded to include more eclectic acts from a variety of genres including bluegrass, soul, country, folk, rock, world and big band.",
+                        " In addition, the Festival announced their 2017 summer concert series, featuring Arlo Guthrie, The Piedmont Symphony Orchestra - \"Sgt. Pepper and the Summer of Love\" and Tinseltown, Pure Prairie League, Poco, The HillBenders, Seldom Scene, The Midtown Men, Emmylou Harris, and the Bluegrass Minifest."
+                    ],
+                    [
+                        "Yampa Valley Regional Airport (IATA: KHDN, ICAO: HDN) is in Routt County, Colorado, two miles southeast of Hayden and about 25 mi west of Steamboat Springs.",
+                        " Also known as Yampa Valley Regional Airport, it has the only scheduled passenger flights to northwest Colorado.",
+                        " It is also used by larger business jets that cannot use the smaller Steamboat Springs Airport (Bob Adams Field)."
+                    ],
+                    [
+                        "Pensacola International Airport (IATA: PNS, ICAO: KPNS, FAA LID: PNS) , formerly Pensacola Gulf Coast Regional Airport and Pensacola Regional Airport (Hagler Field), is a public use airport three nautical miles (6 km) northeast of the central business district of Pensacola, in Escambia County, Florida, United States.",
+                        " It is owned by the City of Pensacola.",
+                        " Despite the name, this airport does not offer direct international flights.",
+                        " This airport is one of the five major airports in North Florida, others being: Northwest Florida Beaches International Airport, Destin-Fort Walton Beach Airport Tallahassee International Airport, and Jacksonville International Airport."
+                    ],
+                    [
+                        "Shenandoah Valley Junior Senior High School is a small suburban, public junior senior high school located at 805 West Centre Street, Shenandoah In Schuylkill County, Pennsylvania.",
+                        " In 2015, enrollment was reported as 443 pupils in 7th through 12th grades, with 59% of pupils eligible for a free lunch due to the family meeting the federal poverty level.",
+                        " Additionally, 20% of pupils received special education services, while 4.5% of pupils were identified as gifted.",
+                        " The school employed 38 teachers according to US News and World Report's annual hIgh school ranking report.",
+                        " Per the Pennsylvania Department of Education, 12% of the teachers were rated \"Non‐Highly Qualified\" under the federal No Child Left Behind Act.",
+                        " This is the sole junior high or senior high school operated by the Shenandoah Valley School District."
+                    ],
+                    [
+                        "Shenandoah Valley Regional Airport (IATA: SHD, ICAO: KSHD, FAA LID: SHD) is a public airport located 10 nautical miles (12 mi, 19 km) northeast of the central business district of Staunton, a city in Augusta County, Virginia, United States.",
+                        " It is mostly used for general aviation, but is also served by one commercial airline.",
+                        " Service is subsidized by the Essential Air Service program."
+                    ],
+                    [
+                        "On September 23, 1985, Henson Airlines Flight 1517 crashed in Grottoes, Virginia, while on approach to the Shenandoah Valley Regional Airport.",
+                        " The two pilots and twelve passengers were killed."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Shenandoah Valley Regional Airport",
+            "generation_time": 6.741421937942505,
+            "success": true,
+            "generation_times": 6.741421937942505,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.28571428571428575,
+                "acc": 0.0,
+                "precision": 0.25,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "dev_1900",
+        "question": "Where are Neoregelia and Aloysia known to grow",
+        "golden_answers": [
+            "temperate climates,"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Neoregelia",
+                    "Aloysia"
+                ],
+                "sent_id": [
+                    0,
+                    2
+                ]
+            },
+            "context": {
+                "title": [
+                    "Anna Aloysia Maximiliane von Lamberg",
+                    "Platypodium elegans",
+                    "Aplysina archeri",
+                    "Neoregelia 'Orchid'",
+                    "Aloysia",
+                    "School of Inspired Leadership",
+                    "Lithophyte",
+                    "Luisa Sigea de Velasco",
+                    "Ayinoor Vasu",
+                    "Aloysia wrightii"
+                ],
+                "sentences": [
+                    [
+                        "Anna Aloysia \"Maximiliane\" Louise von Lamberg (?",
+                        " - died 28 June 1738) was an Austrian countess who was successively the mistress of Augustus II the Strong, King of Poland, and Aleksander Benedykt Sobieski.",
+                        " She is known to history as Countess Esterle."
+                    ],
+                    [
+                        "Platypodium elegans or the graceful platypodium is a large leguminous tree found in the Neotropics that forms part of the forest canopy.",
+                        " It was first described by Julius Rudolph Theodor Vogel in 1837 and is the type species of the genus.",
+                        " The tree has been known to grow up to 30 metres in height and have a trunk with a diameter up to 1 m at breast height.",
+                        " Its trunk has large holes in it, sometimes making it possible to see through the trunk.",
+                        " The holes provide a habitat for giant damselflies and other insects both when alive and once the tree has died and fallen over.",
+                        " It has compound leaves each of which is made up of 10–20 leaflets.",
+                        " Three new chemical compounds have been isolated from the leaves and they form part of the diet of several monkeys and the squirrel \"Sciurus ingrami\".",
+                        " In Panama it flowers from April to June, the flowers contain only four ovules, but normally only one of these reaches maturity forming a winged seed pod around 10 cm long and weighing 2 g.",
+                        " During the dry season around a year after the flowers are fertilised, the seeds are dispersed by the wind and the tree loses it leaves.",
+                        " The seeds are eaten by agoutis and by bruchid beetle larvae.",
+                        " The majority of seedlings are killed by damping off fungi in the first few months of growth, with seedlings that grow nearer the parent trees being more likely to die.",
+                        " The seedlings are relatively unable to survive in deep shade compared to other species in the same habitat.",
+                        " Various epiphytes are known to grow on \"P. elegans\" with the cactus \"Epiphyllum phyllanthus\" being the most abundant in Panama.",
+                        " Despite having holes in its trunk which should encourage debris and seeds to collect, hemiepiphytes are relatively uncommon, meaning that animals are not attracted to it to feed and then defecate.",
+                        " It has no known uses in traditional medicine and although it can be used for timber, the wood is of poor quality."
+                    ],
+                    [
+                        "Aplysina archeri (also known as stove-pipe sponge because of its shape) is a species of tube sponge that has long tube-like structures of cylindrical shape.",
+                        " Although they can grow in a single tube, they often grow in large groups of up to 22 tubes.",
+                        " A single tube can grow up to 5 ft high and 3 in thick.",
+                        " These sponges mostly live in the Western Atlantic Ocean: the Caribbean, The Bahamas, Florida, and Bonaire.",
+                        " Like most sponges, they are filter feeders; they eat food such as plankton or suspended detritus as it passes them.",
+                        " Very little is known about their behavioral patterns except for their feeding ecology and reproductive biology.",
+                        " Tubes occur in varying colors including lavender, gray, and brown.",
+                        " They reproduce both by asexual and sexual reproduction.",
+                        " These sponges take hundreds of years to grow and never stop growing until they die.",
+                        " Snails are among their natural predators.",
+                        " The population density of these sponges is going down because of oil spills and other pollution."
+                    ],
+                    [
+                        "'Orchid' is a hybrid cultivar of the genus \"Neoregelia\" in the Bromeliad family.",
+                        " Neoregelia is known for its long lasting color which can often be six months or longer."
+                    ],
+                    [
+                        "Aloysia is a genus of flowering plants in the verbena family, Verbenaceae.",
+                        " They are known generally as beebrushes.",
+                        " They are native to the Americas, where they are distributed in temperate climates, as well as in subtropical and desert climates.",
+                        " The genus is named for Maria Luisa of Parma (1751-1819), wife of King Charles IV of Spain."
+                    ],
+                    [
+                        "The School of Inspired Leadership, also known as SOIL, is a private business school located in Gurgaon, Haryana, India.",
+                        " It was founded by Anil Sachdev who was formerly the CEO of the consulting firm Grow Talent Company Limited before the consulting business was sold to the American HR Consulting firm Right Management.",
+                        " The name Grow Talent Company was retained and SOIL functions as a unit of Grow Talent Company."
+                    ],
+                    [
+                        "Lithophytes are plants that grow in or on rocks.",
+                        " Those that grow on rocks are also known as epipetric or epilithic plants.",
+                        " Lithophytes that grow on land feed off nutrients from rain water and nearby decaying plants, including their own dead tissue.",
+                        " Chasmophytes grow in fissures in rocks where soil or organic matter has accumulated."
+                    ],
+                    [
+                        "Luisa Sigea de Velasco (1522 in Tarancón – October 13, 1560 in Burgos), also known as Luísa Sigeia, Luísa Sigea Toledana and in the Latinized form Aloysia Sygaea Toletana, was a poet and intellectual of the 16th century, one of the major figures of Spanish humanism, who spent a good part of her life in the Portuguese court in the service of Maria of Portugal (1521–1577), as her Latin teacher.",
+                        " André de Resende wrote the following epitaph for her: Hic sita SIGAEA est: satis hoc: qui cetera nescit Rusticus est: artes nec colit ille bonas, (Loosely translated: Here lies Sigea; no more need be said; anyone who does not know the rest is an uneducated fool.)"
+                    ],
+                    [
+                        "Ayinoor Vasu (GROW Vasu) (born 1930) is a well known Human rights activist and respected trade unionist in Kerala, India.",
+                        " He is also known as \"GROW Vasu\" as he was the leader of Gwalior Rayons Workers' Organisation (GROW)."
+                    ],
+                    [
+                        "Aloysia wrightii is a species of flowering plant in the verbena family known by the common names Wright's beebrush and oreganillo.",
+                        " It is native to the Sonoran Desert of southwestern United States and northern Mexico, where it can be found in moist desert canyons, scrub, and woodland habitat.",
+                        " This is a thickly branching shrub which reaches nearly two meters in maximum height and is generally rounded in form.",
+                        " It has small, oval-shaped to nearly round leaves each no more than two centimeters long.",
+                        " The leaves have lightly toothed edges and hairy undersides.",
+                        " The inflorescence is a narrow, woolly spike up to 6 centimeters long, with small, widely spaced white flowers.",
+                        " It is a valuable nectar source for native solitary bees.",
+                        " It is also larval and adult food plant for the rustic sphinx moth \"(Manduca rustica)\"."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Neoregelia and Aloysia are known to grow in South America.",
+            "generation_time": 6.746539831161499,
+            "success": true,
+            "generation_times": 6.746539831161499,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_538",
+        "question": "What is the date of birth of the English inventor that developed the Richard Hornsby & Sons oil engine? ",
+        "golden_answers": [
+            "28 January 1864"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Richard Hornsby &amp; Sons",
+                    "Herbert Akroyd Stuart"
+                ],
+                "sent_id": [
+                    1,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "St Vincents Hall",
+                    "Richard Newsham",
+                    "Richard Hornsby &amp; Sons",
+                    "Associated British Oil Engine Company",
+                    "Timothy Hornsby",
+                    "Crude oil engine",
+                    "Oil engine",
+                    "Richard Hornsby",
+                    "Herbert Akroyd Stuart",
+                    "Mount Hornsby"
+                ],
+                "sentences": [
+                    [
+                        "St Vincents Hall, Grantham, is a Gothic Revival mansion built in 1868 for the industrialist Richard Hornsby who founded Richard Hornsby & Sons, engine and machinery manufacturer."
+                    ],
+                    [
+                        "Richard Newsham (died 1743) was an English inventor.",
+                        " He took out 2 patents for fire engines in 1721 and 1725 (Royal Patent Office 1721 patent #439 and 1725 patent #479) and soon dominated the fire engine market in England.",
+                        " The engine had two single-acting pistons and an air vessel placed in a tank which formed the frame of the machine.",
+                        " The pump was worked by people at the long cross handles.",
+                        " At the front of the engine, protected by a sheet of horn and a door, were directions for keeping the machine in order.",
+                        " The cistern could hold about 170 USgal of water pumping up to 100 USgal a minute.",
+                        " New York City imported its first two fire engines from Newsham in 1731.",
+                        " In 1737 Newsham made a manual fire pump for the Parish of Bray in Berkshire."
+                    ],
+                    [
+                        "Richard Hornsby & Sons was an engine and machinery manufacturer in Lincolnshire, England from 1828 until 1918.",
+                        " The company was a pioneer in the manufacture of the oil engine developed by Herbert Akroyd Stuart, which was marketed under the \"Hornsby-Akroyd\" name.",
+                        " The company developed an early track system for vehicles, selling the patent to Holt & Co. (predecessor to Caterpillar Inc.) in America.",
+                        " In 1918, Richard Hornsby & Sons became a subsidiary of the neighbouring engineering firm Rustons of Lincoln, to create \"Ruston & Hornsby\"."
+                    ],
+                    [
+                        "The Associated British Oil Engine Company (ABOE) was a British engineering company.",
+                        " It started life as a combine, similar to Agricultural & General Engineers.",
+                        " Petters Limited joined ABOE in 1937.",
+                        " J&H McLaren & Co. was sold to ABOE in 1943, although it may have been a member from an earlier date.",
+                        " In 1945 Mirrlees, Bickerton and Day joined the group followed by the National Gas and Oil Engine company in 1950."
+                    ],
+                    [
+                        "Timothy Richard Hornsby CBE (born 22 September 1940) is British.",
+                        " He is Chairman of the Horniman Museum 2004–present.",
+                        " He is the son of Harker William Hornsby"
+                    ],
+                    [
+                        "The crude oil engine is a type of internal combustion engine similar to the hot bulb engine.",
+                        " A crude oil engine could be driven by all sorts of oils such as engine waste oil and vegetable oils.",
+                        " Even peanut oil and butter could be used as fuel if necessary.",
+                        " Like hot bulb engines, crude oil engines were mostly used as stationary engines or in boats.",
+                        " They can run for a very long time; for instance, at the world fair in Milan in 1906, a FRAM engine was started and ran until the exhibition was over one month later.",
+                        " A crude oil engine is a low RPM engine dimensioned for constant running and can last for a very long time if maintained properly.",
+                        " It was later replaced by the diesel engine."
+                    ],
+                    [
+                        "An oil engine is an internal combustion engine that is powered by the burning of fuel oil, as opposed to external combustion engines, such as steam engine.",
+                        " The term usually refers to low compression engines, so the diesel engine is usually not included."
+                    ],
+                    [
+                        "Richard Hornsby Elsham in Lincolnshire 4 June 1790 - 1864.",
+                        "was an inventor and founder of a major agricultural machinery firm that developed steam engines.",
+                        " His firm also developed early diesels and caterpillar tracks.",
+                        " He lived with a farming family, the son of William Hornsby and his wife Sarah."
+                    ],
+                    [
+                        "Herbert Akroyd-Stuart (28 January 1864, Halifax, Yorkshire, England – 19 February 1927, Halifax) was an English inventor who is noted for his invention of the hot bulb engine, or heavy oil engine."
+                    ],
+                    [
+                        "Mount Hornsby ( ) is a prominent snow-capped mountain on the south side of the middle reaches of Sjogren Glacier, Trinity Peninsula, Antarctica.",
+                        " It was mapped from surveys by the Falkland Islands Dependencies Survey (1960–61), and was named by the UK Antarctic Place-Names Committee after Richard Hornsby & Sons of Grantham, who designed and constructed several highly successful chain-track vehicles for the British War Office, the first \"caterpillar tractors,\" in the years 1904–10."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "1833",
+            "generation_time": 8.11688494682312,
+            "success": true,
+            "generation_times": 8.11688494682312,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_3135",
+        "question": "An Austrian-British psychoanalyst born in 1882 and innovative in object relations theory was also rigorous about what other type of therapy?",
+        "golden_answers": [
+            "Morita therapy"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Morita therapy",
+                    "Melanie Klein",
+                    "Melanie Klein"
+                ],
+                "sent_id": [
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "context": {
+                "title": [
+                    "Ronald Fairbairn",
+                    "Donald Winnicott",
+                    "Love object",
+                    "Polly Young-Eisendrath",
+                    "Object relations theory",
+                    "Otto F. Kernberg",
+                    "Thomas Diez",
+                    "Melanie Klein",
+                    "Schema therapy",
+                    "Margaret Little"
+                ],
+                "sentences": [
+                    [
+                        "William Ronald Dodds Fairbairn ( ) FRSE (11 August 1889 – 31 December 1964) was a Scottish psychiatrist, psychoanalyst and a central figure in the development of the object relations theory of psychoanalysis."
+                    ],
+                    [
+                        "Donald Woods Winnicott ( ; 7 April 1896 25 January 1971) was an English paediatrician and psychoanalyst who was especially influential in the field of object relations theory.",
+                        " He was a leading member of the British Independent Group of the British Psychoanalytical Society, President of the British Psychoanalytical Society twice (1956–1959 and 1965–1968), and a close associate of Marion Milner.",
+                        " He is best known for his ideas on the true self and false self, and the transitional object.",
+                        " He wrote several books, including \"Playing and Reality\", and over 200 papers."
+                    ],
+                    [
+                        "A love object is an object of love; see Love and Object relations theory."
+                    ],
+                    [
+                        "Polly Young-Eisendrath (born 1947) is a psychologist, feminist, author, teacher, speaker, Jungian analyst, Zen Buddhist, and the founder of Enlightening Conversations: Buddhism and Psychoanalysis Meeting in Person.",
+                        " She has been a featured speaker at the Aspen Ideas Festival, TED-X, and is the recipient of the Otto Weininger Award for Lifetime Achievement in Psychoanalysis.",
+                        " Polly Young-Eisendrath is the originator of Dialogue Therapy -- designed to help couples and others transform chronic conflict into greater closeness and development.",
+                        " In 1983, Polly and her late husband, Ed Epstein, designed Dialogue Therapy as a new form of couples therapy that combined psychoanalysis, Jungian theory, psychodrama, and gender theory.",
+                        " Polly published two books on Dialogue Therapy (1984 and 1993), detailing its theory and methods for clinicians and the general public.",
+                        " She has now re-visioned and updated Dialogue Therapy to include the unique combination of psychodrama, Object Relations, and Mindfulness.",
+                        " In 2018, Shambhala Publications will release \"True Love Ways: Relationship as Psycho-Spiritual Development\" that offers her vision of personal love as a spiritual path and draws on her experience of 30 years as a Dialogue Therapist and Jungian psychoanalyst.",
+                        " Polly maintains a clinical practice of Jungian psychoanalytic psychotherapy and psychoanalysis in Vermont, U.S.A."
+                    ],
+                    [
+                        "Object relations theory in psychoanalytic psychology is the process of developing a psyche in relation to others in the environment during childhood.",
+                        " Based on psychodynamic theory, the object relations theory suggests that the way people relate to others and situations in their adult lives is shaped by family experiences during infancy.",
+                        " For example, an adult who experienced neglect or abuse in infancy would expect similar behavior from others who remind them of the neglectful or abusive parent from their past.",
+                        " These images of people and events turn into \"objects\" in the unconscious that the \"self\" carries into adulthood, and they are used by the unconscious to predict people's behavior in their social relationships and interactions."
+                    ],
+                    [
+                        "Otto Friedmann Kernberg (born 10 September 1928) is a psychoanalyst and professor of psychiatry at Weill Cornell Medical College.",
+                        " He is most widely known for his psychoanalytic theories on borderline personality organization and narcissistic pathology.",
+                        " In addition, his work has been central in integrating postwar ego psychology (which was primarily developed in the United States and the United Kingdom) with Kleinian and other object relations perspectives (which was developed primarily in the United Kingdom and South America).",
+                        " His integrative writings were central to the development of modern object relations, a theory of mind that is perhaps the theory most widely accepted among modern psychoanalysts."
+                    ],
+                    [
+                        "Thomas Diez (born 2 February 1970) is a German professor of Political Science and International Relations at the Institute for Political Science, University of Tübingen.",
+                        " He was formerly Professor of International Relations Theory in the Department of Political Science and International Studies at the University of Birmingham, where he was Head of Department from 2005-2008.",
+                        " Diez earned his PhD at the University of Mannheim.",
+                        " He was formerly a Research Fellow at the Copenhagen Peace Research Institute where he worked with Barry Buzan and Ole Waever.",
+                        " He studies international relations theory, European integration and conflict transformation and is best known for his contributions to the debate on the European Union's normative power.",
+                        " Books he has edited or co-edited include \"The EU and the Cyprus Conflict: Modern Conflict, Postmodern Union\" (Manchester University Press, 2002), \"European Integration Theory\" (Oxford University Press, 2004, 2009) and \"The European Union and Border Conflicts\" (Cambridge University Press, 2008), \"Cyprus: A Conflict at the Crossroads\" (Manchester University Press, 2009) and \"An Introduction to International Relations Theory: Perspectives and Themes\" (Pearson, 2010)."
+                    ],
+                    [
+                        "Melanie Reizes Klein (30 March 1882 – 22 September 1960) was an Austrian-British psychoanalyst who devised novel therapeutic techniques for children that influenced child psychology and contemporary psychoanalysis.",
+                        " She was a leading innovator in object relations theory."
+                    ],
+                    [
+                        "Schema therapy was developed by Jeffrey E. Young for use in treatment of personality disorders and chronic DSM Axis I disorders, such as when patients fail to respond or relapse after having been through other therapies (for example, traditional cognitive behavioral therapy).",
+                        " Schema therapy is an integrative psychotherapy combining theory and techniques from previously existing therapies, including cognitive behavioral therapy, psychoanalytic object relations theory, attachment theory, and Gestalt therapy."
+                    ],
+                    [
+                        "Margaret I. Little (21 May 1901 – 27 November 1994) was a British psychoanalyst of the British Middle Group, and an influential figure in the creation of object relations theory, particularly as an early proponent of the utility of countertransference in the analytic process."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Psychoanalytic technique.",
+            "generation_time": 8.477741003036499,
+            "success": true,
+            "generation_times": 8.477741003036499,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_3283",
+        "question": "Are Andrew Stevens and Charles Burnett both American?",
+        "golden_answers": [
+            "yes"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Andrew Stevens",
+                    "Charles Burnett (director)"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Killer of Sheep",
+                    "The Fury (1978 film)",
+                    "10 to Midnight",
+                    "Illicit Dreams",
+                    "Night Eyes",
+                    "The Oregon Trail (TV series)",
+                    "Night Eyes 3",
+                    "Death Hunt",
+                    "Down the Drain (film)",
+                    "Massacre at Central High"
+                ],
+                "sentences": [
+                    [
+                        "Killer of Sheep is a 1978 American drama film written, directed, produced, and shot by Charles Burnett.",
+                        " It features Henry G. Sanders, Kaycee Moore, and Charles Bracy, among others.",
+                        " The drama depicts the culture of urban African-Americans in Los Angeles' Watts district.",
+                        " The film's style is often likened to Italian neorealism."
+                    ],
+                    [
+                        "The Fury is a 1978 supernatural thriller film directed by Brian De Palma.",
+                        " The screenplay by John Farris was based on his 1976 novel of the same name.",
+                        " The film stars Kirk Douglas, John Cassavetes, Carrie Snodgress, Charles Durning, Amy Irving and Andrew Stevens.",
+                        " The music, composed by Academy Award-winner John Williams and performed by the London Symphony Orchestra, was highly praised by critic Pauline Kael, who called it \"as elegant and delicately varied a score as any horror film has ever had\"."
+                    ],
+                    [
+                        "10 to Midnight is a 1983 American crime thriller film directed by J. Lee Thompson from a screenplay originally written by William Roberts.",
+                        " The film stars Charles Bronson in the lead role with a supporting cast that includes Lisa Eilbacher, Andrew Stevens, Gene Davis, Geoffrey Lewis, and Wilford Brimley.",
+                        " \"10 to Midnight\" was released by City Films, a subsidiary of Cannon Films, to American cinemas on March 11, 1983."
+                    ],
+                    [
+                        "Illicit Dreams is a 1994 American thriller and drama film directed by Andrew Stevens and produced by Ashok Amritraj.",
+                        " with music composed by Claude Gaudette.",
+                        " The film stars Andrew Stevens, Shannon Tweed, Joe Cortese, Michelle Johnson and Brad Blaisdell."
+                    ],
+                    [
+                        "Night Eyes is a 1990 American erotic thriller film written by Tom Citrano and Andrew Stevens and directed by Jag Mundhra.",
+                        " It stars Andrew Stevens, Tanya Roberts, Cooper Huckabee, and Warwick Sims.",
+                        " The film was followed by a series of sequels following similar plots."
+                    ],
+                    [
+                        "The Oregon Trail is an American western television series that aired on NBC from September 21 until October 26, 1977, starring Rod Taylor as the widower Evan Thorpe, who leaves his Illinois farm in 1842 to take the Oregon Trail to the Pacific Northwest.",
+                        " The show also stars Andrew Stevens, Tony Becker, and Gina Marie Smika as Thorpe's children.",
+                        " Darleen Carr stars as Margaret Devlin, one of the passengers on the wagon train, and Charles Napier portrays Luther Sprague, a frontier scout recruited by Thorpe.",
+                        " The series was filmed in the Flagstaff, Arizona area."
+                    ],
+                    [
+                        "Night Eyes 3 is a 1993 erotic thriller film directed by Andrew Stevens.",
+                        " It is the third film in the \"Night Eyes\" series.",
+                        " Like its predecessor, it stars Andrew Stevens and Shannon Tweed, although the latter plays a different role.",
+                        " It also stars Tweed's sister, Tracy."
+                    ],
+                    [
+                        "Death Hunt is a 1981 action film directed by Peter R. Hunt.",
+                        " The film stars Charles Bronson, Lee Marvin, Angie Dickinson, Carl Weathers, Maury Chaykin, Ed Lauter and Andrew Stevens.",
+                        " \"Death Hunt\" was a fictionalized account of the Royal Canadian Mounted Police (RCMP) pursuit of a man named Albert Johnson.",
+                        " Earlier films exploring the same topic were \"The Mad Trapper\" (1972), a British made-for-television production and \"Challenge to Be Free\" (also known as \"Mad Trapper of the Yukon\" and \"Mad Trapper\") (1975)."
+                    ],
+                    [
+                        "Down the Drain is a 1990 American comedy film.",
+                        " It was directed by Robert C. Hughes and starred Andrew Stevens, Teri Copley and John Matuszak, in his last film after his death.",
+                        " Jerry Mathers and Stella Stevens also appeared in the film.",
+                        " It was released on video April 25, 1990."
+                    ],
+                    [
+                        "Massacre at Central High is a 1976 American thriller film directed by Rene Daalder and starring Derrel Maury, Kimberly Beck, Robert Carradine, and Andrew Stevens.",
+                        " The plot follows a series of revenge killings at a fictional American high school, after which the oppressed students take on the role of their bully oppressors.",
+                        " Despite its title, it is not a slasher film but an unusual blend of political allegory, social commentary, and low-budget exploitation; with the exception of the final sequence, no \"adult\" characters (such as teachers and parents) are seen."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Yes",
+            "generation_time": 6.983767032623291,
+            "success": true,
+            "generation_times": 6.983767032623291,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "dev_800",
+        "question": "Daniel Greene has created what for clients including sportscaster Bryant Gumbel, Eleanor Roosevelt, William Randolph Hearst and Dave Thomas, the founder of Wendy's?",
+        "golden_answers": [
+            "portrait"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Daniel Greene (artist)",
+                    "Daniel Greene (artist)",
+                    "Bryant Gumbel"
+                ],
+                "sent_id": [
+                    3,
+                    4,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Randolph Apperson Hearst",
+                    "Phoebe Hearst Cooke",
+                    "Bryant Gumbel",
+                    "Greg Gumbel",
+                    "William Randolph Hearst II",
+                    "William Randolph Hearst Jr.",
+                    "John Randolph Hearst",
+                    "Amanda Hearst",
+                    "William Randolph Hearst Memorial State Beach",
+                    "Daniel Greene (artist)"
+                ],
+                "sentences": [
+                    [
+                        "Randolph Apperson Hearst (December 2, 1915 – December 18, 2000) was the fourth and last surviving son of William Randolph Hearst and Millicent Hearst.",
+                        " His twin brother, David, died in 1986.",
+                        " Randolph is the father of Patty Hearst."
+                    ],
+                    [
+                        "Phoebe Millicent Hearst Cooke (July 13, 1927 – November 18, 2012) was an American businesswoman and philanthropist.",
+                        " She served on the board of directors of the Hearst Corporation from 1962 to 1998.",
+                        " She was a granddaughter of William Randolph Hearst.",
+                        " Her twin brother was former Hearst Corporation chairman George Randolph Hearst, Jr., who died in June 2012."
+                    ],
+                    [
+                        "Bryant Charles Gumbel (born September 29, 1948) is an American television journalist and sportscaster, best known for his 15 years as co-host of NBC's \"Today\".",
+                        " He is the younger brother of sportscaster Greg Gumbel.",
+                        " Since 1995, he has hosted HBO's acclaimed investigative series \"Real Sports with Bryant Gumbel\", which has been rated as \"flat out TV's best sports program\" by the \"Los Angeles Times\".",
+                        " It won a Peabody Award in 2012."
+                    ],
+                    [
+                        "Greg Gumbel (born May 3, 1946) is an American television sportscaster.",
+                        " He is best known for his various assignments on the CBS network (most notably, the National Football League and NCAA basketball).",
+                        " The older brother of news and sportscaster Bryant Gumbel, he became the first African-American (and Creole) announcer to call play-by-play of a major sports championship in the United States when he announced Super Bowl XXXV for the CBS network in 2001.",
+                        " He is of Creole ancestry.",
+                        " Gumbel is currently a play-by-play broadcaster for the \"NFL on CBS\" alongside Trent Green as well as the studio host for CBS' men's college basketball coverage."
+                    ],
+                    [
+                        "William Randolph Hearst II (born 1942) is one of John Randolph Hearst's sons.",
+                        " Within the family, he is often referred to as Billy.",
+                        " He attended the University of San Francisco and married Jennifer Gooch; they had a son, Jason Hearst.",
+                        " William and Jennifer divorced, and Jennifer married Andrew Rowe, Jr.; she died in 2008."
+                    ],
+                    [
+                        "William Randolph Hearst Jr. (January 27, 1908 – May 14, 1993) was an American businessman and newspaper publisher.",
+                        " He was the second son of the publisher William Randolph Hearst.",
+                        " He became editor-in-chief of Hearst Newspapers after the death of his father in 1951.",
+                        " He won a Pulitzer Prize for his interview with Soviet premier, Nikita Khrushchev, and associated commentaries in 1955."
+                    ],
+                    [
+                        "John Randolph Hearst (1909–1958) was an American business executive and the third son of William Randolph Hearst."
+                    ],
+                    [
+                        "Amanda Randolph Hearst (born January 5, 1984) is an American socialite, activist, fashion model, and heiress to the Hearst Corporation, William Randolph Hearst's media conglomerate.",
+                        " She is an associate market editor at \"Marie Claire\" and the founder of Friends of Finn, an organization dedicated to stopping the inhumane treatment of dogs in puppy mills.",
+                        " She also served as a co-chair of Riverkeeper's Junior Council."
+                    ],
+                    [
+                        "William Randolph Hearst Memorial State Beach is located near the historic town of San Simeon along California State Route 1, in San Luis Obispo County, California, United States.",
+                        " It is named for newspaper magnate William Randolph Hearst (1863–1951), whose family is closely associated with the area."
+                    ],
+                    [
+                        "Daniel E. Greene PSA, NA, AWS (born 1934) is an American artist who works in the media of pastels and oil painting.",
+                        " The Encyclopædia Britannica considers Mr. Greene the foremost pastelist in the United States.",
+                        " His paintings and pastels are in over 700 public and private collections in the United States and abroad.",
+                        " Highly regarded as a portrait artist, his subjects have included leaders of Government, Banking, Education and Industry.",
+                        " Some of his sitters include First Lady Eleanor Roosevelt, Ayn Rand, Astronaut Walter Schirra, William Randolph Hearst, “Wendy’s” founder Dave Thomas, Commentator Rush Limbaugh, Composer Alan Menken, Bryant Gumbel and Bob Schieffer of CBS TV.",
+                        " Governmental Portraits include Secretary of Agriculture Ann Veneman, Governor Paul Laxalt of Nevada, Governor Gerald Baliles of Virginia, Governor Benjamin Cayetano of Hawaii, and Governor Fob James of Alabama.",
+                        " Business sitters include the chairmen of the boards of Honeywell, Coca-Cola Company, Dupont Corporation, Endo Pharmaceuticals, American Express, The New York Stock Exchange and IBM.",
+                        " Mr. Greene has also painted the Deans, Presidents and Benefactors of Tufts, Duke, Columbia, North Carolina, West Point, Delaware, Penn State, New York, Princeton, Rutgers, Yale and Harvard Universities."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "A wax figure.",
+            "generation_time": 8.658925533294678,
+            "success": true,
+            "generation_times": 8.658925533294678,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_355",
+        "question": "Are Phlebodium and Pieris both species of ferns?",
+        "golden_answers": [
+            "no"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Phlebodium",
+                    "Pieris (plant)",
+                    "Pieris (plant)"
+                ],
+                "sent_id": [
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "context": {
+                "title": [
+                    "Phlebodium",
+                    "Tree fern",
+                    "Sinopieris",
+                    "Leptosporangiate fern",
+                    "Stephanitis takeyai",
+                    "Pieris floribunda",
+                    "Lophosoria quadripinnata",
+                    "Pieris (butterfly)",
+                    "Pieris canidia",
+                    "Phlebodium aureum"
+                ],
+                "sentences": [
+                    [
+                        "Phlebodium is a small genus of two to four species of ferns, native to tropical and subtropical regions of the Americas.",
+                        " The genus is closely related to \"Polypodium\", and the species were formerly included in that genus."
+                    ],
+                    [
+                        "The tree ferns are the ferns that grow with a trunk elevating the fronds above ground level.",
+                        " Most tree ferns are members of the \"core tree ferns\", belonging to the families Dicksoniaceae, Metaxyaceae, and Cibotiaceae in the order Cyatheales.",
+                        " In addition to those families, many ferns in other groups may be considered tree ferns, such as several ferns in the family Osmundaceae, which can achieve short trunks under a metre tall, and particularly ferns in the genus \"Cibotium\", which can grow ten metres tall.",
+                        " Fern species with short trunks in the genera \"Blechnum, Calochleana, Cnemedaria, Culcita\" (Europe's only tree fern), \"Cystodium, Leptopteris, Lophosoria, Sadleria, Thyrsopteris\" and \"Todea\" could also be considered tree ferns in a liberal interpretation of the term."
+                    ],
+                    [
+                        "Sinopieris is a genus of butterflies in the family Pieridae.",
+                        " The genus occurs in Nepal, Tibet, Yunnan, Gansu, Shaanxi and Sichuan.",
+                        " All six species were originally included in \"Pieris\".",
+                        " The two genera are distinguished by the venation in the apical area of the forewing.",
+                        " Most \"Sinopieris\" species have a suffused grey or blackish post-discal band whereas \"Pieris\" usually have a single (males) or a pair (females) of blackish post-discal spots on the forewings, and no trace of any spot or band on the hindwings."
+                    ],
+                    [
+                        "Leptosporangiate ferns are the largest group of living ferns, including some 11000 species worldwide.",
+                        " They constitute the subclass Polypodiidae, but are often considered to be the class Pteridopsida or Polypodiopsida, although other classifications assign them a different rank.",
+                        " The leptosporangiate ferns are one of the four major groups of ferns, with the other three being the Eusporangiate ferns comprising the marattioid ferns (Marattiidae, Marattiaceae), the horsetails (Equisetiidae, Equisetaceae), and whisk ferns and moonworts."
+                    ],
+                    [
+                        "The andromeda lace bug (Stephanitis takeyai) is a pest insect on plants of the genus \"Pieris\", especially \"Pieris japonica\", the Japanese andromeda.",
+                        " It originated in Japan with its host plant but has since been introduced to other areas of the globe.",
+                        " At least one \"Pieris\" species, \"Pieris floribunda\", is resistant to the bug."
+                    ],
+                    [
+                        "Pieris floribunda is a North American species of broadleaf evergreen shrub, a member of the fetterbush genus in the blueberry family (Ericaceae).",
+                        " It is commonly known in North America as mountain fetterbush or mountain andromeda.",
+                        " All parts of \"Pieris floribunda\" are poisonous if ingested.",
+                        " It is a rare plant to find in landscapes because it is difficult to propagate and it often does not adapt well to cultivation.",
+                        " However, there are a few specialty and native plant nurseries that sell some, overcoming the more difficult propagation.",
+                        " In landscapes it should be grown in full to part shade, out of windy locations, and have a good quality soil with lots of organic matter that is acid of pH 4.5 to 6.5"
+                    ],
+                    [
+                        "Lophosoria quadripinnata is a species of fern that, according to DNA molecular analysis, belongs to the Dicksoniaceae family, where it is placed in the genus \"Lophosoria\".",
+                        " It is found in the Americas spanning from Cuba and Mexico to Chile.",
+                        " In Chile it is present in the area between Talca and Aysén including Juan Fernández Islands.",
+                        " In Argentina it grows only in the humid valleys of western Neuquén and Río Negro Province.",
+                        " Diamondleaf fern is a common name.",
+                        " In Spanish it is known as 'ampe' (from the Mapudungun añpe) or palmilla, but one has to remember that there are several species of ferns called \"palmillas\" that have larger or smaller fronds, and which grow in colder climates.",
+                        " It is a medium-sized plant, growing to about 4–5 feet (though 10–12 feet in a sheltered place at Arduaine Garden in Argyll, Scotland) and even though the rhizome does not grow a trunk, it is clearly related to the other tree ferns due to features that were apparently already present in their common ancestor, like 'pneumathodes', and the rhizome which changed from the dorsiventral symmetry typical of the other ferns, to a radial symmetry typical of tree ferns.",
+                        " Their large and multiple pinnate fronds, with the petiole raised adaxially, and the hairs on the rhizome and lower part of the petioles, also resemble those of tree ferns.",
+                        " To identify the species, use the position and characteristics of the spores found on the fertile fronds.",
+                        " The genus already existed in the Cretaceous Period in southern Gondwana according to fossil remains found in Antarctica.",
+                        " The species is well known as an ornamental plant."
+                    ],
+                    [
+                        "Pieris, the whites or garden whites, is a widespread now almost cosmopolitan genus of butterflies of the family Pieridae.",
+                        " The highest species diversity is in the Palearctic.",
+                        " Many species of this genus have caterpillars which feed on cabbage and other members of the Brassicaceae.",
+                        " The chemical basis of this association with a certain plant group has been studied for over 100 years, and is now known to occur via a number of biochemical adaptations to chemicals called glucosinolates in these plants.",
+                        " In contrast to most other insects, \"Pieris\" caterpillars are able to detoxify these chemicals, and have become so specialised that they will not eat any food without glucosinolates.",
+                        " The \"Pieris\" females, in turn, check for the presence of glucosinolates before laying eggs on a plant.",
+                        " The crop-damaging species have spread from Eurasia to most of the rest of the world (most recently to South America and Africa) and are considered pest insects almost everywhere.",
+                        " There are species of \"Pieris\" that are not pests, such as the North American species \"Pieris oleracea\" and \"Pieris virginiensis\".",
+                        " These butterflies feed successfully only on specific native vegetation."
+                    ],
+                    [
+                        "Pieris canidia, the Indian cabbage white, is a butterfly in the family Pieridae. \"",
+                        "Pieris rapae\" is one of the closest species in the Pieridae family."
+                    ],
+                    [
+                        "Phlebodium aureum (golden polypody, golden serpent fern, cabbage palm fern, gold-foot fern, hare-foot fern; syn.",
+                        " \"Polypodium aureum\", \"Polypodium leucatomos\") is an epiphytic fern native to tropical and subtropical regions of the Americas.",
+                        " It is confined to the eastern side of the continents, extending north into the United States to Florida and the extreme southeast of Georgia, and south through the Caribbean (the Bahamas, Puerto Rico, and Lesser Antilles), and northern and eastern South America to Paraguay.",
+                        " It is the only species of \"Phlebodium\" found in North America, the other species all confined to South America.",
+                        " Other common names include calaguala (Spanish language), laua`e haole (Hawaiian), samambaia (Portuguese), and hartassbräken (Swedish)."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Yes",
+            "generation_time": 7.078415632247925,
+            "success": true,
+            "generation_times": 7.078415632247925,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_972",
+        "question": "In what city did Jennifer Paige Chambers appear with the creator of the characters Jiminy Glick and Ed Grimley?",
+        "golden_answers": [
+            "Los Angeles"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Jennifer Paige Chambers",
+                    "Martin Short"
+                ],
+                "sent_id": [
+                    0,
+                    3
+                ]
+            },
+            "context": {
+                "title": [
+                    "Martin Short",
+                    "Primetime Glick",
+                    "Black Toast Music",
+                    "Ed Grimley",
+                    "Jiminy Glick in Lalawood",
+                    "Jiminy Glick",
+                    "The Devil's in the Details (Jennifer Paige song)",
+                    "Always You (Jennifer Paige song)",
+                    "Crush (Jennifer Paige song)",
+                    "Jennifer Paige Chambers"
+                ],
+                "sentences": [
+                    [
+                        "Martin Hayter Short {'1': \", '2': \", '3': \", '4': \"} (born March 26, 1950) is a Canadian-American actor and comedian.",
+                        " He is known for his work on the television programs \"SCTV\" and \"Saturday Night Live\".",
+                        " He has starred in comedy films, such as \"Three Amigos\" (1986), \"Innerspace\" (1987), \"Three Fugitives\" (1989), \"Father of the Bride\" (1991), \"Pure Luck\" (1991), \"Captain Ron\" (1992), \"Father of the Bride Part II\" (1995), \"Mars Attacks!",
+                        "\" (1996) and \"Jungle 2 Jungle\" (1997), and created the characters, Jiminy Glick and Ed Grimley.",
+                        " In 1999, he won a Tony Award for his lead performance in a Broadway revival of \"Little Me\"."
+                    ],
+                    [
+                        "Primetime Glick is an American television series starring Martin Short as Jiminy Glick.",
+                        " The series aired from June 20, 2001, to July 3, 2003, on Comedy Central."
+                    ],
+                    [
+                        "Founded by Bob Mair in 1991, Black Toast Music is an independent music publisher/production music library located in Los Angeles, CA.",
+                        " Since its launch, the company has placed music in television series (including “True Blood,” “Dexter,” “Treme,” and “The Wire,” and others), motion pictures (including “Arthur” with Russell Brand, “When In Rome” with Kristen Bell, “I Love You, Phillip Morris” with Jim Carrey, “Dead Silence,” “Jiminy Glick in Lalawood,” and others).",
+                        " Black Toast Music has also licensed its artists’ music to a variety videogames, national advertising campaigns, internet advertising campaigns, as well as, numerous multi-media presentations."
+                    ],
+                    [
+                        "Edward Mayhoff 'Ed' Grimley is a fictional character created and portrayed by Martin Short.",
+                        " Developed amongst The Second City improv comedy troupe, Grimley made his television debut on the sketch comedy show \"SCTV\" in 1982, leading to popular success for both Short and the persona.",
+                        " Short continued to portray Grimley on \"Saturday Night Live\" and in various other appearances.",
+                        " The character also starred in the 1988 animated series \"The Completely Mental Misadventures of Ed Grimley\", as well as appearing in Short's 2012 comedy special \"I, Martin Short, Goes Home\"."
+                    ],
+                    [
+                        "Jiminy Glick in Lalawood is a 2004 comedy film starring Martin Short as Jiminy Glick, a morbidly obese movie critic who is involved in a murder case at the Toronto International Film Festival.",
+                        " The supporting cast features Jan Hooks, Janeane Garofalo, Linda Cardellini, Mo Collins and Aries Spears, and numerous cinema luminaries play themselves, such as Willem Dafoe, Whoopi Goldberg, Jake Gyllenhaal, Kevin Kline, Rob Lowe, Steve Martin, Kurt Russell, Susan Sarandon, Chloë Sevigny, Sharon Stone, Kiefer Sutherland and Forest Whitaker."
+                    ],
+                    [
+                        "Jiminy Glick is a fictional character portrayed by Martin Short in the TV series \"Primetime Glick\" (2001–2003), the subsequent 2004 film \"Jiminy Glick in Lalawood,\" and Short's Broadway show \"\".",
+                        " He began as a recurring character on \"The Martin Short Show\".",
+                        " When that show was cancelled, he was spun off into his own series, \"Primetime Glick\", which ran for three seasons."
+                    ],
+                    [
+                        "\"The Devil's in the Details\" is a 2017 pop song recorded by American singer Jennifer Paige.",
+                        " The song was written by Jennifer Paige and produced by Jeremy Bose.",
+                        " It was released as the first single from her self-funded fourth album, \"Starflower\".",
+                        " The music video for \"The Devil's in the Details\" will be released on March 3, 2017, and was filmed in Nashville."
+                    ],
+                    [
+                        "\"Always You\" is a 1999 pop song recorded by American singer Jennifer Paige.",
+                        " It was released in July 1999 as the third single released from her debut studio album \"Jennifer Paige\".",
+                        " The song was written by Andy Goldmark and J.D. Martin.",
+                        " For this single, \"Always You\" was remixed by Groove Brothers.",
+                        " The B-side is replayed by Mick Guzauski.",
+                        " \"Always You\" reached number six on the \"Billboard\" Dance/Club Play chart."
+                    ],
+                    [
+                        "\"Crush\" is a 1998 pop song recorded by American singer Jennifer Paige.",
+                        " The song was written by Andy Goldmark, Mark Mueller, Berny Cosgrove and Kevin Clark.",
+                        " It was released as the first single from her debut album, \"Jennifer Paige\" (see 1998 in music).",
+                        " The music video for \"Crush\" was produced by Kati Haberstok and directed by David Hogan."
+                    ],
+                    [
+                        "Jennifer Paige Chambers is a musical theatre performer, who has appeared in \"The Producers\" on Broadway with Nathan Lane and Matthew Broderick, in Los Angeles with Martin Short and Jason Alexander, and in the National Tour with Louis Stadlen and Don Stephenson.",
+                        " She had the chance to co-star as the Swedish secretary, Ulla, with Nathan Lane and Matthew Broderick."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Toronto",
+            "generation_time": 8.103691101074219,
+            "success": true,
+            "generation_times": 8.103691101074219,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "dev_6285",
+        "question": "What president was assassinated and had Worthy Stevens Streator as one of his pallbearers?",
+        "golden_answers": [
+            "James Abram Garfield"
+        ],
+        "metadata": {
+            "type": "bridge",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Worthy S. Streator",
+                    "Worthy S. Streator",
+                    "James A. Garfield"
+                ],
+                "sent_id": [
+                    0,
+                    5,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "Thaddeus Stevens",
+                    "Worthy S. Streator",
+                    "Louisiana Purchase Exposition dollar",
+                    "Antonio Macías del Real",
+                    "Hope Stevens",
+                    "Ascher Silberstein",
+                    "Pink Chanel suit of Jacqueline Bouvier Kennedy",
+                    "1963 Togolese coup d'état",
+                    "William Parkhurst Winans",
+                    "United States Senate election in Alaska, 2008"
+                ],
+                "sentences": [
+                    [
+                        "Thaddeus Stevens (April 4, 1792 – August 11, 1868) was a member of the United States House of Representatives from Pennsylvania and one of the leaders of the Radical Republican faction of the Republican Party during the 1860s.",
+                        " A fierce opponent of slavery and discrimination against African-Americans, Stevens sought to secure their rights during Reconstruction, in opposition to President Andrew Johnson.",
+                        " As chairman of the House Ways and Means Committee during the American Civil War, he played a leading role, focusing his attention on defeating the Confederacy, financing the war with new taxes and borrowing, crushing the power of slave owners, ending slavery, and securing equal rights for the Freedmen."
+                    ],
+                    [
+                        "Worthy Stevens Streator (October 16, 1816 – March 6, 1902) was an American physician, railroad developer, industrialist and entrepreneur after whom the city of Streator, Illinois is named.",
+                        " He was instrumental in the creation of the Atlantic and Great Western Railway in Ohio, was president of the Baltimore and Ohio Railroad (B&O) and financed the first large-scale coal mine operation in Northern Illinois in 1866.",
+                        " He served as an Ohio State Senator in 1869, and was the first mayor of East Cleveland, Ohio.",
+                        " He was an influential in the development of many civic institutions in his home city of Cleveland, Ohio.",
+                        " He co-founded the \"Christian Standard\" magazine, he was an original endower of Case School of Applied Science and was a principal in the creation of the James A. Garfield Monument; the first true mausoleum created in the United States in honor of President James A. Garfield.",
+                        " He was a pallbearer at President Garfield's funeral in 1881."
+                    ],
+                    [
+                        "The Louisiana Purchase Exposition dollar was a commemorative coin issue in gold dated 1903.",
+                        " Struck in two varieties, the coins were designed by United States Bureau of the Mint Chief Engraver Charles E. Barber.",
+                        " The pieces were issued to commemorate the Louisiana Purchase Exposition held in 1904 in St. Louis; one variety depicted former president Thomas Jefferson, and the other, the recently assassinated president William McKinley.",
+                        " Although not the first American commemorative coins, they were the first in gold."
+                    ],
+                    [
+                        "Antonio Macías del Real (1866–1939) was a Spanish writer and pharmacist that moved to Guatemala where he wrote for most prestigious cultural publications.",
+                        " Among his articles are those that we wrote for \"La Ilustración Guatemalteca\" during the last year of general José María Reina Barrios presidency.",
+                        " When the president was assassinated on 8 February 1898, Macías del Real wrote \"Perfiles biográficos de don Manuel Estrada Cabrera\" (\"Biographical profiles of Mr. Manuel Estrada Cabrera\", who had been appointed as interim President; Macias del Real kept writing on behalf of the new president since then.",
+                        " In 1902 his adulation paid off, as Estrada Cabrera granted him the Pacific Railroad concession.",
+                        " According to Guatemalan historian Rafael Arévalo Martínez in his book \"¡Ecce Pericles!\"",
+                        ", Macías del Real -a pharmacist graduated from Universidad Central de Madrid and later incorporated in Guatemala- was the one that gave Estrada Cabrera a potent venom that the latter used to get rid of his opponents."
+                    ],
+                    [
+                        "Hope R. Stevens (Feb. 4, 1905 in Tortola – June 24, 1982 in Queens, New York) was a lawyer, political activist, businessman and civic activist.",
+                        " Born in Tortola in the British Virgin Islands and raised on Nevis, he was one of the founders of the Barbados Labour Party .",
+                        " Stevens moved to the United States in 1924 and graduated from City College of New York in 1933 and Brooklyn Law School in 1936.",
+                        " He was admitted to the New York bar in 1937.",
+                        " He was later based in Harlem, New York, and became the president of the Uptown Chamber of Commerce from 1960 to 1977."
+                    ],
+                    [
+                        "Ascher Silberstein (18 September 1852 – 17 December 1909) was born in Austria on September 18, 1852.",
+                        " He came to the United States at the age of 15 and settled in Jefferson, Texas, later moving to Dallas and was engaged in the cattle business.",
+                        " He was associated, at different times, with Ellis Cockrell and J.B. Wilson.",
+                        " Early in 1909, he was one of the organizers of the Trinity National Bank, which merged with the City National Bank at the time of Silberstein's death.",
+                        " He built and was, for a number of years, president of the Dallas Oil and Refining Company.",
+                        " Silberstein was a quiet and unassuming man and a liberal contributor toward any worthy cause that was brought to his notice.",
+                        " When a meeting was held to raise funds for the flood sufferers in May 1907, he was one of the first to rise and say, \"I will give a thousand dollars.\"",
+                        " Silberstein died suddenly on December 17, 1909.",
+                        " In his will, he bequeathed a very large amount of his estate to various charitable and educational institutions, including the Buckner Orphans Home, the Dallas City Hospital, and the Dallas Public Schools."
+                    ],
+                    [
+                        "A pink Chanel suit was worn by Jacqueline Bouvier Kennedy on November 22, 1963, when her husband, President John F. Kennedy was assassinated in Dallas, Texas.",
+                        " Made of wool bouclé, the double-breasted, strawberry pink and navy trim collared suit was matched with a trademark matching pink pillbox hat and white gloves.",
+                        " After President Kennedy was assassinated, Jacqueline Kennedy insisted on wearing the suit, stained with his blood, during the swearing-in of Lyndon B. Johnson on Air Force One and for the flight back to Washington, D.C. with the President’s body."
+                    ],
+                    [
+                        "The 1963 Togolese coup d'état was a military coup that occurred in the country of Togo on 13 January 1963.",
+                        " The coup leaders (notably Emmanuel Bodjolle, Étienne Eyadéma and Kléber Dadjo) took over government buildings, arrested most of the cabinet, and assassinated Togo's first President, Sylvanus Olympio outside the American embassy in Lomé.",
+                        " The coup leaders quickly brought Nicolas Grunitzky and Antoine Meatchi, both of whom were exiled political opponents of Olympio, together to form a new government.",
+                        " While the government of Ghana and its President Kwame Nkrumah were implicated in the coup and assassination of Olympio, full investigation was never completed and the international outcry eventually died down.",
+                        " The event was important as the first coup d'état in the French and British colonies of Africa that achieved independence in the 1950s and 1960s, and Olympio is remembered as one of the first heads of state to be assassinated during a military coup in Africa."
+                    ],
+                    [
+                        "William Parkhurst Winans (January 28, 1836–1917) was crucial for the development of parts of Eastern Washington, particularly Stevens County, Walla Walla, and Fort Colville.",
+                        " He founded Farmer’s Savings Bank, and was the president until he died in 1917.",
+                        " He was also a member of the board of directors of First National Bank.",
+                        " In addition to his involvement with the bank system, Winans was a clerk in several locations throughout the region, and so is personally responsible for the majority of the records of the Colville Indians and others in the region, as well as the records of the financial dealings in the late 19th century and the early 20th century.",
+                        " Winans played an important role in keeping records of Indians because he was named Industrial Instructor for Indians in 1869 and Superintendent of Indian Affairs in 1870.",
+                        " In addition to those offices, Winans took multiple censuses of Indian populations, including the Okanagans, Calispels, San Poils, Nespelems, Senijexsees, Wenatchees, Isle d'Pierres, Mishouies, Spokanes, and the Swielpees.",
+                        " He was a historian himself, and wrote several histories of the region, including a book, Stevens County, Washington, its creation, addition, subtraction and division.",
+                        " Several of his works were given to institutions such as Harvard University and Washington State University.",
+                        " Eastern Washington, particularly Stevens County and Walla Walla, would not be the same if William Parkhurst Winans had not been there with his business and record-keeping skills.",
+                        " As the Old Walla Walla County, Washington records, “No history of Walla Walla would be complete without extended reference to William Parkhurst Winans, who was an octogenarian at the time of his demise.",
+                        " He had long been identified with the northwest, and his life was one of great usefulness and activity.”",
+                        " By the end of his life, Winans was an essential part of the Walla Walla community due to his hard work and involvement in the fields of business, education, Indian affairs, and the church."
+                    ],
+                    [
+                        "The 2008 United States Senate election in Alaska was held on November 4, 2008.",
+                        " Incumbent Republican U.S. Senator and former President pro tempore Ted Stevens ran for re-election to a seventh term in the United States Senate.",
+                        " It was one of the ten Senate races that U.S. Senator John Ensign of Nevada, the chairman of the National Republican Senatorial Committee, predicted as being most competitive.",
+                        " The primaries were held on Tuesday, August 26.",
+                        " Ted Stevens was challenged by Democratic candidate Mark Begich, the mayor of Anchorage."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "James A. Garfield",
+            "generation_time": 5.49589467048645,
+            "success": true,
+            "generation_times": 5.49589467048645,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.8,
+                "acc": 0.0,
+                "precision": 1.0,
+                "recall": 0.6666666666666666
+            }
+        }
+    },
+    {
+        "id": "dev_1733",
+        "question": "Who is from farther west, Halestorm or Audioslave?",
+        "golden_answers": [
+            "Audioslave"
+        ],
+        "metadata": {
+            "type": "comparison",
+            "level": "hard",
+            "supporting_facts": {
+                "title": [
+                    "Halestorm",
+                    "Audioslave"
+                ],
+                "sent_id": [
+                    0,
+                    0
+                ]
+            },
+            "context": {
+                "title": [
+                    "U.S. Route 1",
+                    "Texas State Highway 77",
+                    "Fort Gibson",
+                    "Pennsylvania Route 382",
+                    "Register Cliff",
+                    "Monashee Mountains",
+                    "Fort Harker (Kansas)",
+                    "Eureka, Nunavut",
+                    "Eastern Branch Elizabeth River",
+                    "Arizona State Route 389"
+                ],
+                "sentences": [
+                    [
+                        "U.S. Route 1 (US 1) is a major north–south U.S. Highway that serves the East Coast of the United States.",
+                        " It runs 2,369 mi , from Fort Kent, Maine, at the Canada–US border, south to Key West, Florida, making it the longest north–south road in the United States.",
+                        " US 1 is generally paralleled by Interstate 95 (I-95), though the former is significantly farther west (inland) between Jacksonville, Florida, and Petersburg, Virginia.",
+                        " The highway connects most of the major cities of the East Coast—including Miami, Jacksonville, Richmond, Washington, D.C., Baltimore, Wilmington, Philadelphia, New York City, and Boston, passing from the Southeastern United States to New England."
+                    ],
+                    [
+                        "State Highway 77, or SH 77, is a numbered state highway in Texas, occupying the counties of Morris and Cass.",
+                        " SH 77 is 46.815 mi long, and connects U.S. Highway 259 to the eastern state line.",
+                        " It begins four miles (6 km) north of Omaha on US 259, and travels eastward to Naples, meeting U.S. Highway 67 and State Highway 338.",
+                        " In Douglassville, SH 77 intersects State Highway 8.",
+                        " After cutting across the south side of Atlanta, where it meets U.S. Highway 59 (Future Interstate 369), SH 77 cuts to the southeast, and crosses into the very northwest corner of Louisiana, becoming Louisiana Highway 1.",
+                        " SH 77 was originally proposed in 1926 as a route from Douglasville to Naples, replacing SH 1B.",
+                        " By 1933, SH 77 extended southeast to Louisiana, replacing a portion of SH 47.",
+                        " It was originally planned to travel farther west to Commerce, but this plan was cancelled in 1941.",
+                        " In 1966, SH 77 was extended west over FM 2880 from US 259 to US 67."
+                    ],
+                    [
+                        "Fort Gibson is a historic military site located next to the present day city of Fort Gibson, in Muskogee County Oklahoma.",
+                        " It guarded the American frontier in Indian Territory from 1824 until 1888.",
+                        " When constructed, the fort lay farther west than any other military post in the United States; it formed part of the north–south chain of forts intended to maintain peace on the frontier of the American West and to protect the southwestern border of the Louisiana Purchase.",
+                        " The fort succeeded in its peacekeeping mission for more than 50 years, as no massacres or battles occurred there.",
+                        " The fort site is now managed by the Oklahoma Historical Society as the Fort Gibson Historical Site.",
+                        " It is a National Historic Landmark."
+                    ],
+                    [
+                        "Pennsylvania Route 382 (PA 382) is an 11.8 mi state highway located in York County, Pennsylvania.",
+                        " The southern terminus is at PA 181 in York Haven.",
+                        " The western terminus is at PA 114 near Bunches in Fairview Township.",
+                        " PA 382 is a two-lane undivided road that runs through rural areas in the northern part of York County.",
+                        " The route heads west from York Haven, intersecting PA 262 and PA 295.",
+                        " Farther west, the road has an interchange with Interstate 83 (I-83) in Newberrytown and an intersection with PA 177 in Lewisberry.",
+                        " From here, PA 382 turns north and continues to its terminus at PA 114.",
+                        " What is now PA 382 was designated as a portion of PA 24 in 1928.",
+                        " PA 382 was designated to its current alignment in the 1960s after the northern terminus of PA 24 was truncated to the York area."
+                    ],
+                    [
+                        "Register Cliff is a sandstone cliff and featured key navigational landmark prominently listed in the 19th century guidebooks about the Oregon Trail, and a place where many emigrants chiseled the names of their families on the soft stones of the cliff it was one of the key checkpoint landmarks for parties heading west along the Platte River valley west of Fort John, Wyoming which allowed travelers to verify they were on the correct path up to South Pass and not moving into impassable mountain terrainsgeographically, it is on the eastern ascent of the Continental divide leading upward out of the great plains in the east of the U.S. state of Wyoming.",
+                        " It is notable as a historic landmark for 'registering' hundreds of emigrants on the Oregon Trail (thus also the other northern Emigrant Trails that split off farther west such as the California Trail and Mormon Trail) who came to follow custom and inscribed their names on its rocks during the western migrations of the 19th century.",
+                        " An estimated 500,000 emigrants used these trails from 1843–1869, with up to one-tenth dying along the way, usually due to disease."
+                    ],
+                    [
+                        "The Monashee Mountains are a mountain range lying mostly in British Columbia, Canada, extending into the U.S. state of Washington.",
+                        " They stretch 530 km from north to south and 150 km from east to west.",
+                        " They are a sub-range of the Columbia Mountains.",
+                        " They are limited on the eastern side by the Columbia River and Arrow Lakes, beyond which lie the Selkirk Mountains, and by the upper North Thompson River and the Interior Plateau on the west.",
+                        " The northern end of the range is at the southern end of the Robson Valley just south of the town of Valemount.",
+                        " The southern extremity of the range is in Washington State, where the Kettle River Range reaches just down to the confluence of the Kettle River and the Columbia, and also farther west to the southern extremity of the Okanagan Highland (spelled Okanogan Highland in the US) just northeast of the confluence of the Okanogan and Columbia rivers at Brewster and Bridgeport."
+                    ],
+                    [
+                        "Fort Harker, located in Kanopolis, Kansas, was an active military installation of the United States Army from November 17, 1866 to October 5, 1872.",
+                        " The fortification was named after General Charles Garrison Harker, who was killed in action at the Battle of Kennesaw Mountain in the American Civil War.",
+                        " Fort Harker replaced Fort Ellsworth, which had been located 1.6 km from the location of Fort Harker and was abandoned after the new fortifications at Fort Harker were constructed.",
+                        " Fort Harker was a major distribution point for all military points farther west and was one of the most important military stations west of the Missouri River."
+                    ],
+                    [
+                        "Eureka is a small research base on Fosheim Peninsula, Ellesmere Island, Qikiqtaaluk Region, in the Canadian territory of Nunavut.",
+                        " It is located on the north side of Slidre Fiord, which enters Eureka Sound farther west.",
+                        " It is the third-northernmost permanent research community in the world.",
+                        " The only two farther north are Alert, which is also on Ellesmere Island, and Nord, in Greenland.",
+                        " Eureka has the lowest average annual temperature and the lowest amount of precipitation of any weather station in Canada."
+                    ],
+                    [
+                        "The Eastern Branch Elizabeth River is a 9.0 mi tidal river in the Hampton Roads area of the U.S. state of Virginia.",
+                        " The river flows from east to west, starting in Virginia Beach.",
+                        " At its crossing by Interstate 64 it becomes the boundary between Virginia Beach and the city of Norfolk, and farther west it is the boundary between Norfolk and the city of Chesapeake.",
+                        " For its final 3 mi it is entirely within the city of Norfolk."
+                    ],
+                    [
+                        "State Route 389, also known as SR 389, is a state highway in far northern Arizona serving the Arizona Strip.",
+                        " SR 389 stretches from the Utah border at Colorado City, southeast to Pipe Spring National Monument, and ends at U.S. Route 89A in Fredonia; it is the only major east–west route between these two towns, and also serves to connect Fredonia with points farther west such as St. George, Utah."
+                    ]
+                ]
+            }
+        },
+        "output": {
+            "pred": "Audioslave",
+            "generation_time": 5.761909008026123,
+            "success": true,
+            "generation_times": 5.761909008026123,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    }
+]

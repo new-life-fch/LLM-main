@@ -1,19 +1,34 @@
 import logging
+import time
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple, Any
 
 import torch
 import torch.nn.functional as F
 
-from .conflict_detector import CausalConflictDetector
-
+# 处理相对导入和绝对导入的兼容性
+try:
+    from .conflict_detector import CausalConflictDetector
+    from .counterfactual_editor import CounterfactualEditor
+    from ..dynamic.fingerprint_builder import DynamicFingerprintBuilder
+    from ..dynamic.vector_index import DynamicVectorIndex
+    from ..dynamic.rag_retriever import RAGRetriever
+    from ..utils.path_config import get_path_config, get_rag_paths
+except ImportError:
+    # 当直接运行此文件时，使用绝对导入
+    import sys
+    from pathlib import Path
+    project_root = Path(__file__).resolve().parent.parent.parent
+    sys.path.insert(0, str(project_root))
+    
+    from causal_editor.core.conflict_detector import CausalConflictDetector
+    from causal_editor.core.counterfactual_editor import CounterfactualEditor
+    from causal_editor.dynamic.fingerprint_builder import DynamicFingerprintBuilder
+    from causal_editor.dynamic.vector_index import DynamicVectorIndex
+    from causal_editor.dynamic.rag_retriever import RAGRetriever
+    from causal_editor.utils.path_config import get_path_config, get_rag_paths
 
 logger = logging.getLogger(__name__)
-from .counterfactual_editor import CounterfactualEditor
-from ..dynamic.fingerprint_builder import DynamicFingerprintBuilder
-from ..dynamic.vector_index import DynamicVectorIndex
-from ..dynamic.rag_retriever import RAGRetriever
-from ..utils.path_config import get_path_config, get_rag_paths
 
 
 class CausalEditor:
@@ -108,6 +123,30 @@ class CausalEditor:
         self.current_input_doc = []
 
         # CausalEditor初始化完成
+    
+    def clear_fingerprints(self):
+        """清空当前轮次的激活指纹
+        
+        在生成结束时调用，清理临时存储的激活指纹
+        """
+        try:
+            # 清空预构建的指纹
+            self.prebuilt_fingerprints.clear()
+            
+            # 清空动态向量索引
+            self.dynamic_index.clear_all()
+            
+            # 清空指纹构建器的临时缓存
+            self.fingerprint_builder.clear_rag_cache()
+            
+            # 重置索引状态
+            self.prebuilt_index_ready = False
+            self.current_input_doc = []
+            
+            logging.info("已清空当前轮次的激活指纹")
+            
+        except Exception as e:
+            logging.error(f"清空激活指纹时发生错误: {e}")
 
     def prepare_for_input(self, user_input_text: str, rag_retriever):
         """
@@ -162,10 +201,15 @@ class CausalEditor:
             
             try:
                 # 使用RAG检索器检索相关文档
+                start_time = time.time()
                 result, score = rag_retriever.search(
                     query=input_text,
                     return_score=True
                 )
+                end_time = time.time()
+                retrieval_time = end_time - start_time
+                print(f"RAG检索耗时: {retrieval_time:.4f}秒")
+                
                 # 使用双曲正切函数将分数转换为-1到1的范围
                 score = [torch.tanh(torch.tensor(s)).item() for s in score]
                 
@@ -205,11 +249,11 @@ class CausalEditor:
             # 2. 候选内容获取（已在candidate_filter中完成）
             # 3. 对候选内容进行前向传播，构建动态激活指纹
             logging.debug("开始构建动态激活指纹...")
-            # 使用用户问题和检索片段构建指纹，不使用三元组逻辑
+            # 使用用户问题和检索片段构建指纹，不使用缓存
             fingerprints_dict = self.fingerprint_builder.build_rag_fingerprints(
                 user_question=input_text,
                 retrieved_fragments=candidates,
-                use_cache=True
+                use_cache=False
             )
             
             if not fingerprints_dict:
@@ -488,6 +532,14 @@ class CausalEditor:
         except Exception as e:
             logging.error(f"编辑激活状态时发生错误: {e}")
             return activations
+    
+    def finish_generation(self):
+        """完成生成，清理临时资源
+        
+        在每轮问答生成完成后调用，清空激活指纹缓存
+        """
+        self.clear_fingerprints()
+        logging.info("生成完成，已清理临时激活指纹")
 
     def _dynamic_detect_conflict(
         self,
@@ -520,6 +572,8 @@ class CausalEditor:
         try:
             # 安全处理激活状态的维度
             try:
+                logger.debug(f"🔍 原始激活形状: {activations.shape}")
+                
                 if activations.dim() == 3:  # [batch_size, seq_len, hidden_dim]
                     # 取最后一个token的激活
                     current_activation = activations[:, -1, :].squeeze()  # [hidden_dim]

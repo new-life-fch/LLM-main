@@ -1,0 +1,215 @@
+[
+    {
+        "id": "test_2284",
+        "question": "when does mexico play in the winter olympics",
+        "golden_answers": [
+            "9 to 25 February 2018"
+        ],
+        "output": {
+            "pred": "Mexico has participated in the Winter Olympics in the following years:\n\n- 1928\n- 1932\n- 1936\n- 1948\n- 1964\n- 1980\n- 1984\n- 1992\n- 1994\n- 1998\n- 2002\n- 2010\n- 2014\n- 2018\n- 2022",
+            "generation_time": 12.184813499450684,
+            "success": true,
+            "generation_times": 12.184813499450684,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.06896551724137931,
+                "acc": 0.0,
+                "precision": 0.041666666666666664,
+                "recall": 0.2
+            }
+        }
+    },
+    {
+        "id": "test_338",
+        "question": "host of the late show who was once a correspondent for the daily show",
+        "golden_answers": [
+            "Stephen Colbert",
+            "Craig Kilborn"
+        ],
+        "output": {
+            "pred": "Stephen Colbert",
+            "generation_time": 5.911071300506592,
+            "success": true,
+            "generation_times": 5.911071300506592,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2645",
+        "question": "who stars in kevin probably save the world",
+        "golden_answers": [
+            "J. August Richards",
+            "Kimberly Hebert Gregory",
+            "India de Beaufort",
+            "Jason Ritter",
+            "Chloe East",
+            "JoAnna Garcia Swisher",
+            "Dustin Ybarra"
+        ],
+        "output": {
+            "pred": "Kaley Cuoco, Charlie McDermott, Jean-Luc Bilodeau, and Logan Miller",
+            "generation_time": 6.377381801605225,
+            "success": true,
+            "generation_times": 6.377381801605225,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3430",
+        "question": "how many seasons has greys anatomy been on tv",
+        "golden_answers": [
+            "14"
+        ],
+        "output": {
+            "pred": "19",
+            "generation_time": 5.353605508804321,
+            "success": true,
+            "generation_times": 5.353605508804321,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1956",
+        "question": "how many levels are there on the eiffel tower",
+        "golden_answers": [
+            "three"
+        ],
+        "output": {
+            "pred": "5",
+            "generation_time": 5.39047646522522,
+            "success": true,
+            "generation_times": 5.39047646522522,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_709",
+        "question": "where did the term liberal arts come from",
+        "golden_answers": [
+            "the Roman Empire"
+        ],
+        "output": {
+            "pred": "The term \"liberal arts\" originated in ancient Greece and Rome, where it referred to the arts and sciences that were considered essential for a free person (Latin: \"liber\") to cultivate in order to participate fully in civic life.",
+            "generation_time": 7.5456016063690186,
+            "success": true,
+            "generation_times": 7.5456016063690186,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2167",
+        "question": "when were the winnie the pooh books written",
+        "golden_answers": [
+            "1924",
+            "1926",
+            "1927",
+            "1928"
+        ],
+        "output": {
+            "pred": "1924-1926",
+            "generation_time": 5.640157461166382,
+            "success": true,
+            "generation_times": 5.640157461166382,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 1.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1",
+        "question": "when is the next deadpool movie being released",
+        "golden_answers": [
+            "May 18, 2018"
+        ],
+        "output": {
+            "pred": "May 31, 2024",
+            "generation_time": 5.5287065505981445,
+            "success": true,
+            "generation_times": 5.5287065505981445,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_1520",
+        "question": "how many pitchers does a major league team have",
+        "golden_answers": [
+            "five starting pitchers",
+            "seven relief pitchers"
+        ],
+        "output": {
+            "pred": "5",
+            "generation_time": 5.361534595489502,
+            "success": true,
+            "generation_times": 5.361534595489502,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1538",
+        "question": "who lives at the end of king lear",
+        "golden_answers": [
+            "Kent",
+            "Albany",
+            "Edgar"
+        ],
+        "output": {
+            "pred": "Edgar, the illegitimate son of the Earl of Gloucester, lives at the end of King Lear.",
+            "generation_time": 6.377153396606445,
+            "success": true,
+            "generation_times": 6.377153396606445,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.14285714285714288,
+                "acc": 1.0,
+                "precision": 0.07692307692307693,
+                "recall": 1.0
+            }
+        }
+    }
+]

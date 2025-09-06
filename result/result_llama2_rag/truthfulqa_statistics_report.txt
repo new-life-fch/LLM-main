@@ -1,0 +1,23 @@
+================================================================================
+TruthfulQA Generation with Llama2 + RAG 统计报告
+================================================================================
+🤖 模型: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf
+💻 设备: cuda
+🎯 最大新token数: 50
+🌡️ 温度: 0.0
+🎲 采样: 否
+🔍 检索Top-K: 3
+📏 最大上下文长度: 512
+📋 RAG配置文件: ./configs/rag_only_config.json
+📋 检索配置文件: ./configs/retrieval_config.yaml
+⏰ 测试时间: 2025-09-04 16:06:01.694058 - 2025-09-04 16:34:25.800391
+⏱️ 测试耗时: 0:28:24.106333
+📊 问题总数: 218
+✅ 成功数量: 218
+❌ 失败数量: 0
+✅ 成功率: 100.0%
+⚡ 平均生成时间: 7.816s
+📁 结果文件:
+  - 干净结果: result/result_llama2_rag/truthfulqa_clean_results.json
+  - GPT-3格式: result/result_llama2_rag/truthfulqa_judge_format.jsonl
+  - 调试信息: result/result_llama2_rag/truthfulqa_debug_results.json

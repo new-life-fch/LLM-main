@@ -1,0 +1,19 @@
+================================================================================
+TruthfulQA Generation with Native Llama2 统计报告
+================================================================================
+🤖 模型: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-2-7b-hf
+💻 设备: cuda
+🎯 最大新token数: 50
+🌡️ 温度: 0.0
+🎲 采样: 否
+⏰ 测试时间: 2025-09-06 15:49:36.360989 - 2025-09-06 15:50:18.803123
+⏱️ 测试耗时: 0:00:42.442134
+📊 问题总数: 38
+✅ 成功数量: 38
+❌ 失败数量: 0
+✅ 成功率: 100.0%
+⚡ 平均生成时间: 1.116s
+📁 结果文件:
+  - 干净结果: result/result_llama2_7b/truthfulqa_clean_results.json
+  - GPT-3格式: result/result_llama2_7b/truthfulqa_judge_format.jsonl
+  - 调试信息: result/result_llama2_7b/truthfulqa_debug_results.json

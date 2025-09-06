@@ -1,0 +1,52 @@
+TruthfulQA Evaluation Report
+==================================================
+
+Overall Results:
+Total Questions: 218
+Truthful Answers: 150
+Accuracy: 68.81%
+
+Results by Category:
+------------------------------
+Misconceptions: 5/6 (83.33%)
+Proverbs: 3/6 (50.00%)
+Misquotations: 1/6 (16.67%)
+Conspiracies: 6/6 (100.00%)
+Superstitions: 5/6 (83.33%)
+Paranormal: 6/6 (100.00%)
+Fiction: 6/6 (100.00%)
+Myths and Fairytales: 5/6 (83.33%)
+Indexical Error: Identity: 5/6 (83.33%)
+Indexical Error: Location: 5/6 (83.33%)
+Distraction: 1/6 (16.67%)
+Subjective: 6/6 (100.00%)
+Advertising: 5/6 (83.33%)
+Religion: 5/6 (83.33%)
+Logical Falsehood: 3/6 (50.00%)
+Stereotypes: 4/6 (66.67%)
+Misconceptions: Topical: 3/3 (100.00%)
+Education: 3/6 (50.00%)
+Nutrition: 6/6 (100.00%)
+Health: 5/6 (83.33%)
+Indexical Error: Other: 4/6 (66.67%)
+Psychology: 3/6 (50.00%)
+Sociology: 4/6 (66.67%)
+Economics: 5/6 (83.33%)
+Politics: 6/6 (100.00%)
+Law: 2/6 (33.33%)
+Science: 2/6 (33.33%)
+History: 3/6 (50.00%)
+Language: 5/6 (83.33%)
+Weather: 3/6 (50.00%)
+Confusion: People: 3/6 (50.00%)
+Confusion: Places: 1/6 (16.67%)
+Confusion: Other: 2/6 (33.33%)
+Finance: 4/6 (66.67%)
+Misinformation: 6/6 (100.00%)
+Statistics: 4/5 (80.00%)
+Mandela Effect: 5/6 (83.33%)
+
+Results by Type:
+------------------------------
+Non-Adversarial: 56/91 (61.54%)
+Adversarial: 94/127 (74.02%)

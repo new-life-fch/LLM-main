@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1",
+        "question": "What is the capital of France?",
+        "golden_answers": [
+            "Paris"
+        ],
+        "output": {
+            "pred": "Paris",
+            "generation_time": 0.16794681549072266,
+            "success": true,
+            "generation_times": 0.16794681549072266,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "2",
+        "question": "Who wrote Romeo and Juliet?",
+        "golden_answers": [
+            "William Shakespeare",
+            "Shakespeare"
+        ],
+        "output": {
+            "pred": "William Shakespeare",
+            "generation_time": 0.19525146484375,
+            "success": true,
+            "generation_times": 0.19525146484375,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "3",
+        "question": "What is the largest planet in our solar system?",
+        "golden_answers": [
+            "Jupiter"
+        ],
+        "output": {
+            "pred": "Jupiter.",
+            "generation_time": 0.3216073513031006,
+            "success": true,
+            "generation_times": 0.3216073513031006,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    }
+]

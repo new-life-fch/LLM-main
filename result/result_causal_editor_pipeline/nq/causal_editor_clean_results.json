@@ -1,0 +1,906 @@
+[
+  {
+    "question_id": 1,
+    "question": "when does mexico play in the winter olympics",
+    "generated_answer": "Mexico has participated in the Winter Olympics in the following years: \n\n1964, 1968, 1980, 1984, 1992, 1994, 1998, 2002, 2010, 2014, 2018, and 2022.",
+    "golden_answers": [
+      "9 to 25 February 2018"
+    ]
+  },
+  {
+    "question_id": 2,
+    "question": "host of the late show who was once a correspondent for the daily show",
+    "generated_answer": "Stephen Colbert.",
+    "golden_answers": [
+      "Stephen Colbert",
+      "Craig Kilborn"
+    ]
+  },
+  {
+    "question_id": 3,
+    "question": "who stars in kevin probably save the world",
+    "generated_answer": "Kaley Cuoco, Charlie Heaton, and Jean Smart.",
+    "golden_answers": [
+      "J. August Richards",
+      "Kimberly Hebert Gregory",
+      "India de Beaufort",
+      "Jason Ritter",
+      "Chloe East",
+      "JoAnna Garcia Swisher",
+      "Dustin Ybarra"
+    ]
+  },
+  {
+    "question_id": 4,
+    "question": "how many seasons has greys anatomy been on tv",
+    "generated_answer": "19",
+    "golden_answers": [
+      "14"
+    ]
+  },
+  {
+    "question_id": 5,
+    "question": "how many levels are there on the eiffel tower",
+    "generated_answer": "5",
+    "golden_answers": [
+      "three"
+    ]
+  },
+  {
+    "question_id": 6,
+    "question": "where did the term liberal arts come from",
+    "generated_answer": "The term \"liberal arts\" originated in ancient Greece and Rome, where it referred to the arts and sciences that were considered essential for a free person (Latin: \"liber\") to cultivate in order to participate fully in civic life.",
+    "golden_answers": [
+      "the Roman Empire"
+    ]
+  },
+  {
+    "question_id": 7,
+    "question": "when were the winnie the pooh books written",
+    "generated_answer": "1924-1926",
+    "golden_answers": [
+      "1924",
+      "1926",
+      "1927",
+      "1928"
+    ]
+  },
+  {
+    "question_id": 8,
+    "question": "when is the next deadpool movie being released",
+    "generated_answer": "May 31, 2024",
+    "golden_answers": [
+      "May 18, 2018"
+    ]
+  },
+  {
+    "question_id": 9,
+    "question": "how many pitchers does a major league team have",
+    "generated_answer": "9",
+    "golden_answers": [
+      "five starting pitchers",
+      "seven relief pitchers"
+    ]
+  },
+  {
+    "question_id": 10,
+    "question": "who lives at the end of king lear",
+    "generated_answer": "Edgar.",
+    "golden_answers": [
+      "Kent",
+      "Albany",
+      "Edgar"
+    ]
+  },
+  {
+    "question_id": 11,
+    "question": "where did the tea come from in the boston tea party",
+    "generated_answer": "China.",
+    "golden_answers": [
+      "England",
+      "East India Company",
+      "the East India Company"
+    ]
+  },
+  {
+    "question_id": 12,
+    "question": "who were the first non native settlers in the us",
+    "generated_answer": "The Vikings, specifically the Norse explorer Leif Erikson, are believed to be the first non-native settlers in the United States, establishing a settlement at Vinland (present-day L'Anse aux Meadows, Newfoundland, Canada, and possibly present-day Baffin Island) around 1000 AD.",
+    "golden_answers": [
+      "European colonization",
+      "West Norse sailors"
+    ]
+  },
+  {
+    "question_id": 13,
+    "question": "when did they stop making pull tabs on beer cans",
+    "generated_answer": "The pull tab, also known as a \"pop top\" or \"pull ring,\" was phased out in the United States in the early 1970s due to safety concerns. The last major brewery to use the pull tab was the Schlitz Brewery in 1973.",
+    "golden_answers": [
+      "1990",
+      "1970s"
+    ]
+  },
+  {
+    "question_id": 14,
+    "question": "when's the last time army won the army navy game",
+    "generated_answer": "2022",
+    "golden_answers": [
+      "2017",
+      "Army"
+    ]
+  },
+  {
+    "question_id": 15,
+    "question": "what are the five compulsory prayers in islam",
+    "generated_answer": "Fajr, Dhuhr, Asr, Maghrib, and Isha.",
+    "golden_answers": [
+      "Asr",
+      "Maghrib",
+      "Isha",
+      "Zuhr",
+      "Fajr"
+    ]
+  },
+  {
+    "question_id": 16,
+    "question": "seven union territories of india and their capital",
+    "generated_answer": "1. Andaman and Nicobar Islands - Port Blair \n2. Chandigarh - Chandigarh \n3. Dadra and Nagar Haveli and Daman and Diu - Daman \n4. Lakshadweep - Kavaratti \n5. Delhi - New Delhi \n6. Puducherry - Puducherry \n7. Daman and Diu was merged with Dadra and Nagar Haveli in 2020 so the 7th one is  Dadra and Nagar Haveli and Daman and Diu - Daman",
+    "golden_answers": [
+      "Chandigarh — Chandigarh",
+      "Daman and Diu — Daman",
+      "Lakshwadweep — Kavaratti",
+      "Puducherry — Pondicherry"
+    ]
+  },
+  {
+    "question_id": 17,
+    "question": "who had the longest tenure as moderator on meet the press",
+    "generated_answer": "Tim Russert",
+    "golden_answers": [
+      "Tim Russert"
+    ]
+  },
+  {
+    "question_id": 18,
+    "question": "when did cricket go to 6 ball overs",
+    "generated_answer": "1979",
+    "golden_answers": [
+      "1979/80",
+      "Since 1979/80"
+    ]
+  },
+  {
+    "question_id": 19,
+    "question": "who become ceo of wipro company in 2016",
+    "generated_answer": "Abidali Neemuchwala",
+    "golden_answers": [
+      "Abid Ali Neemuchwala"
+    ]
+  },
+  {
+    "question_id": 20,
+    "question": "who has the most catches in nfl history",
+    "generated_answer": "Jerry Rice",
+    "golden_answers": [
+      "Jerry Rice"
+    ]
+  },
+  {
+    "question_id": 21,
+    "question": "total strength of judges in supreme court of india",
+    "generated_answer": "34",
+    "golden_answers": [
+      "24",
+      "24 judges"
+    ]
+  },
+  {
+    "question_id": 22,
+    "question": "itai-itai disease was a form of poisoning associated with ingestion of",
+    "generated_answer": "cadmium.",
+    "golden_answers": [
+      "cadmium",
+      "Cadmium"
+    ]
+  },
+  {
+    "question_id": 23,
+    "question": "who sings the song it ain't me",
+    "generated_answer": "Kygo and Selena Gomez",
+    "golden_answers": [
+      "Selena Gomez",
+      "American singer Selena Gomez"
+    ]
+  },
+  {
+    "question_id": 24,
+    "question": "what is the rank of pakistan in population",
+    "generated_answer": "5th",
+    "golden_answers": [
+      "5"
+    ]
+  },
+  {
+    "question_id": 25,
+    "question": "where was uncle tom's cabin first published",
+    "generated_answer": "Harper & Brothers in New York City.",
+    "golden_answers": [
+      "The National Era"
+    ]
+  },
+  {
+    "question_id": 26,
+    "question": "what year did the golden state warriors win their first nba championship",
+    "generated_answer": "1947",
+    "golden_answers": [
+      "1947"
+    ]
+  },
+  {
+    "question_id": 27,
+    "question": "where is the word leviathan mentioned in the bible",
+    "generated_answer": "Job 3:8, 41:1-34.",
+    "golden_answers": [
+      "Book of Job",
+      "Psalms",
+      "Isaiah"
+    ]
+  },
+  {
+    "question_id": 28,
+    "question": "when did how you remind me come out",
+    "generated_answer": "2009",
+    "golden_answers": [
+      "August 21, 2001",
+      "August 21, 2001"
+    ]
+  },
+  {
+    "question_id": 29,
+    "question": "what does the air gap do on a dishwasher",
+    "generated_answer": "The air gap is a small device that connects to the dishwasher drain hose and allows wastewater to flow into the garbage disposal or drain, while preventing siphoning of the dishwasher's drain hose back into the dishwasher.",
+    "golden_answers": [
+      "backflow prevention"
+    ]
+  },
+  {
+    "question_id": 30,
+    "question": "where does the bob and tom show broadcast from",
+    "generated_answer": "Chicago, Illinois.",
+    "golden_answers": [
+      "WFBQ in Indianapolis, Indiana",
+      "Indianapolis, Indiana"
+    ]
+  },
+  {
+    "question_id": 31,
+    "question": "who is given credit for inventing the aqua lung",
+    "generated_answer": "Jacques-Yves Cousteau",
+    "golden_answers": [
+      "Jacques Cousteau",
+      "engineer Émile Gagnan",
+      "Émile Gagnan"
+    ]
+  },
+  {
+    "question_id": 32,
+    "question": "who played the mad hatter in the batman tv show",
+    "generated_answer": "David Wayne",
+    "golden_answers": [
+      "Roddy McDowall",
+      "David Wayne",
+      "Benedict Samuel"
+    ]
+  },
+  {
+    "question_id": 33,
+    "question": "which site of an enzyme is called allosteric site",
+    "generated_answer": "Allosteric site is the site on an enzyme that is located away from the active site, and it binds to an effector molecule that can either activate or inhibit the enzyme's activity by inducing a conformational change in the enzyme.",
+    "golden_answers": [
+      "regulatory site"
+    ]
+  },
+  {
+    "question_id": 34,
+    "question": "when does like cage season 2 come out",
+    "generated_answer": "August 25, 2023",
+    "golden_answers": [
+      "June 22, 2018"
+    ]
+  },
+  {
+    "question_id": 35,
+    "question": "what is the width of a cricket bat",
+    "generated_answer": "4.25 inches",
+    "golden_answers": [
+      "no more than 4.25 inches"
+    ]
+  },
+  {
+    "question_id": 36,
+    "question": "who plays ser davos in game of thrones",
+    "generated_answer": "Liam Cunningham",
+    "golden_answers": [
+      "Liam Cunningham"
+    ]
+  },
+  {
+    "question_id": 37,
+    "question": "when does the flash season 4 episode 3 air",
+    "generated_answer": "March 21, 2018",
+    "golden_answers": [
+      "October 24, 2017"
+    ]
+  },
+  {
+    "question_id": 38,
+    "question": "what are the toll roads called in mexico",
+    "generated_answer": "Cuauhtémoc, Diamante, and Periférico are some of the toll roads in Mexico.",
+    "golden_answers": [
+      "autopistas"
+    ]
+  },
+  {
+    "question_id": 39,
+    "question": "who won the academy award for best original musical score",
+    "generated_answer": "Hans Zimmer and Lorne Balfe for Dune (2021)",
+    "golden_answers": [
+      "Alexandre Desplat",
+      "The Shape of Water"
+    ]
+  },
+  {
+    "question_id": 40,
+    "question": "which came first the walking dead comic or show",
+    "generated_answer": "The Walking Dead comic.",
+    "golden_answers": [
+      "comic book",
+      "comic"
+    ]
+  },
+  {
+    "question_id": 41,
+    "question": "where is season 3 of the detour filmed",
+    "generated_answer": "British Columbia, Canada.",
+    "golden_answers": [
+      "Alaska"
+    ]
+  },
+  {
+    "question_id": 42,
+    "question": "who has the oldest team in the nba",
+    "generated_answer": "Philadelphia 76ers",
+    "golden_answers": [
+      "Sacramento Kings",
+      "New York Knickerbockers"
+    ]
+  },
+  {
+    "question_id": 43,
+    "question": "all the motor neurons that control the skeletal muscles are",
+    "generated_answer": "Efferent.",
+    "golden_answers": [
+      "efferent nerves",
+      "Somatic motor neurons",
+      "Somatic"
+    ]
+  },
+  {
+    "question_id": 44,
+    "question": "what type of economic system was utilized in the soviet union",
+    "generated_answer": "Command economy.",
+    "golden_answers": [
+      "communism",
+      "state ownership"
+    ]
+  },
+  {
+    "question_id": 45,
+    "question": "where is the hero golf challenge being played",
+    "generated_answer": "Pebble Beach Golf Links, California.",
+    "golden_answers": [
+      "The Bahamas",
+      "Albany development in the Bahamas"
+    ]
+  },
+  {
+    "question_id": 46,
+    "question": "who has won the canada open women's doubles",
+    "generated_answer": "Sara Saito and Yin-Hsu Yang",
+    "golden_answers": [
+      "Wakana Nagahara",
+      "Mayu Matsumoto"
+    ]
+  },
+  {
+    "question_id": 47,
+    "question": "who does brant daugherty play in pretty little liars",
+    "generated_answer": "Aria Montgomery.",
+    "golden_answers": [
+      "Noel Kahn"
+    ]
+  },
+  {
+    "question_id": 48,
+    "question": "nickname given to railroad executives due to shady practices of their businesses",
+    "generated_answer": "Robber Barons.",
+    "golden_answers": [
+      "Robber baron",
+      "Robber Barons"
+    ]
+  },
+  {
+    "question_id": 49,
+    "question": "where did the term 'robot' come from",
+    "generated_answer": "The term 'robot' originated from the Czech word 'robota', which means 'forced labor' or 'drudgery'. It was first used in the 1920 play 'R.U.R.' (Rossum's Universal Robots) by Karel Čapek, a Czech playwright.",
+    "golden_answers": [
+      "Czech"
+    ]
+  },
+  {
+    "question_id": 50,
+    "question": "when did dragon ball z air in australia",
+    "generated_answer": "1996",
+    "golden_answers": [
+      "Fall 1998"
+    ]
+  },
+  {
+    "question_id": 51,
+    "question": "who plays addison shepherd on grey's anatomy",
+    "generated_answer": "Katherine Heigl",
+    "golden_answers": [
+      "Kathleen Erin Walsh"
+    ]
+  },
+  {
+    "question_id": 52,
+    "question": "where is the protien made in the cell",
+    "generated_answer": "Ribosomes.",
+    "golden_answers": [
+      "in the cell nucleus",
+      "cell nucleus"
+    ]
+  },
+  {
+    "question_id": 53,
+    "question": "actor who played caesar in dawn of the planet of the apes",
+    "generated_answer": "Andy Serkis",
+    "golden_answers": [
+      "Andy Serkis"
+    ]
+  },
+  {
+    "question_id": 54,
+    "question": "who played anna in once upon a time",
+    "generated_answer": "Ginnifer Goodwin",
+    "golden_answers": [
+      "Elizabeth Dean Lail"
+    ]
+  },
+  {
+    "question_id": 55,
+    "question": "who is the first indian woman to be canonized as a saint",
+    "generated_answer": "Alphonsa of the Immaculate Conception.",
+    "golden_answers": [
+      "Saint Alphonsa"
+    ]
+  },
+  {
+    "question_id": 56,
+    "question": "what is on a mcchicken sandwich from mcdonalds",
+    "generated_answer": "A McChicken sandwich from McDonald's typically consists of a breaded and fried chicken patty, lettuce, and mayonnaise on a bun.",
+    "golden_answers": [
+      "a breaded chicken patty",
+      "shredded lettuce",
+      "mayonnaise",
+      "breaded chicken patty",
+      "toasted wheat bun",
+      "a toasted wheat bun"
+    ]
+  },
+  {
+    "question_id": 57,
+    "question": "who was the greatest pool player of all time",
+    "generated_answer": "Efren \"Bata\" Reyes",
+    "golden_answers": [
+      "Efren Manalang Reyes"
+    ]
+  },
+  {
+    "question_id": 58,
+    "question": "make it or break it who goes to the olympics",
+    "generated_answer": "Emily Kmetko",
+    "golden_answers": [
+      "Payson",
+      "Jordan",
+      "Lauren",
+      "Colleen",
+      "Kaylie"
+    ]
+  },
+  {
+    "question_id": 59,
+    "question": "who sings god is great beer is good",
+    "generated_answer": "Limp Bizkit",
+    "golden_answers": [
+      "Currington"
+    ]
+  },
+  {
+    "question_id": 60,
+    "question": "who plays grace in the secret life of the american teenager",
+    "generated_answer": "Megan Park",
+    "golden_answers": [
+      "Megan Park"
+    ]
+  },
+  {
+    "question_id": 61,
+    "question": "who has the most gold gloves at shortstop",
+    "generated_answer": "Ozzie Smith.",
+    "golden_answers": [
+      "Ozzie Smith"
+    ]
+  },
+  {
+    "question_id": 62,
+    "question": "who plays the dad in pretty in pink",
+    "generated_answer": "Moody Blue's character's father, Jack Walsh, is played by Harry Dean Stanton, but the main character's father, Andie's father, is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,  Jonathon Silverman's character's father is not the main character's father, the main character's father is played by Harry Dean Stanton's friend,",
+    "golden_answers": [
+      "Harry Dean Stanton"
+    ]
+  },
+  {
+    "question_id": 63,
+    "question": "what is best thing i never had song about",
+    "generated_answer": "\"Best Thing I Never Had\" by Beyoncé.",
+    "golden_answers": [
+      "revenge and karma",
+      "karma",
+      "revenge"
+    ]
+  },
+  {
+    "question_id": 64,
+    "question": "where did the river thames start and end",
+    "generated_answer": "The River Thames starts at Thames Head in Gloucestershire, England, and ends at the North Sea in Essex, England.",
+    "golden_answers": [
+      "Thames Estuary, North Sea"
+    ]
+  },
+  {
+    "question_id": 65,
+    "question": "the golden age of india took place during the rule of the",
+    "generated_answer": "Mauryan and Gupta empires.",
+    "golden_answers": [
+      "Chandragupta II",
+      "Samudragupta",
+      "Chandragupta I",
+      "Gupta Empire",
+      "Vishnu Gupta",
+      "the Guptas",
+      "Sri-Gupta"
+    ]
+  },
+  {
+    "question_id": 66,
+    "question": "who was executed for being an american spy during the revolutionary war",
+    "generated_answer": "Nathan Hale.",
+    "golden_answers": [
+      "Nathan Hale"
+    ]
+  },
+  {
+    "question_id": 67,
+    "question": "what kind of metric system does the us use",
+    "generated_answer": "US Customary System",
+    "golden_answers": [
+      "international units",
+      "United States customary units"
+    ]
+  },
+  {
+    "question_id": 68,
+    "question": "what was the main characteristic of post-world war ii american society",
+    "generated_answer": "Mass consumerism.",
+    "golden_answers": [
+      "strong economic growth"
+    ]
+  },
+  {
+    "question_id": 69,
+    "question": "who does the democratic republic of congo trade with",
+    "generated_answer": "China, United States, South Korea, Belgium, France, Zambia, Tanzania, South Africa, China, Zambia, United Arab Emirates, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China, China",
+    "golden_answers": [
+      "Group of 77",
+      "WTO",
+      "Zimbabwe",
+      "Belgium",
+      "SADC",
+      "Kenya",
+      "South Africa",
+      "China",
+      "AU",
+      "Zambia",
+      "IMF",
+      "World Bank",
+      "African Development Bank",
+      "France"
+    ]
+  },
+  {
+    "question_id": 70,
+    "question": "who sang in the movie i walk the line",
+    "generated_answer": "Gregg Allman, Johnny Cash, June Carter, Carl Perkins, and others.",
+    "golden_answers": [
+      "Reese Witherspoon",
+      "Tyler Hilton",
+      "Waylon Payne",
+      "Johnathan Rice",
+      "Shooter Jennings",
+      "Joaquin Phoenix"
+    ]
+  },
+  {
+    "question_id": 71,
+    "question": "what's the name of the last mission impossible movie",
+    "generated_answer": "Mission: Impossible - Dead Reckoning Part One",
+    "golden_answers": [
+      "Mission: Impossible – Fallout"
+    ]
+  },
+  {
+    "question_id": 72,
+    "question": "malcom in the middle season 1 episode 3",
+    "generated_answer": "\"Lois Comes Out of Her Shell\"",
+    "golden_answers": [
+      "Home Alone 4"
+    ]
+  },
+  {
+    "question_id": 73,
+    "question": "name two fibres which are made of proteins",
+    "generated_answer": "Wool and Silk.",
+    "golden_answers": [
+      "feathers",
+      "hair",
+      "wool",
+      "fur",
+      "silk"
+    ]
+  },
+  {
+    "question_id": 74,
+    "question": "when was the last time ny rangers won stanley cup",
+    "generated_answer": "1994",
+    "golden_answers": [
+      "1993–94"
+    ]
+  },
+  {
+    "question_id": 75,
+    "question": "who sang the songs in the movie beyond the sea",
+    "generated_answer": "Charles Trenet, Charles Trenet sang the song \"Beyond the Sea\" in the 1946 French film \"La Mer\" but the most well-known version was by Bobby Darin in the 1960 film \"Beyond the Sea\".",
+    "golden_answers": [
+      "Kevin Spacey"
+    ]
+  },
+  {
+    "question_id": 76,
+    "question": "when did fortnite save the world first come out",
+    "generated_answer": "July 25, 2017",
+    "golden_answers": [
+      "July 25, 2017"
+    ]
+  },
+  {
+    "question_id": 77,
+    "question": "what is the meaning of molech in the bible",
+    "generated_answer": "A pagan deity worshipped by the ancient Israelites, often associated with child sacrifice and idolatry.",
+    "golden_answers": [
+      "king"
+    ]
+  },
+  {
+    "question_id": 78,
+    "question": "who wrote antigone and what are the dates of his birth and death",
+    "generated_answer": "Sophocles",
+    "golden_answers": [
+      "winter 406/5 BC",
+      "c. 497/6",
+      "Sophocles"
+    ]
+  },
+  {
+    "question_id": 79,
+    "question": "what color pages in the emergency response guidebook (erg) list compounds by name",
+    "generated_answer": "Yellow",
+    "golden_answers": [
+      "blue"
+    ]
+  },
+  {
+    "question_id": 80,
+    "question": "when was the last wolf pack killed in yellowstone",
+    "generated_answer": "1926",
+    "golden_answers": [
+      "1926",
+      "by 1926"
+    ]
+  },
+  {
+    "question_id": 81,
+    "question": "the road that connects the tombs is called",
+    "generated_answer": "The Avenue of the Dead.",
+    "golden_answers": [
+      "\"Spirit Way\""
+    ]
+  },
+  {
+    "question_id": 82,
+    "question": "consist of the sum of the fixed and variable costs for any given level of production",
+    "generated_answer": "Total Cost.",
+    "golden_answers": [
+      "total cost (TC)"
+    ]
+  },
+  {
+    "question_id": 83,
+    "question": "how many seasons of vampire diaries r there",
+    "generated_answer": "8",
+    "golden_answers": [
+      "eight",
+      "8"
+    ]
+  },
+  {
+    "question_id": 84,
+    "question": "which state is the richest state in nigeria",
+    "generated_answer": "Lagos.",
+    "golden_answers": [
+      "Lagos State"
+    ]
+  },
+  {
+    "question_id": 85,
+    "question": "who warned europe to stay out of the americas",
+    "generated_answer": "Pope Alexander VI.",
+    "golden_answers": [
+      "Monroe Doctrine",
+      "Roosevelt Corollary"
+    ]
+  },
+  {
+    "question_id": 86,
+    "question": "who sings what the world needs now in boss baby",
+    "generated_answer": "Jack Johnson",
+    "golden_answers": [
+      "Missi Hale",
+      "Steve Mazzaro",
+      "Hans Zimmer"
+    ]
+  },
+  {
+    "question_id": 87,
+    "question": "who sang the song should have been a cowboy",
+    "generated_answer": "Toby Keith",
+    "golden_answers": [
+      "Toby Keith"
+    ]
+  },
+  {
+    "question_id": 88,
+    "question": "where was the louisiana purchase signed in 1803",
+    "generated_answer": "Paris, France.",
+    "golden_answers": [
+      "Paris"
+    ]
+  },
+  {
+    "question_id": 89,
+    "question": "when did the cubs won a world series",
+    "generated_answer": "2016",
+    "golden_answers": [
+      "1908",
+      "1907",
+      "2016"
+    ]
+  },
+  {
+    "question_id": 90,
+    "question": "when did the new day win the tag team titles",
+    "generated_answer": "October 2, 2022",
+    "golden_answers": [
+      "2016"
+    ]
+  },
+  {
+    "question_id": 91,
+    "question": "where does puerto rico's power come from",
+    "generated_answer": "Puerto Rico's power comes from a mix of sources, including:\n\n1.  Fossil fuels (petroleum and natural gas): 64.6%\n2.  Renewable energy (solar, wind, and biomass): 34.4%\n3.  Importing electricity from the US mainland: 1%",
+    "golden_answers": [
+      "Puerto Rico Electric Power Authority"
+    ]
+  },
+  {
+    "question_id": 92,
+    "question": "where does porter fly out of in toronto",
+    "generated_answer": "Billy Bishop Toronto City Airport (YTZ)",
+    "golden_answers": [
+      "Billy Bishop Toronto City Airport"
+    ]
+  },
+  {
+    "question_id": 93,
+    "question": "what is the time setting of game of thrones",
+    "generated_answer": "The time setting of Game of Thrones is primarily set in the fictional continents of Westeros and Essos, in a medieval-like fantasy world, with a time period that is roughly equivalent to the Middle Ages in Europe.",
+    "golden_answers": [
+      "medieval"
+    ]
+  },
+  {
+    "question_id": 94,
+    "question": "who was the last nba player to get drafted out of high school",
+    "generated_answer": "Andrew Bynum in 2005",
+    "golden_answers": [
+      "Thon Maker"
+    ]
+  },
+  {
+    "question_id": 95,
+    "question": "who has participated in the most super bowls",
+    "generated_answer": "Tom Brady",
+    "golden_answers": [
+      "New England Patriots"
+    ]
+  },
+  {
+    "question_id": 96,
+    "question": "what are the first and second major religions in france",
+    "generated_answer": "Catholicism and Islam",
+    "golden_answers": [
+      "Islam",
+      "Catholicism",
+      "Not religious",
+      "Protestantism",
+      "Christianity"
+    ]
+  },
+  {
+    "question_id": 97,
+    "question": "where do secondary xylem and phloem cells arise from",
+    "generated_answer": "Meristematic tissue.",
+    "golden_answers": [
+      "The vascular cambium",
+      "the vascular cambium"
+    ]
+  },
+  {
+    "question_id": 98,
+    "question": "when did the movie breakfast club come out",
+    "generated_answer": "May 5, 1985",
+    "golden_answers": [
+      "February 15, 1985",
+      "February 15, 1985",
+      "1985"
+    ]
+  },
+  {
+    "question_id": 99,
+    "question": "most assists in an nba all star game",
+    "generated_answer": "John Stockton",
+    "golden_answers": [
+      "60",
+      "22"
+    ]
+  },
+  {
+    "question_id": 100,
+    "question": "when does season 18 of law and order svu start",
+    "generated_answer": "September 22, 2022",
+    "golden_answers": [
+      "September 21, 2016"
+    ]
+  }
+]

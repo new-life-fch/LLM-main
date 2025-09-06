@@ -129,14 +129,11 @@ class DynamicFingerprintBuilder:
         self.hook_registered = False
         self.current_attention_mask = None  # 存储当前批次的attention_mask
         
-        # 缓存管理
-        self.batch_cache = {}  # batch_key -> fingerprints
-        self.rag_fingerprint_cache = {}  # (question, fragment_id) -> fingerprints
-        self.fragment_score_cache = {}  # fragment_id -> score
+        # 临时存储管理（不使用持久缓存）
+        self.fragment_score_cache = {}  # fragment_id -> score（仅用于当前轮次）
         
         # 统计信息
         self.build_count = 0
-        self.cache_hit_count = 0
         self.total_build_time = 0.0
         
         # 动态指纹构建器初始化完成
@@ -383,16 +380,12 @@ class DynamicFingerprintBuilder:
         Returns:
             Dict[str, Any]: 包含性能和缓存统计的字典
         """
-        cache_hit_rate = self.cache_hit_count / max(self.build_count, 1)
         avg_build_time = self.total_build_time / max(self.build_count, 1)
         
         return {
             'build_count': self.build_count,
-            'cache_hit_count': self.cache_hit_count,
-            'cache_hit_rate': round(cache_hit_rate, 4),
             'total_build_time': round(self.total_build_time, 4),
             'avg_build_time': round(avg_build_time, 4),
-            'rag_cache_size': len(self.rag_fingerprint_cache),
             'fragment_score_cache_size': len(self.fragment_score_cache),
             'target_layers': self.target_layers,
             'fingerprint_dim': self.fingerprint_dim,
@@ -401,17 +394,12 @@ class DynamicFingerprintBuilder:
             'hooks_registered': self.hook_registered
         }
     
-    def clear_cache(self):
-        """清空缓存"""
-        self.rag_fingerprint_cache.clear()
-        self.batch_cache.clear()
-        # 指纹构建器缓存已清空
     
     def build_rag_fingerprints(
         self,
         user_question: str,
         retrieved_fragments: List[Dict[str, Any]],
-        use_cache: bool = True
+        use_cache: bool = False
     ) -> Dict[str, Dict[str, torch.Tensor]]:
         """为用户问题+检索片段构建多组指纹
         
@@ -469,17 +457,10 @@ class DynamicFingerprintBuilder:
                 fragment_id = f"frag_{hash(fragment_text) % 100000000}"  # 生成简短ID
                 fragment['fragment_id'] = fragment_id
             
-            cache_key = (user_question, fragment_id)
+            # 直接添加到处理列表
+            uncached_fragments.append(fragment)
             
-            # 仅检查内存缓存
-            if use_cache and cache_key in self.rag_fingerprint_cache:
-                fragment_fingerprints[fragment_id] = self.rag_fingerprint_cache[cache_key]
-                self.cache_hit_count += 1
-                logging.debug(f"缓存命中: {fragment_id}")
-            else:
-                uncached_fragments.append(fragment)
-            
-            # 缓存片段分数
+            # 存储片段分数
             if 'score' in fragment:
                 self.fragment_score_cache[fragment_id] = fragment['score']
         
@@ -522,10 +503,7 @@ class DynamicFingerprintBuilder:
                         
                         fragment_fingerprints[fragment_id] = fragment_fp
                         
-                        # 更新缓存（检查缓存大小限制）
-                        cache_key = (user_question, fragment_id)
-                        if use_cache and len(self.rag_fingerprint_cache) < self.cache_size:
-                            self.rag_fingerprint_cache[cache_key] = fragment_fp
+                        # 直接使用构建的指纹
                         
                     logging.debug(f"成功构建 {len(fragment_ids)} 个片段的指纹")
                     
@@ -551,8 +529,9 @@ class DynamicFingerprintBuilder:
     
     def clear_rag_cache(self):
         """清空RAG相关缓存"""
-        self.rag_fingerprint_cache.clear()
         self.fragment_score_cache.clear()
+    
+
     
     def __del__(self):
         """析构函数，清理钩子"""

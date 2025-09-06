@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1",
+        "question": "What is the capital of France?",
+        "golden_answers": [
+            "Paris"
+        ],
+        "output": {
+            "pred": "Of course! The capital of France is Paris.",
+            "generation_time": 0.7346956729888916,
+            "success": true,
+            "generation_times": 0.7346956729888916,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.25,
+                "acc": 1.0,
+                "precision": 0.14285714285714285,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "2",
+        "question": "Who wrote Romeo and Juliet?",
+        "golden_answers": [
+            "William Shakespeare",
+            "Shakespeare"
+        ],
+        "output": {
+            "pred": "Romeo and Juliet is a play written by William Shakespeare. The play was written in the late 16th century and is considered one of Shakespeare's most famous works. It tells the story of two young lovers from feuding families who fall in love and ultimately die in each other's arms. The play was first published in 1597 and has been performed and adapted countless times since then.",
+            "generation_time": 4.538980960845947,
+            "success": true,
+            "generation_times": 4.538980960845947,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.0625,
+                "acc": 1.0,
+                "precision": 0.03225806451612903,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "3",
+        "question": "What is the largest planet in our solar system?",
+        "golden_answers": [
+            "Jupiter"
+        ],
+        "output": {
+            "pred": "The largest planet in our solar system is Jupiter. It has a diameter of approximately 142,984 kilometers (88,846 miles) and is more than 300 times more massive than Earth. Jupiter is a gas giant, meaning that it is primarily composed of hydrogen and helium, and it has a thick atmosphere with storm systems that can be thousands of kilometers wide. The planet is also known for its distinctive Great Red Spot, a persistent anticyclonic storm that has been raging for at least 150 years.",
+            "generation_time": 5.895421028137207,
+            "success": true,
+            "generation_times": 5.895421028137207,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.02531645569620253,
+                "acc": 1.0,
+                "precision": 0.01282051282051282,
+                "recall": 1.0
+            }
+        }
+    }
+]

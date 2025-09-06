@@ -1,0 +1,234 @@
+{
+  "model_name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-3.1-8B-Instruct",
+  "test_type": "causal_editor_pipeline",
+  "device": "cuda",
+  "causal_editor_config_path": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/configs/causal_editor.json",
+  "test_time": "2025-09-05T21:46:08.652907",
+  "total_questions": 20,
+  "successful_tests": 20,
+  "failed_tests": 0,
+  "success_rate": 100.0,
+  "avg_generation_time": 8.222961020469665,
+  "detailed_results": [
+    {
+      "question_id": 1,
+      "question": "The royal anthem is changed from what to \"long live our noble Duke\"?",
+      "generated_answer": "God Save the King",
+      "golden_answers": [
+        "Long live our noble Queen"
+      ],
+      "generation_time": 10.025702953338623,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652291"
+    },
+    {
+      "question_id": 2,
+      "question": "Where was the armory at which Model 1840 flintlock musket was produced located? ",
+      "generated_answer": "Harper's Ferry Armory.",
+      "golden_answers": [
+        "city of Springfield, Massachusetts"
+      ],
+      "generation_time": 10.660118103027344,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652333"
+    },
+    {
+      "question_id": 3,
+      "question": "Who starred as a divorced mother in an American sitcom produced by Danny Bonaduce's father?",
+      "generated_answer": "Ann B. Davis",
+      "golden_answers": [
+        "Bonnie Franklin"
+      ],
+      "generation_time": 9.052454710006714,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652347"
+    },
+    {
+      "question_id": 4,
+      "question": "What musical was inspired by the films that included Ruth Leuwerik's best known role?",
+      "generated_answer": "The Sound of Music",
+      "golden_answers": [
+        "The Sound of Music"
+      ],
+      "generation_time": 7.58886456489563,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652359"
+    },
+    {
+      "question_id": 5,
+      "question": "What time did the show, in which Gordon Burns was the host, usually air on Monday?",
+      "generated_answer": "The Krypton Factor",
+      "golden_answers": [
+        "7pm"
+      ],
+      "generation_time": 7.666584491729736,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652370"
+    },
+    {
+      "question_id": 6,
+      "question": "Richard Münch portrayed the German general who served in what capacity during WWII in the 1970 movie Patton?",
+      "generated_answer": "Field Marshal Friedrich Paulus.",
+      "golden_answers": [
+        "Oberkommando der Wehrmacht"
+      ],
+      "generation_time": 10.433632850646973,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652380"
+    },
+    {
+      "question_id": 7,
+      "question": "What was Mary Edna González sexuality? ",
+      "generated_answer": "Lesbian.",
+      "golden_answers": [
+        "omnisexuality"
+      ],
+      "generation_time": 6.7358033657073975,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652392"
+    },
+    {
+      "question_id": 8,
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "generated_answer": "Yes.",
+      "golden_answers": [
+        "no"
+      ],
+      "generation_time": 8.37528109550476,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652402"
+    },
+    {
+      "question_id": 9,
+      "question": "Jim Sharman and Ava DuVernay both share what title concerning their actions leading actors in film or stage?",
+      "generated_answer": "Director.",
+      "golden_answers": [
+        "director"
+      ],
+      "generation_time": 10.330870389938354,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652413"
+    },
+    {
+      "question_id": 10,
+      "question": "What is the name of the studio album that the Miley Cyrus song, Who Owns My Heart is on?",
+      "generated_answer": "Can't Be Tamed",
+      "golden_answers": [
+        "Can't Be Tamed"
+      ],
+      "generation_time": 11.42471718788147,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652424"
+    },
+    {
+      "question_id": 11,
+      "question": "Which airport is used for both public and military, Shenandoah Valley Regional Airport or Louisville International Airport?",
+      "generated_answer": "Shenandoah Valley Regional Airport",
+      "golden_answers": [
+        "Louisville International Airport"
+      ],
+      "generation_time": 6.741421937942505,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652434"
+    },
+    {
+      "question_id": 12,
+      "question": "Where are Neoregelia and Aloysia known to grow",
+      "generated_answer": "Neoregelia and Aloysia are known to grow in South America.",
+      "golden_answers": [
+        "temperate climates,"
+      ],
+      "generation_time": 6.746539831161499,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652445"
+    },
+    {
+      "question_id": 13,
+      "question": "What is the date of birth of the English inventor that developed the Richard Hornsby & Sons oil engine? ",
+      "generated_answer": "1833",
+      "golden_answers": [
+        "28 January 1864"
+      ],
+      "generation_time": 8.11688494682312,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652456"
+    },
+    {
+      "question_id": 14,
+      "question": "An Austrian-British psychoanalyst born in 1882 and innovative in object relations theory was also rigorous about what other type of therapy?",
+      "generated_answer": "Psychoanalytic technique.",
+      "golden_answers": [
+        "Morita therapy"
+      ],
+      "generation_time": 8.477741003036499,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652466"
+    },
+    {
+      "question_id": 15,
+      "question": "Are Andrew Stevens and Charles Burnett both American?",
+      "generated_answer": "Yes",
+      "golden_answers": [
+        "yes"
+      ],
+      "generation_time": 6.983767032623291,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652477"
+    },
+    {
+      "question_id": 16,
+      "question": "Daniel Greene has created what for clients including sportscaster Bryant Gumbel, Eleanor Roosevelt, William Randolph Hearst and Dave Thomas, the founder of Wendy's?",
+      "generated_answer": "A wax figure.",
+      "golden_answers": [
+        "portrait"
+      ],
+      "generation_time": 8.658925533294678,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652487"
+    },
+    {
+      "question_id": 17,
+      "question": "Are Phlebodium and Pieris both species of ferns?",
+      "generated_answer": "Yes",
+      "golden_answers": [
+        "no"
+      ],
+      "generation_time": 7.078415632247925,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652498"
+    },
+    {
+      "question_id": 18,
+      "question": "In what city did Jennifer Paige Chambers appear with the creator of the characters Jiminy Glick and Ed Grimley?",
+      "generated_answer": "Toronto",
+      "golden_answers": [
+        "Los Angeles"
+      ],
+      "generation_time": 8.103691101074219,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652508"
+    },
+    {
+      "question_id": 19,
+      "question": "What president was assassinated and had Worthy Stevens Streator as one of his pallbearers?",
+      "generated_answer": "James A. Garfield",
+      "golden_answers": [
+        "James Abram Garfield"
+      ],
+      "generation_time": 5.49589467048645,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652519"
+    },
+    {
+      "question_id": 20,
+      "question": "Who is from farther west, Halestorm or Audioslave?",
+      "generated_answer": "Audioslave",
+      "golden_answers": [
+        "Audioslave"
+      ],
+      "generation_time": 5.761909008026123,
+      "success": true,
+      "timestamp": "2025-09-05T21:46:08.652530"
+    }
+  ]
+}

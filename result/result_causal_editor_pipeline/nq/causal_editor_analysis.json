@@ -1,0 +1,179 @@
+{
+  "timestamp": "2025-09-05T21:40:19.349349",
+  "model_name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-3.1-8B-Instruct",
+  "device": "cuda",
+  "causal_editor_config_path": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/configs/causal_editor.json",
+  "statistics": {
+    "causal_editor_enabled": true,
+    "rag_config": {
+      "model": {
+        "name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf",
+        "device": "cuda",
+        "batch_size": 8,
+        "dtype": "float16"
+      },
+      "fingerprint_builder": {
+        "target_layers": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "cache_size": 500,
+        "max_batch_size": 8,
+        "fingerprint_dim": 4096
+      },
+      "vector_index": {
+        "index_type": "flat",
+        "similarity_metric": "cosine",
+        "hnsw_m": 64,
+        "hnsw_ef_construction": 400,
+        "hnsw_ef_search": 200,
+        "max_vectors": 500000,
+        "similarity_threshold": 0.5
+      },
+      "conflict_detector": {
+        "similarity_threshold": 0.75,
+        "conflict_threshold": 0.5,
+        "enable_dynamic_threshold": true,
+        "threshold_adjustment_factor": 0.5,
+        "token_window": 64
+      },
+      "counterfactual_editor": {
+        "edit_strength": 2,
+        "min_confidence": 0.3,
+        "enable_rag_editing": true,
+        "activation_rollback_strength": 0.8,
+        "resampling_temperature": 1.2,
+        "activation_weighting_factor": 0.6
+      },
+      "generation": {
+        "max_new_tokens": 256,
+        "temperature": 0,
+        "do_sample": false,
+        "top_k": 50,
+        "top_p": 0.9,
+        "repetition_penalty": 1.0,
+        "num_beams": 1,
+        "early_stopping": true,
+        "is_mc_mode": false
+      }
+    },
+    "conflict_detection": {
+      "total_detections": 1195,
+      "conflicts_found": 1000,
+      "conflict_rate": 0.8368200836820083,
+      "avg_confidence": 0.0,
+      "similarity_threshold": 0.75,
+      "conflict_threshold": 0.5,
+      "layer_conflicts": {
+        "17.mlp": 14,
+        "19.mlp": 18,
+        "20.mlp": 43,
+        "21.mlp": 27,
+        "22.mlp": 33,
+        "23.mlp": 39,
+        "24.mlp": 28,
+        "19.attn": 67,
+        "18.attn": 93,
+        "20.attn": 41,
+        "22.attn": 86,
+        "24.attn": 112,
+        "23.attn": 90,
+        "21.attn": 137,
+        "15.attn": 45,
+        "16.attn": 63,
+        "18.mlp": 15,
+        "17.attn": 39,
+        "16.mlp": 8,
+        "15.mlp": 2
+      }
+    },
+    "editing_operations": {
+      "total_edits": 444,
+      "successful_edits": 444,
+      "edit_success_rate": 1.0,
+      "layers_edited": [],
+      "average_edit_magnitude": 1.871850365990991,
+      "edit_strength": 2,
+      "min_confidence": 0.3,
+      "rag_edit_count": 444,
+      "rag_edit_rate": 1.0,
+      "layer_edits": {
+        "19.attn": 28,
+        "20.attn": 22,
+        "22.attn": 45,
+        "23.attn": 44,
+        "24.attn": 40,
+        "21.attn": 60,
+        "18.attn": 50,
+        "15.attn": 34,
+        "21.mlp": 10,
+        "24.mlp": 10,
+        "23.mlp": 14,
+        "22.mlp": 12,
+        "16.attn": 25,
+        "17.mlp": 4,
+        "18.mlp": 4,
+        "20.mlp": 18,
+        "16.mlp": 5,
+        "17.attn": 16,
+        "19.mlp": 2,
+        "15.mlp": 1
+      },
+      "edit_method_stats": {
+        "activation_rollback": 444
+      }
+    },
+    "rag_retrieval": {
+      "retrieval_enabled": false,
+      "total_retrievals": 0,
+      "avg_retrieved_docs": 0.0,
+      "fingerprint_cache_hits": 0
+    },
+    "performance": {
+      "avg_detection_time": 0.0,
+      "avg_edit_time": 0.0,
+      "memory_usage": 0.0
+    },
+    "dynamic_index_size": 0,
+    "vector_index": {
+      "index_type": "flat",
+      "dimension": 4096,
+      "max_vectors": 500000,
+      "current_size": 0
+    },
+    "fingerprint_builder": {
+      "target_layers": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "fingerprint_dim": 4096
+    },
+    "fingerprint_cache": {
+      "total_fingerprints": 0,
+      "cache_ready": false
+    }
+  },
+  "analysis_summary": {
+    "causal_editor_active": true,
+    "rag_enabled": false,
+    "total_retrieved_docs": 0,
+    "fingerprint_cache_ready": false,
+    "vector_index_size": 0
+  }
+}

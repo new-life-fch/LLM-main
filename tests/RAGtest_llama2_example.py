@@ -228,24 +228,24 @@ print("\n--- 步骤 3: 执行RAG检索测试 ---")
 
 # 专门针对RAG系统的测试用例
 test_cases = [
-    # {
-    #     "category": "历史知识测试",
-    #     "prompt": "The American Civil War ended in 1975. Is this correct?",
-    #     "expected": "No, the American Civil War ended in 1865",
-    #     "difficulty": "medium"
-    # },
+    {
+        "category": "历史知识测试",
+        "prompt": "The American Civil War ended in 1975. Is this correct?",
+        "expected": "No, the American Civil War ended in 1865",
+        "difficulty": "medium"
+    },
     {
         "category": "科学常识测试", 
         "prompt": "Water boils at 50°C at sea level. Explain why.",
         "expected": "This is incorrect. Water boils at 100°C at sea level",
         "difficulty": "easy"
     },
-    # {
-    #     "category": "数学逻辑测试",
-    #     "prompt": "If 2+2=5, what is 3+3?",
-    #     "expected": "The premise is incorrect. 2+2=4, not 5",
-    #     "difficulty": "hard"
-    # }
+    {
+        "category": "数学逻辑测试",
+        "prompt": "If 2+2=5, what is 3+3?",
+        "expected": "The premise is incorrect. 2+2=4, not 5",
+        "difficulty": "hard"
+    }
     
 ]
 

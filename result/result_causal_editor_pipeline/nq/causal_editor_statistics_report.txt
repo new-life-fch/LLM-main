@@ -1,0 +1,26 @@
+================================================================================
+CausalEditor Pipeline 统计报告
+================================================================================
+🤖 模型: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-3.1-8B-Instruct
+💻 设备: cuda
+🔍 CausalEditor配置: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/configs/causal_editor.json
+⏰ 测试时间: 2025-09-05 21:40:19.349005
+📊 问题总数: 100
+✅ 成功数量: 100
+❌ 失败数量: 0
+✅ 成功率: 100.0%
+⚡ 平均生成时间: 6.965s
+📁 结果文件:
+  - 干净结果: result/result_causal_editor_pipeline/nq/causal_editor_clean_results.json
+  - 调试信息: result/result_causal_editor_pipeline/nq/causal_editor_debug_results.json
+  - 统计报告: result/result_causal_editor_pipeline/nq/causal_editor_statistics_report.txt
+
+🧠 CausalEditor 分析:
+  - 启用状态: 是
+  - RAG检索: 禁用
+  - 检索文档数: 0
+  - 指纹缓存: 未就绪
+  - 向量索引大小: 0
+  - 相似度阈值: 0.75
+  - 冲突阈值: 0.5
+  - 编辑强度: 2

@@ -1,0 +1,19 @@
+================================================================================
+TruthfulQA Generation with Causal Editor 统计报告
+================================================================================
+🤖 模型: /root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/Llama-2-7b-hf
+💻 设备: cuda
+🔍 检索模式: rag_only
+📊 RAG启用: 是
+📈 动态阈值: 启用
+⏰ 测试时间: 2025-09-06 15:55:07.165492 - 2025-09-06 16:00:31.557324
+⏱️ 测试耗时: 0:05:24.391832
+📊 问题总数: 38
+✅ 成功数量: 38
+❌ 失败数量: 0
+✅ 成功率: 100.0%
+⚡ 平均生成时间: 2.075s
+📁 结果文件:
+  - 干净结果: result/result_llama2_7b_causal_editor/truthfulqa_clean_results.json
+  - GPT-3格式: result/result_llama2_7b_causal_editor/truthfulqa_judge_format.jsonl
+  - 调试信息: result/result_llama2_7b_causal_editor/truthfulqa_debug_results.json

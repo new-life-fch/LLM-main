@@ -1,0 +1,215 @@
+[
+    {
+        "id": "test_2284",
+        "question": "when does mexico play in the winter olympics",
+        "golden_answers": [
+            "9 to 25 February 2018"
+        ],
+        "output": {
+            "pred": "Mexico has participated in the Winter Olympics in the following years: \n\n1964, 1968, 1980, 1984, 1992, 1994, 1998, 2002, 2010, 2014, 2018, and 2022.",
+            "generation_time": 10.769673585891724,
+            "success": true,
+            "generation_times": 10.769673585891724,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.07407407407407407,
+                "acc": 0.0,
+                "precision": 0.045454545454545456,
+                "recall": 0.2
+            }
+        }
+    },
+    {
+        "id": "test_338",
+        "question": "host of the late show who was once a correspondent for the daily show",
+        "golden_answers": [
+            "Stephen Colbert",
+            "Craig Kilborn"
+        ],
+        "output": {
+            "pred": "Stephen Colbert.",
+            "generation_time": 5.957533121109009,
+            "success": true,
+            "generation_times": 5.957533121109009,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    },
+    {
+        "id": "test_2645",
+        "question": "who stars in kevin probably save the world",
+        "golden_answers": [
+            "J. August Richards",
+            "Kimberly Hebert Gregory",
+            "India de Beaufort",
+            "Jason Ritter",
+            "Chloe East",
+            "JoAnna Garcia Swisher",
+            "Dustin Ybarra"
+        ],
+        "output": {
+            "pred": "Kaley Cuoco, Charlie Heaton, and Jean Smart.",
+            "generation_time": 5.8083977699279785,
+            "success": true,
+            "generation_times": 5.8083977699279785,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_3430",
+        "question": "how many seasons has greys anatomy been on tv",
+        "golden_answers": [
+            "14"
+        ],
+        "output": {
+            "pred": "19",
+            "generation_time": 5.3340513706207275,
+            "success": true,
+            "generation_times": 5.3340513706207275,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1956",
+        "question": "how many levels are there on the eiffel tower",
+        "golden_answers": [
+            "three"
+        ],
+        "output": {
+            "pred": "5",
+            "generation_time": 5.245217561721802,
+            "success": true,
+            "generation_times": 5.245217561721802,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_709",
+        "question": "where did the term liberal arts come from",
+        "golden_answers": [
+            "the Roman Empire"
+        ],
+        "output": {
+            "pred": "The term \"liberal arts\" originated in ancient Greece and Rome, where it referred to the arts and sciences that were considered essential for a free person (Latin: \"liber\") to cultivate in order to participate fully in civic life.",
+            "generation_time": 7.277569532394409,
+            "success": true,
+            "generation_times": 7.277569532394409,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_2167",
+        "question": "when were the winnie the pooh books written",
+        "golden_answers": [
+            "1924",
+            "1926",
+            "1927",
+            "1928"
+        ],
+        "output": {
+            "pred": "1924-1926",
+            "generation_time": 5.635018825531006,
+            "success": true,
+            "generation_times": 5.635018825531006,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 1.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1",
+        "question": "when is the next deadpool movie being released",
+        "golden_answers": [
+            "May 18, 2018"
+        ],
+        "output": {
+            "pred": "May 31, 2024",
+            "generation_time": 5.556059122085571,
+            "success": true,
+            "generation_times": 5.556059122085571,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0.3333333333333333,
+                "acc": 0.0,
+                "precision": 0.3333333333333333,
+                "recall": 0.3333333333333333
+            }
+        }
+    },
+    {
+        "id": "test_1520",
+        "question": "how many pitchers does a major league team have",
+        "golden_answers": [
+            "five starting pitchers",
+            "seven relief pitchers"
+        ],
+        "output": {
+            "pred": "9",
+            "generation_time": 5.405401229858398,
+            "success": true,
+            "generation_times": 5.405401229858398,
+            "metric_score": {
+                "em": 0.0,
+                "f1": 0,
+                "acc": 0.0,
+                "precision": 0,
+                "recall": 0
+            }
+        }
+    },
+    {
+        "id": "test_1538",
+        "question": "who lives at the end of king lear",
+        "golden_answers": [
+            "Kent",
+            "Albany",
+            "Edgar"
+        ],
+        "output": {
+            "pred": "Edgar.",
+            "generation_time": 5.233383417129517,
+            "success": true,
+            "generation_times": 5.233383417129517,
+            "metric_score": {
+                "em": 1.0,
+                "f1": 1.0,
+                "acc": 1.0,
+                "precision": 1.0,
+                "recall": 1.0
+            }
+        }
+    }
+]

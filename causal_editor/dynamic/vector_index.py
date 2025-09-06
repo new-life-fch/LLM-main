@@ -4,16 +4,17 @@
 
 import torch
 import numpy as np
+import logging
+from typing import Dict, List, Tuple, Optional, Any
+from collections import defaultdict
+import time
+import threading
 
 try:
     import faiss
-    import logging
-    from typing import Dict, List, Tuple, Optional, Any
-    from collections import defaultdict
-    import time
-    import threading
 except ImportError as e:
     logging.warning(f'导入失败: {e}')
+    faiss = None
     # TODO: 添加fallback逻辑
 
 logger = logging.getLogger(__name__)
@@ -64,7 +65,7 @@ class DynamicVectorIndex:
         
         # 动态向量索引初始化完成
     
-    def _create_index(self, layer_id: str) -> faiss.Index:
+    def _create_index(self, layer_id: str) -> 'faiss.Index':
         """创建FAISS索引
         
         Args:
@@ -190,7 +191,7 @@ class DynamicVectorIndex:
         k: int = 10,
         score_threshold: Optional[float] = None
     ) -> List[Dict[str, Any]]:
-        """搜索相似向量
+        """搜索相似向量（无缓存模式）
         
         Args:
             layer_id: 层ID
@@ -210,7 +211,16 @@ class DynamicVectorIndex:
             try:
                 # 准备查询向量
                 if isinstance(query_vector, torch.Tensor):
-                    query_np = query_vector.detach().cpu().numpy().astype(np.float32)
+                    # 处理不同的tensor数据类型，包括float16和bfloat16
+                    if query_vector.dtype == torch.bfloat16:
+                        # bfloat16需要先转换为float32再转numpy
+                        query_np = query_vector.detach().cpu().float().numpy().astype(np.float32)
+                    elif query_vector.dtype == torch.float16:
+                        # float16可以直接转换
+                        query_np = query_vector.detach().cpu().numpy().astype(np.float32)
+                    else:
+                        # 其他类型（如float32, float64）直接转换
+                        query_np = query_vector.detach().cpu().numpy().astype(np.float32)
                 else:
                     query_np = np.array(query_vector, dtype=np.float32)
                 

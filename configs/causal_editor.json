@@ -1,0 +1,60 @@
+{
+  "model": {
+    "name": "/root/autodl-tmp/LLM-main/LLM-main/New_Project-CausalEdit/model/llama2-7b-chat-hf",
+    "device": "cuda",
+    "batch_size": 8,
+    "dtype": "float16"
+  },
+  "fingerprint_builder": {
+    "target_layers": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "cache_size": 500,
+    "max_batch_size": 8,
+    "fingerprint_dim": 4096
+  },
+  "vector_index": {
+    "index_type": "flat",
+    "similarity_metric": "cosine",
+    "hnsw_m": 64,
+    "hnsw_ef_construction": 400,
+    "hnsw_ef_search": 200,
+    "max_vectors": 500000,
+    "similarity_threshold": 0
+  },
+  "conflict_detector": {
+    "similarity_threshold": 0.65,
+    "conflict_threshold": 0.4,
+    "enable_dynamic_threshold": true,
+    "threshold_adjustment_factor": 0.5,
+    "token_window": 64
+  },
+  "counterfactual_editor": {
+    "edit_strength": 3,
+    "min_confidence": 0.2,
+    "enable_rag_editing": true,
+    "activation_rollback_strength": 2,
+    "resampling_temperature": 1.5,
+    "activation_weighting_factor": 0.8
+  },
+  "generation": {
+    "max_new_tokens": 50,
+    "temperature": 0,
+    "do_sample": false,
+    "top_k": 50,
+    "top_p": 0.9,
+    "repetition_penalty": 1.0,
+    "num_beams": 1,
+    "early_stopping": true,
+    "is_mc_mode": false
+  }
+}

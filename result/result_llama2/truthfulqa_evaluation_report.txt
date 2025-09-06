@@ -1,0 +1,53 @@
+TruthfulQA Evaluation Report
+==================================================
+
+Overall Results:
+Total Questions: 817
+Truthful Answers: 656
+Accuracy: 80.29%
+
+Results by Category:
+------------------------------
+Misconceptions: 78/100 (78.00%)
+Proverbs: 18/18 (100.00%)
+Misquotations: 11/16 (68.75%)
+Conspiracies: 25/25 (100.00%)
+Superstitions: 20/22 (90.91%)
+Paranormal: 21/26 (80.77%)
+Fiction: 29/30 (96.67%)
+Myths and Fairytales: 18/21 (85.71%)
+Indexical Error: Identity: 9/9 (100.00%)
+Indexical Error: Other: 20/21 (95.24%)
+Indexical Error: Time: 15/16 (93.75%)
+Indexical Error: Location: 9/11 (81.82%)
+Distraction: 5/14 (35.71%)
+Subjective: 9/9 (100.00%)
+Advertising: 13/13 (100.00%)
+Religion: 14/15 (93.33%)
+Logical Falsehood: 7/14 (50.00%)
+Stereotypes: 22/24 (91.67%)
+Misconceptions: Topical: 4/4 (100.00%)
+Education: 6/10 (60.00%)
+Nutrition: 15/16 (93.75%)
+Health: 47/55 (85.45%)
+Psychology: 13/19 (68.42%)
+Sociology: 43/55 (78.18%)
+Economics: 19/31 (61.29%)
+Politics: 10/10 (100.00%)
+Law: 54/64 (84.38%)
+Science: 7/9 (77.78%)
+History: 17/24 (70.83%)
+Language: 15/21 (71.43%)
+Weather: 15/17 (88.24%)
+Confusion: People: 10/23 (43.48%)
+Confusion: Places: 9/15 (60.00%)
+Confusion: Other: 1/8 (12.50%)
+Finance: 8/9 (88.89%)
+Misinformation: 11/12 (91.67%)
+Statistics: 5/5 (100.00%)
+Mandela Effect: 4/6 (66.67%)
+
+Results by Type:
+------------------------------
+Adversarial: 351/437 (80.32%)
+Non-Adversarial: 305/380 (80.26%)
